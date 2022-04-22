@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
+import 'empleado_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -28,14 +30,14 @@ class _HomePageState extends State<HomePage> {
     'Jorge Canteros',
   ];
 
-  List<String> filteredSearchHistory;
+  List<String> filteredSearchHistory = [];
 
-  String selectedTerm;
+  String selectedTerm = '';
 
   List<String> filterSearchTerms({
-    @required String filter,
+    String filter = '',
   }) {
-    if (filter != null && filter.isNotEmpty) {
+    if (filter.isNotEmpty) {
       return _searchHistory.reversed
           .where((term) => term.startsWith(filter))
           .toList();
@@ -55,12 +57,12 @@ class _HomePageState extends State<HomePage> {
       _searchHistory.removeRange(0, _searchHistory.length - historyLength);
     }
 
-    filteredSearchHistory = filterSearchTerms(filter: null);
+    filteredSearchHistory = filterSearchTerms(filter: '');
   }
 
   void deleteSearchTerm(String term) {
     _searchHistory.removeWhere((t) => t == term);
-    filteredSearchHistory = filterSearchTerms(filter: null);
+    filteredSearchHistory = filterSearchTerms(filter: '');
   }
 
   void putSearchTermFirst(String term) {
@@ -68,13 +70,13 @@ class _HomePageState extends State<HomePage> {
     addSearchTerm(term);
   }
 
-  FloatingSearchBarController controller;
+  late FloatingSearchBarController controller;
 
   @override
   void initState() {
     super.initState();
     controller = FloatingSearchBarController();
-    filteredSearchHistory = filterSearchTerms(filter: null);
+    filteredSearchHistory = filterSearchTerms(filter: '');
   }
 
   @override
@@ -86,6 +88,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const EmpleadoPage()),
+          );
+        },
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.navigation),
+      ),
       body: FloatingSearchBar(
         controller: controller,
         body: FloatingSearchBarScrollNotifier(
@@ -96,7 +108,7 @@ class _HomePageState extends State<HomePage> {
         transition: CircularFloatingSearchBarTransition(),
         physics: BouncingScrollPhysics(),
         title: Text(
-          selectedTerm ?? 'Ingrese el personal',
+          selectedTerm == "" ? 'Ingrese el personal' : selectedTerm,
           style: Theme.of(context).textTheme.headline6,
         ),
         hint: 'ej. "Segovia, Maximiliano"',
@@ -191,10 +203,10 @@ class _HomePageState extends State<HomePage> {
 }
 
 class SearchResultsListView extends StatelessWidget {
-  final String searchTerm;
+  final String? searchTerm;
 
   const SearchResultsListView({
-    Key key,
+    Key? key,
     @required this.searchTerm,
   }) : super(key: key);
 
@@ -206,7 +218,7 @@ class SearchResultsListView extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
-              'images/SFC_logo.png',
+              'images/SantaFeCapitallogo.png',
               scale: 0.4,
             ),
             Text(
@@ -222,7 +234,7 @@ class SearchResultsListView extends StatelessWidget {
 
     return ListView(
       padding:
-          EdgeInsets.only(top: fsb.value.height + fsb.value.margins.vertical),
+          EdgeInsets.only(top: fsb!.value.height + fsb.value.margins.vertical),
       children: List.generate(
         15,
         (index) => ListTile(
