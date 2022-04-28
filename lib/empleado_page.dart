@@ -1,3 +1,5 @@
+import 'package:control_personal_municipal/database.dart';
+import 'package:control_personal_municipal/empleadoDTO.dart';
 import 'package:flutter/material.dart';
 
 const TextStyle _textStyle = TextStyle(

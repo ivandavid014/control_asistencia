@@ -17,7 +17,15 @@ Future<DatosEmpl> fetchDatosEmpl(http.Client client) async {
 }
 
 class DatosEmpl {
+  final num id;
+  final String title;
+
+  DatosEmpl({required this.id, required this.title});
+
   static DatosEmpl fromJson(Map<String, dynamic> async) {
-    return DatosEmpl();
+    return DatosEmpl(
+      id: 2,
+      title: 'Jorge',
+    );
   }
 }
