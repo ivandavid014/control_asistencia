@@ -223,54 +223,73 @@ class SearchResultsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (searchTerm == "") {
-      return Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              'images/SantaFeCapitallogo.png',
-              scale: 0.4,
-            ),
-            Text(
-              'CONTROL DE PERSONAL MCSF',
-              style: Theme.of(context).textTheme.headline5,
-            ),
-          ],
+      return Container(
+        margin: EdgeInsets.all(30),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset(
+                'images/SantaFeCapitallogo.png',
+                scale: 0.4,
+              ),
+              Text(
+                'CONTROL DE PERSONAL MCSF',
+                style: Theme.of(context).textTheme.headline5,
+              ),
+            ],
+          ),
         ),
       );
     }
 
     final fsb = FloatingSearchBar.of(context);
 
-    return ListView.builder(
-      itemCount: empleados.length,
-      itemBuilder: (context, index) {
-        return armarLista(index, empleados);
-      },
+    return Container(
+      margin: EdgeInsets.fromLTRB(5, 80, 5, 0),
+      child: ListView.builder(
+        itemCount: empleados.length,
+        itemBuilder: (context, index) {
+          return armarLista(index, empleados, context);
+        },
+      ),
     );
   }
 
-  Widget armarLista(int index, List<Empleado> empleados) {
-    return Container(
-      height: 100,
-      margin: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment(0.4, 0.9),
-          colors: <Color>[
-            Color(0xFFEEEEEE),
-            Colors.greenAccent,
-          ],
-          stops: <double>[0.1, 1],
+  Widget armarLista(int index, List<Empleado> empleados, BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const EmpleadoPage()),
+        );
+      },
+      child: Container(
+        child: Container(
+          margin: EdgeInsets.fromLTRB(5, 25, 5, 0),
+          alignment: Alignment.centerLeft,
+          height: 100,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.green.shade600, width: 3),
+            borderRadius: BorderRadius.circular(25),
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment(0.4, 0.9),
+              colors: <Color>[
+                Color(0xFFEEEEEE),
+                Colors.greenAccent,
+              ],
+              stops: <double>[0.1, 1],
+            ),
+          ),
+          padding: EdgeInsets.all(28.0),
+          child: Text(
+            empleados[index].nombre!,
+            style: TextStyle(
+                fontSize: 35, fontStyle: FontStyle.normal, color: Colors.white),
+            maxLines: 1,
+          ),
         ),
-      ),
-      padding: EdgeInsets.all(28.0),
-      child: Text(
-        empleados[index].nombre!,
-        style: TextStyle(
-            fontSize: 35, fontStyle: FontStyle.normal, color: Colors.white),
-        maxLines: 1,
       ),
     );
   }
