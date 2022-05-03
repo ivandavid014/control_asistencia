@@ -27,13 +27,13 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('empleado muni')),
+      appBar: AppBar(title: const Text('empleado')),
       body: Center(child: pages[_currentIndex]),
       bottomNavigationBar: NavigationBar(
         backgroundColor: Colors.green[400],
         animationDuration: const Duration(seconds: 1),
         height: 60,
-        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         selectedIndex: _currentIndex,
         onDestinationSelected: (int newIndex) {
           setState(() {
@@ -42,24 +42,24 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
         },
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.eco_outlined),
+            icon: Icon(Icons.list_alt_outlined),
             label: 'Licencia',
-            selectedIcon: Icon(Icons.eco),
+            selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
           NavigationDestination(
-            icon: Icon(Icons.eco_outlined),
+            icon: Icon(Icons.list_alt_outlined),
             label: 'Art. 24',
-            selectedIcon: Icon(Icons.eco),
+            selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
           NavigationDestination(
-            icon: Icon(Icons.eco_outlined),
+            icon: Icon(Icons.list_alt_outlined),
             label: 'Art. 25',
-            selectedIcon: Icon(Icons.eco),
+            selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
           NavigationDestination(
-            icon: Icon(Icons.eco_outlined),
+            icon: Icon(Icons.list_alt_outlined),
             label: 'Art. 50',
-            selectedIcon: Icon(Icons.eco),
+            selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
         ],
       ),

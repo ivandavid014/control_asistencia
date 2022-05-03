@@ -123,14 +123,14 @@ class _HomePageState extends State<HomePage> {
         "Ingrese nombre o código del personal",
         style: Theme.of(context).textTheme.headline6,
       ),
-      hint: 'ej. Gorria, Maira',
+      hint: 'ej. Gorria, Maira // 15896',
       actions: [
         FloatingSearchBarAction.searchToClear(),
       ],
       onQueryChanged: (query) {
-        setState(() {
-          filteredSearchHistory = filterSearchTerms(filter: query);
-        });
+        //  setState(() {
+        //   filteredSearchHistory = filterSearchTerms(filter: query);
+        // });
       },
       onSubmitted: (query) {
         setState(() {
@@ -141,15 +141,15 @@ class _HomePageState extends State<HomePage> {
       },
       builder: (context, transition) {
         return ClipRRect(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(20),
           child: Material(
             color: Colors.white,
-            elevation: 4,
+            elevation: 10,
             child: Builder(
               builder: (context) {
                 if (filteredSearchHistory.isEmpty && controller.query.isEmpty) {
                   return Container(
-                    height: 56,
+                    height: 20,
                     width: double.infinity,
                     alignment: Alignment.center,
                     child: Text(
@@ -243,21 +243,28 @@ class SearchResultsListView extends StatelessWidget {
       );
     }
 
-    final fsb = FloatingSearchBar.of(context);
-
+    // se utilizará más adelante para darle lógica a la búsqueda
+    // final fsb = FloatingSearchBar.of(context);
+    List<Empleado> aux = empleados
+        .where((element) =>
+            element.apellido!.toLowerCase() == searchTerm!.toLowerCase() ||
+            element.nombre!.toLowerCase() == searchTerm!.toLowerCase() ||
+            element.codigo?.toString() == searchTerm)
+        .toList();
     return Container(
       margin: EdgeInsets.fromLTRB(5, 80, 5, 0),
       child: ListView.builder(
-        itemCount: empleados.length,
+        itemCount: aux.length,
         itemBuilder: (context, index) {
-          return armarLista(index, empleados, context);
+          return armarLista(index, aux, context);
         },
       ),
     );
   }
 
   Widget armarLista(int index, List<Empleado> empleados, BuildContext context) {
-    return InkWell(
+    return Container(
+        child: GestureDetector(
       onTap: () {
         Navigator.push(
           context,
@@ -265,32 +272,34 @@ class SearchResultsListView extends StatelessWidget {
         );
       },
       child: Container(
-        child: Container(
-          margin: EdgeInsets.fromLTRB(5, 25, 5, 0),
-          alignment: Alignment.centerLeft,
-          height: 100,
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.green.shade600, width: 3),
-            borderRadius: BorderRadius.circular(25),
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment(0.4, 0.9),
-              colors: <Color>[
-                Color(0xFFEEEEEE),
-                Colors.greenAccent,
-              ],
-              stops: <double>[0.1, 1],
-            ),
-          ),
-          padding: EdgeInsets.all(28.0),
-          child: Text(
-            empleados[index].nombre!,
-            style: TextStyle(
-                fontSize: 35, fontStyle: FontStyle.normal, color: Colors.white),
-            maxLines: 1,
+        margin: EdgeInsets.fromLTRB(5, 25, 5, 0),
+        alignment: Alignment.centerLeft,
+        height: 100,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.green.shade600, width: 3),
+          borderRadius: BorderRadius.circular(25),
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment(0.4, 0.9),
+            colors: <Color>[
+              Color(0xFFEEEEEE),
+              Colors.greenAccent,
+            ],
+            stops: <double>[0.1, 1],
           ),
         ),
+        padding: EdgeInsets.all(28.0),
+        child: Text(
+          empleados[index].codigo.toString() +
+              ' - ' +
+              empleados[index].apellido! +
+              ', ' +
+              empleados[index].nombre!,
+          style: TextStyle(
+              fontSize: 25, fontStyle: FontStyle.normal, color: Colors.white),
+          maxLines: 1,
+        ),
       ),
-    );
+    ));
   }
 }
