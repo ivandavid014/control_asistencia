@@ -1,5 +1,10 @@
+import 'package:control_personal_municipal/art24.dart';
+import 'package:control_personal_municipal/art25.dart';
+import 'package:control_personal_municipal/art50.dart';
+import 'package:control_personal_municipal/artLicencia.dart';
 import 'package:control_personal_municipal/database.dart';
 import 'package:control_personal_municipal/empleadoDTO.dart';
+import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
 
 const TextStyle _textStyle = TextStyle(
@@ -10,25 +15,29 @@ const TextStyle _textStyle = TextStyle(
 );
 
 class EmpleadoPage extends StatefulWidget {
-  const EmpleadoPage({Key? key}) : super(key: key);
+  Empleado empleado;
 
+  EmpleadoPage(this.empleado);
   @override
-  State<EmpleadoPage> createState() => _EmpleadoPageState();
+  State<EmpleadoPage> createState() => _EmpleadoPageState(empleado);
 }
 
 class _EmpleadoPageState extends State<EmpleadoPage> {
   int _currentIndex = 0;
+  Empleado empleado;
+
+  _EmpleadoPageState(this.empleado);
   List<Widget> pages = const [
-    Text('Licencia', style: _textStyle),
-    Text('Art. 24', style: _textStyle),
-    Text('Art. 25', style: _textStyle),
-    Text('Art. 50', style: _textStyle),
+    Art24(),
+    Art25(),
+    Art50(),
+    ArtLicencia(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('empleado')),
-      body: Center(child: pages[_currentIndex]),
+      appBar: AppBar(title: Text(empleado.apellido! + ', ' + empleado.nombre!)),
+      body: pages[_currentIndex],
       bottomNavigationBar: NavigationBar(
         backgroundColor: Colors.green[400],
         animationDuration: const Duration(seconds: 1),

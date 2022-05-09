@@ -97,10 +97,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
+          /* Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const EmpleadoPage()),
+            MaterialPageRoute(builder: (context) =>  EmpleadoPage()),
           );
+       */
         },
         backgroundColor: Colors.green,
         child: const Icon(Icons.navigation),
@@ -268,7 +269,8 @@ class SearchResultsListView extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const EmpleadoPage()),
+          MaterialPageRoute(
+              builder: (context) => EmpleadoPage(empleados.first)),
         );
       },
       child: Container(
