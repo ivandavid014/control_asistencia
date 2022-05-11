@@ -2,17 +2,8 @@ import 'package:control_personal_municipal/art24.dart';
 import 'package:control_personal_municipal/art25.dart';
 import 'package:control_personal_municipal/art50.dart';
 import 'package:control_personal_municipal/artLicencia.dart';
-import 'package:control_personal_municipal/database.dart';
 import 'package:control_personal_municipal/empleadoDTO.dart';
-import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
-
-const TextStyle _textStyle = TextStyle(
-  fontSize: 30,
-  fontStyle: FontStyle.italic,
-  letterSpacing: 3,
-  fontWeight: FontWeight.bold,
-);
 
 class EmpleadoPage extends StatefulWidget {
   Empleado empleado;
@@ -36,12 +27,54 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(empleado.apellido! + ', ' + empleado.nombre!)),
+      appBar: AppBar(
+          leading: GestureDetector(
+            child: Icon(
+              Icons.arrow_back_sharp,
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          backgroundColor: Theme.of(context).colorScheme.secondary,
+          title: Text(empleado.apellido! + ', ' + empleado.nombre!)),
+      endDrawer: Drawer(
+          child: ListView(
+        children: <Widget>[
+          UserAccountsDrawerHeader(
+            currentAccountPictureSize: Size(230, 120),
+            accountName: Text(empleado.apellido! + ', ' + empleado.nombre!),
+            accountEmail: Text('Código: ' + empleado.codigo.toString()),
+            currentAccountPicture: CircleAvatar(
+              radius: 30,
+              backgroundColor: Colors.transparent,
+              backgroundImage: AssetImage('images/aca.jpg'),
+            ),
+          ),
+          ListTile(
+            title: Text(empleado.apellido! + ', ' + empleado.nombre!),
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text(empleado.codigo.toString()),
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text('Condición municipal: ' + empleado.condicion!),
+            onTap: () {},
+          ),
+          ListTile(
+            title:
+                Text('Días de licencia: ' + empleado.diaslicencia.toString()),
+            onTap: () {},
+          ),
+        ],
+      )),
       body: pages[_currentIndex],
       bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.green[400],
-        animationDuration: const Duration(seconds: 1),
-        height: 60,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
+        animationDuration: const Duration(seconds: 2),
+        height: 70,
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         selectedIndex: _currentIndex,
         onDestinationSelected: (int newIndex) {
@@ -52,7 +85,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.list_alt_outlined),
-            label: 'Licencia',
+            label: 'Art. 50',
             selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
           NavigationDestination(
@@ -67,7 +100,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
           ),
           NavigationDestination(
             icon: Icon(Icons.list_alt_outlined),
-            label: 'Art. 50',
+            label: 'Licencia',
             selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
         ],

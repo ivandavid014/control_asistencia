@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890938230230",
+    "project_id": "controlpersonal-municipalsf",
+    "storage_bucket": "controlpersonal-municipalsf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890938230230:android:6d0b4e32b49a9c61621077",
+        "android_client_info": {
+          "package_name": "com.ivandavid.control_personal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890938230230-g0ht55pi7l8g2ogo8f51r4628vp8rar0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHYJX5sC1I377PM5MWHfyHXZXkj-uKtFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890938230230-g0ht55pi7l8g2ogo8f51r4628vp8rar0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

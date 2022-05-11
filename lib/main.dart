@@ -16,8 +16,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Control de Personal',
       home: HomePage(),
-      theme: new ThemeData(
-          scaffoldBackgroundColor: const Color.fromRGBO(76, 192, 139, 0.8)),
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color.fromRGBO(34, 140, 255, 0.7),
+        brightness: Brightness.light,
+        primaryColor: Colors.lightBlue[600],
+        fontFamily: 'Hind',
+        textTheme: const TextTheme(
+          headline1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          headline6: TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
+          bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+        ),
+      ),
     );
   }
 }
@@ -95,16 +104,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          /* Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) =>  EmpleadoPage()),
-          );
-       */
-        },
-        backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+      floatingActionButton: Theme(
+        data: Theme.of(context).copyWith(splashColor: Colors.yellow),
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => MyApp()));
+          },
+          child: const Icon(Icons.navigation),
+        ),
       ),
       body: homelist(context),
     );
@@ -149,17 +157,7 @@ class _HomePageState extends State<HomePage> {
             child: Builder(
               builder: (context) {
                 if (filteredSearchHistory.isEmpty && controller.query.isEmpty) {
-                  return Container(
-                    height: 20,
-                    width: double.infinity,
-                    alignment: Alignment.center,
-                    child: Text(
-                      'CONTROL DE PERSONAL MCSF',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.caption,
-                    ),
-                  );
+                  return Container();
                 } else if (filteredSearchHistory.isEmpty) {
                   return ListTile(
                     title: Text(controller.query),
@@ -225,6 +223,7 @@ class SearchResultsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     if (searchTerm == "") {
       return Container(
+        color: Theme.of(context).colorScheme.secondary,
         margin: EdgeInsets.all(30),
         child: Center(
           child: Column(
@@ -264,8 +263,8 @@ class SearchResultsListView extends StatelessWidget {
   }
 
   Widget armarLista(int index, List<Empleado> empleados, BuildContext context) {
-    return Container(
-        child: GestureDetector(
+    return GestureDetector(
+        child: InkWell(
       onTap: () {
         Navigator.push(
           context,
@@ -273,19 +272,21 @@ class SearchResultsListView extends StatelessWidget {
               builder: (context) => EmpleadoPage(empleados.first)),
         );
       },
+      // highlightColor: Colors.red,
+      splashColor: Colors.yellow,
       child: Container(
         margin: EdgeInsets.fromLTRB(5, 25, 5, 0),
         alignment: Alignment.centerLeft,
         height: 100,
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.green.shade600, width: 3),
+          border: Border.all(color: Colors.blue.shade600, width: 3),
           borderRadius: BorderRadius.circular(25),
           gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment(0.4, 0.9),
             colors: <Color>[
-              Color(0xFFEEEEEE),
-              Colors.greenAccent,
+              Color(0x9dc1fa),
+              Colors.blueAccent,
             ],
             stops: <double>[0.1, 1],
           ),
@@ -298,7 +299,7 @@ class SearchResultsListView extends StatelessWidget {
               ', ' +
               empleados[index].nombre!,
           style: TextStyle(
-              fontSize: 25, fontStyle: FontStyle.normal, color: Colors.white),
+              fontSize: 25, fontStyle: FontStyle.normal, color: Colors.black),
           maxLines: 1,
         ),
       ),

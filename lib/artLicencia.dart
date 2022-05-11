@@ -5,10 +5,16 @@ class ArtLicencia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('Licencia'),
-      ),
+    return ListView.separated(
+      itemCount: 20,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text('Licencia tomada el  INSERTAR FECHA' + ' $index'),
+        );
+      },
+      separatorBuilder: (context, index) {
+        return Divider();
+      },
     );
   }
 }

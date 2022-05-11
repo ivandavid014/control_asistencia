@@ -22,7 +22,7 @@ var empleadosEjemplo = [
     "apellido": "Segovia",
     "dni": 31997465,
     "condicion": "Planta Permanente",
-    "codigo": 11220,
+    "codigo": 13811,
     "distancia": true,
     "diaslicencia": 15
   },
