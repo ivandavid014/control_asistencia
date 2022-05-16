@@ -2,10 +2,13 @@ import 'package:control_personal_municipal/database.dart';
 import 'package:control_personal_municipal/empleadoDTO.dart';
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-
+import 'package:firebase_core/firebase_core.dart';
 import 'empleado_page.dart';
 
-void main() => runApp(MyApp());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+}
 
 List<Empleado> empleados =
     empleadosEjemplo.map((dynamic item) => Empleado.fromJson(item)).toList();
