@@ -228,7 +228,7 @@ class SearchResultsListView extends StatelessWidget {
     if (searchTerm == "") {
       return Container(
         color: Theme.of(context).colorScheme.secondary,
-        margin: EdgeInsets.all(30),
+        margin: EdgeInsets.all(5),
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -283,7 +283,7 @@ class SearchResultsListView extends StatelessWidget {
         alignment: Alignment.centerLeft,
         height: 100,
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.blue.shade600, width: 3),
+          border: Border.all(color: Colors.blue.shade600, width: 1),
           borderRadius: BorderRadius.circular(25),
           gradient: LinearGradient(
             begin: Alignment.topRight,
