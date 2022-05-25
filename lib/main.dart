@@ -2,7 +2,7 @@ import 'package:control_personal_municipal/database.dart';
 import 'package:control_personal_municipal/empleadoDTO.dart';
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'empleado_page.dart';
 
 /*Future main() async {
@@ -238,7 +238,7 @@ class SearchResultsListView extends StatelessWidget {
                 scale: 0.4,
               ),
               Text(
-                'CONTROL DE PERSONAL MCSF',
+                'CONTROL DE PERSONAL ',
                 style: Theme.of(context).textTheme.headline5,
               ),
             ],
@@ -251,9 +251,13 @@ class SearchResultsListView extends StatelessWidget {
     // final fsb = FloatingSearchBar.of(context);
     List<Empleado> aux = empleados
         .where((element) =>
-            element.apellido!.toLowerCase() == searchTerm!.toLowerCase() ||
-            element.nombre!.toLowerCase() == searchTerm!.toLowerCase() ||
-            element.codigo?.toString() == searchTerm)
+            (element.apellido! + ' ' + element.nombre!)
+                .toLowerCase()
+                .contains(searchTerm!.toLowerCase()) ||
+            element.codigo
+                .toString()
+                .toLowerCase()
+                .contains(searchTerm!.toLowerCase()))
         .toList();
     return Container(
       margin: EdgeInsets.fromLTRB(5, 80, 5, 0),
@@ -267,21 +271,8 @@ class SearchResultsListView extends StatelessWidget {
   }
 
   Widget armarLista(int index, List<Empleado> empleados, BuildContext context) {
-    return GestureDetector(
-        child: InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => EmpleadoPage(empleados.first)),
-        );
-      },
-      // highlightColor: Colors.red,
-      splashColor: Colors.yellow,
-      child: Container(
-        margin: EdgeInsets.fromLTRB(5, 25, 5, 0),
-        alignment: Alignment.centerLeft,
-        height: 100,
+    return Container(
+      child: Ink(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.blue.shade600, width: 1),
           borderRadius: BorderRadius.circular(25),
@@ -295,18 +286,33 @@ class SearchResultsListView extends StatelessWidget {
             stops: <double>[0.1, 1],
           ),
         ),
-        padding: EdgeInsets.all(28.0),
-        child: Text(
-          empleados[index].codigo.toString() +
-              ' - ' +
-              empleados[index].apellido! +
-              ', ' +
-              empleados[index].nombre!,
-          style: TextStyle(
-              fontSize: 25, fontStyle: FontStyle.normal, color: Colors.black),
-          maxLines: 1,
-        ),
+        child: InkWell(
+            //highlightColor: Colors.red.shade200,
+            splashColor: Colors.yellow,
+            borderRadius: BorderRadius.circular(25),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => EmpleadoPage(empleados.first)),
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.all(28.0),
+              child: Text(
+                empleados[index].codigo.toString() +
+                    ' - ' +
+                    empleados[index].apellido! +
+                    ', ' +
+                    empleados[index].nombre!,
+                style: TextStyle(
+                    fontSize: 25,
+                    fontStyle: FontStyle.normal,
+                    color: Colors.black),
+                maxLines: 1,
+              ),
+            )),
       ),
-    ));
+    );
   }
 }

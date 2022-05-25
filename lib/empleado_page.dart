@@ -5,6 +5,7 @@ import 'package:control_personal_municipal/artLicencia.dart';
 import 'package:control_personal_municipal/empleadoDTO.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class EmpleadoPage extends StatefulWidget {
   Empleado empleado;
 

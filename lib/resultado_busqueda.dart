@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'empleadoDTO.dart';
 import 'empleado_page.dart';
 
+// ignore: must_be_immutable
 class ListaResultados extends StatelessWidget {
   int index;
   List<Empleado> aux;
