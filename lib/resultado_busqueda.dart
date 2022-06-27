@@ -54,7 +54,7 @@ class ListaResultados extends StatelessWidget {
               ', ' +
               empleados[index].nombre!,
           style: TextStyle(
-              fontSize: 25, fontStyle: FontStyle.normal, color: Colors.white),
+              fontSize: 20, fontStyle: FontStyle.normal, color: Colors.white),
           maxLines: 1,
         ),
       ),

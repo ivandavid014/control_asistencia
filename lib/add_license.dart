@@ -1,111 +1,28 @@
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
-class AddLicense extends StatelessWidget {
-  const AddLicense({Key? key}) : super(key: key);
-
-  static const String _title = 'Flutter Code Sample';
-
+class AddLicense extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      restorationScopeId: 'app',
-      title: _title,
-      home: MyStatefulWidget(restorationId: 'main'),
-    );
-  }
+  _HomeState createState() => _HomeState();
 }
 
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key, this.restorationId}) : super(key: key);
-
-  final String? restorationId;
-
-  @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-/// RestorationProperty objects can be used because of RestorationMixin.
-class _MyStatefulWidgetState extends State<MyStatefulWidget>
-    with RestorationMixin {
-  // In this example, the restoration ID for the mixin is passed in through
-  // the [StatefulWidget]'s constructor.
-  @override
-  String? get restorationId => widget.restorationId;
-
-  final RestorableDateTime _selectedDate =
-      RestorableDateTime(DateTime(2021, 7, 25));
-  late final RestorableRouteFuture<DateTime?> _restorableDatePickerRouteFuture =
-      RestorableRouteFuture<DateTime?>(
-    onComplete: _selectDate,
-    onPresent: (NavigatorState navigator, Object? arguments) {
-      return navigator.restorablePush(
-        _datePickerRoute,
-        arguments: _selectedDate.value.millisecondsSinceEpoch,
-      );
-    },
-  );
-
-  static Route<DateTime> _datePickerRoute(
-    BuildContext context,
-    Object? arguments,
-  ) {
-    return DialogRoute<DateTime>(
-      context: context,
-      builder: (BuildContext context) {
-        return DatePickerDialog(
-          restorationId: 'date_picker_dialog',
-          initialEntryMode: DatePickerEntryMode.calendarOnly,
-          initialDate: DateTime.fromMillisecondsSinceEpoch(arguments! as int),
-          firstDate: DateTime(2021),
-          lastDate: DateTime(2022),
-        );
-      },
-    );
-  }
-
-  @override
-  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
-    registerForRestoration(_selectedDate, 'selected_date');
-    registerForRestoration(
-        _restorableDatePickerRouteFuture, 'date_picker_route_future');
-  }
-
-  void _selectDate(DateTime? newSelectedDate) {
-    if (newSelectedDate != null) {
-      setState(() {
-        _selectedDate.value = newSelectedDate;
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(
-              'Selected: ${_selectedDate.value.day}/${_selectedDate.value.month}/${_selectedDate.value.year}'),
-        ));
-      });
-    }
-  }
+class _HomeState extends State<AddLicense> {
+  DateTime? _myDateTime;
+  String timeSalida = 'Fecha de Salida';
+  String timeVuelta = 'Fecha de Vuelta';
+  String licencia = '0';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: OutlinedButton(
-          onPressed: () {
-            _restorableDatePickerRouteFuture.present();
-          },
-          child: const Text('Open Date Picker'),
+      floatingActionButton: Theme(
+        data: Theme.of(context).copyWith(splashColor: Colors.yellow),
+        child: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add_sharp),
         ),
       ),
-    );
-  }
-}
-*/
-
-import 'package:flutter/material.dart';
-
-class AddLicense extends StatelessWidget {
-  const AddLicense({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
       appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.secondary,
           title: Text("Agregar nueva licencia")),
@@ -114,21 +31,58 @@ class AddLicense extends StatelessWidget {
         child: Column(children: [
           TextField(
               decoration: InputDecoration(
-                  labelText: 'Fecha Salida',
+                  labelText: '$timeSalida',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ))),
-          SizedBox(height: 25),
-          TextField(
-              decoration: InputDecoration(
-                  labelText: 'Fecha Vuelta',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ))),
+          SizedBox(height: 15),
           ElevatedButton(
-              style: TextButton.styleFrom(backgroundColor: Colors.amber),
-              onPressed: () {},
-              child: Text('Confirmar'))
+              style: TextButton.styleFrom(backgroundColor: Colors.blueAccent),
+              onPressed: () async {
+                _myDateTime = (await showDatePicker(
+                  locale: const Locale("es", "ES"),
+                  context: context,
+                  initialDate: _myDateTime ?? DateTime.now(),
+                  firstDate: DateTime(DateTime.now().year - 3),
+                  lastDate: DateTime(DateTime.now().year + 3),
+                ));
+                if (_myDateTime == null) return;
+
+                setState(() {
+                  Intl.defaultLocale = 'es';
+                  timeSalida =
+                      DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
+                });
+              },
+              child: Text('Seleccionar fecha de salida')),
+          SizedBox(height: 15),
+          TextField(
+              onChanged: (timeVuelta) {
+                print('$timeVuelta');
+              },
+              decoration: InputDecoration(
+                  labelText: '$timeVuelta',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ))),
+          SizedBox(height: 15),
+          ElevatedButton(
+              style: TextButton.styleFrom(backgroundColor: Colors.blueAccent),
+              onPressed: () async {
+                _myDateTime = (await showDatePicker(
+                  context: context,
+                  initialDate: _myDateTime ?? DateTime.now(),
+                  firstDate: DateTime(DateTime.now().year - 3),
+                  lastDate: DateTime(DateTime.now().year + 3),
+                ));
+                if (_myDateTime == null) return;
+                setState(() {
+                  Intl.defaultLocale = 'es';
+                  timeVuelta =
+                      DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
+                });
+              },
+              child: Text('Seleccionar fecha de vuelta')),
         ]),
       ),
     );

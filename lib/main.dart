@@ -1,6 +1,7 @@
 import 'package:control_personal_municipal/database.dart';
 import 'package:control_personal_municipal/empleadoDTO.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 //import 'package:firebase_core/firebase_core.dart';
 import 'empleado_page.dart';
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [GlobalMaterialLocalizations.delegate],
+      supportedLocales: [const Locale('es')],
       title: 'Control de Personal',
       home: HomePage(),
       theme: ThemeData(
@@ -44,10 +47,10 @@ class _HomePageState extends State<HomePage> {
   static const historyLength = 5;
 
   List<String> _searchHistory = [
-    'Santiago Croppi',
-    'Jorge Canteros',
+    'Croppi Santiago',
+    'Canteros Jorge',
     'Segovia',
-    'Mehaudy, Iván',
+    'Mehaudy Iván',
   ];
 
   List<String> filteredSearchHistory = [];
@@ -136,7 +139,7 @@ class _HomePageState extends State<HomePage> {
         "Ingrese nombre o código del personal",
         style: Theme.of(context).textTheme.headline6,
       ),
-      hint: 'ej. Gorria, Maira // 15896',
+      hint: 'ej. Gorria Maira // 15896',
       actions: [
         FloatingSearchBarAction.searchToClear(),
       ],
@@ -306,7 +309,7 @@ class SearchResultsListView extends StatelessWidget {
                     ', ' +
                     empleados[index].nombre!,
                 style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 23,
                     fontStyle: FontStyle.normal,
                     color: Colors.black),
                 maxLines: 1,

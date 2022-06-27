@@ -43,11 +43,11 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
           child: ListView(
         children: <Widget>[
           UserAccountsDrawerHeader(
-            currentAccountPictureSize: Size(230, 120),
-            accountName: Text(empleado.apellido! + ', ' + empleado.nombre!),
-            accountEmail: Text('Código: ' + empleado.codigo.toString()),
+            currentAccountPictureSize: Size(370, 170),
+            accountName: Text(''),
+            accountEmail: Text(''),
             currentAccountPicture: CircleAvatar(
-              radius: 30,
+              radius: 100,
               backgroundColor: Colors.transparent,
               backgroundImage: AssetImage('images/aca.jpg'),
             ),
