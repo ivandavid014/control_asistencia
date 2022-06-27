@@ -1,8 +1,13 @@
 import 'package:control_personal_municipal/add_license.dart';
+import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
 
+import 'empleadoDTO.dart';
+
 class ArtLicencia extends StatelessWidget {
-  const ArtLicencia({Key? key}) : super(key: key);
+  Empleado? empl;
+
+  ArtLicencia(this.empl);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +24,11 @@ class ArtLicencia extends StatelessWidget {
       ),
       body: InkWell(
         child: ListView.builder(
-          itemCount: 20,
+          itemCount: empl!.vacacionesList!.length,
           itemBuilder: (context, index) {
             return ListTile(
-              title: Text('Licencia tomada el  INSERTAR FECHA' + ' $index'),
+              title: Text(
+                  'Licencia' + ' ${empl!.vacacionesList![index].datesalida}'),
             );
           },
         ),

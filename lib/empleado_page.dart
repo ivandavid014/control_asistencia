@@ -16,17 +16,18 @@ class EmpleadoPage extends StatefulWidget {
 
 class _EmpleadoPageState extends State<EmpleadoPage> {
   int _currentIndex = 0;
-  Empleado empleado;
+  Empleado? empleado;
 
   _EmpleadoPageState(this.empleado);
-  List<Widget> pages = const [
-    Art24(),
-    Art25(),
-    Art50(),
-    ArtLicencia(),
-  ];
+
   @override
   Widget build(BuildContext context) {
+    List<Widget> pages = [
+      Art24(),
+      Art25(),
+      Art50(),
+      ArtLicencia(empleado),
+    ];
     return Scaffold(
       appBar: AppBar(
           leading: GestureDetector(
@@ -38,7 +39,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
             },
           ),
           backgroundColor: Theme.of(context).colorScheme.secondary,
-          title: Text(empleado.apellido! + ', ' + empleado.nombre!)),
+          title: Text(empleado!.apellido! + ', ' + empleado!.nombre!)),
       endDrawer: Drawer(
           child: ListView(
         children: <Widget>[
@@ -53,20 +54,20 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
             ),
           ),
           ListTile(
-            title: Text(empleado.apellido! + ', ' + empleado.nombre!),
+            title: Text(empleado!.apellido! + ', ' + empleado!.nombre!),
             onTap: () {},
           ),
           ListTile(
-            title: Text(empleado.codigo.toString()),
+            title: Text(empleado!.codigo.toString()),
             onTap: () {},
           ),
           ListTile(
-            title: Text('Condición municipal: ' + empleado.condicion!),
+            title: Text('Condición municipal: ' + empleado!.condicion!),
             onTap: () {},
           ),
           ListTile(
             title:
-                Text('Días de licencia: ' + empleado.diaslicencia.toString()),
+                Text('Días de licencia: ' + empleado!.diasLicencia.toString()),
             onTap: () {},
           ),
         ],

@@ -3,14 +3,14 @@ import 'package:control_personal_municipal/empleadoDTO.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-//import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'empleado_page.dart';
 
-/*Future main() async {
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-}*/
-void main() => runApp(MyApp());
+  runApp(MyApp());
+}
 
 List<Empleado> empleados =
     empleadosEjemplo.map((dynamic item) => Empleado.fromJson(item)).toList();
@@ -18,6 +18,9 @@ List<Empleado> empleados =
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    for (int i = 0; i < empleados.length; i++) {
+      empleados[i].vacacionesList = [];
+    }
     return MaterialApp(
       localizationsDelegates: [GlobalMaterialLocalizations.delegate],
       supportedLocales: [const Locale('es')],
