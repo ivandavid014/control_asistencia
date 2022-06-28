@@ -1,11 +1,8 @@
+import 'dart:ffi';
 import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
-
 import 'package:control_personal_municipal/vacacionesDTO.dart';
-
-import 'empleadoDTO.dart';
 
 class AddLicense extends StatefulWidget {
   @override
@@ -14,9 +11,12 @@ class AddLicense extends StatefulWidget {
 
 class _HomeState extends State<AddLicense> {
   DateTime? _myDateTime;
-  String timeSalida = 'Fecha de Salida';
-  String timeVuelta = 'Fecha de Vuelta';
+  String timeSalida = 'Fecha de inicio de licencia';
+  String timeVuelta = 'Fecha de retorno';
   String licencia = '0';
+  late Int diaspedidos;
+  late Int diasrestantes;
+  late Int diascorrespondientes;
 
   final controller = TextEditingController();
 
@@ -25,7 +25,7 @@ class _HomeState extends State<AddLicense> {
     return Scaffold(
       floatingActionButton: Theme(
         data: Theme.of(context).copyWith(splashColor: Colors.yellow),
-        child: FloatingActionButton(
+        child: ElevatedButton(
           onPressed: () {
             Vacaciones vac = Vacaciones(
                 datesalida: timeSalida,
@@ -34,6 +34,7 @@ class _HomeState extends State<AddLicense> {
                 dni: 23243,
                 diasrestantes: 4);
             empleados[1].vacacionesList!.add(vac);
+            Navigator.of(context).pop();
           },
           child: const Icon(Icons.add_sharp),
         ),
@@ -44,8 +45,10 @@ class _HomeState extends State<AddLicense> {
       body: Padding(
         padding: const EdgeInsets.fromLTRB(16, 30, 10, 10),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             TextField(
+                enabled: false,
                 decoration: InputDecoration(
                     labelText: '$timeSalida',
                     border: OutlineInputBorder(
@@ -73,9 +76,7 @@ class _HomeState extends State<AddLicense> {
                 child: Text('Seleccionar fecha de salida')),
             SizedBox(height: 15),
             TextField(
-                onChanged: (timeVuelta) {
-                  print('$timeVuelta');
-                },
+                enabled: false,
                 decoration: InputDecoration(
                     labelText: '$timeVuelta',
                     border: OutlineInputBorder(

@@ -12,6 +12,7 @@ class Vacaciones {
     this.dni,
     this.diaspedidos,
     this.diasrestantes,
+    this.diascorrespondientes,
   });
 
   String? datesalida;
@@ -19,14 +20,15 @@ class Vacaciones {
   int? dni;
   int? diaspedidos;
   int? diasrestantes;
+  int? diascorrespondientes;
 
   factory Vacaciones.fromJson(Map<String, dynamic> json) => Vacaciones(
-        datesalida: json["datesalida"],
-        datevuelta: json["datevuelta"],
-        dni: json["dni"],
-        diaspedidos: json["diaspedidos"],
-        diasrestantes: json["diasrestantes"],
-      );
+      datesalida: json["datesalida"],
+      datevuelta: json["datevuelta"],
+      dni: json["dni"],
+      diaspedidos: json["diaspedidos"],
+      diasrestantes: json["diasrestantes"],
+      diascorrespondientes: json["diascorrespondientes"]);
 
   Map<String, dynamic> toJson() => {
         "datesalida": datesalida,
@@ -34,5 +36,6 @@ class Vacaciones {
         "dni": dni,
         "diaspedidos": diaspedidos,
         "diasrestantes": diasrestantes,
+        "diascorrespondientes": diascorrespondientes,
       };
 }

@@ -1,7 +1,5 @@
 import 'package:control_personal_municipal/add_license.dart';
-import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
-
 import 'empleadoDTO.dart';
 
 class ArtLicencia extends StatelessWidget {
@@ -27,8 +25,9 @@ class ArtLicencia extends StatelessWidget {
           itemCount: empl!.vacacionesList!.length,
           itemBuilder: (context, index) {
             return ListTile(
-              title: Text(
-                  'Licencia' + ' ${empl!.vacacionesList![index].datesalida}'),
+              title: Text('Licencia pedida desde el ' +
+                  ' ${empl!.vacacionesList![index].datesalida}' +
+                  ' hasta el ${empl!.vacacionesList![index].datevuelta}'),
             );
           },
         ),

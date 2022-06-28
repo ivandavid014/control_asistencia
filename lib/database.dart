@@ -6,7 +6,7 @@ var empleadosEjemplo = [
     "condicion": "Planta Permanente",
     "codigo": 13687,
     "distancia": true,
-    "diaslicencia": 20
+    "diascorrespondientes": 20
   },
   {
     "nombre": "Santiago",
@@ -15,7 +15,7 @@ var empleadosEjemplo = [
     "condicion": "Planta Permanente",
     "codigo": 99999,
     "distancia": false,
-    "diaslicencia": 20
+    "diascorrespondientes": 20
   },
   {
     "nombre": "Maximiliano",
@@ -24,15 +24,15 @@ var empleadosEjemplo = [
     "condicion": "Planta Permanente",
     "codigo": 11813,
     "distancia": true,
-    "diaslicencia": 15
+    "diascorrespondientes": 15
   },
   {
     "nombre": "Iván",
     "apellido": "Mehaudy",
     "dni": 35650403,
     "condicion": "Contrato",
-    "codigo": null,
+    "codigo": 0,
     "distancia": true,
-    "diaslicencia": 10
+    "diascorrespondientes": 10
   },
 ];
