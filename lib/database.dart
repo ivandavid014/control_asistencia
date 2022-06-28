@@ -35,4 +35,13 @@ var empleadosEjemplo = [
     "distancia": true,
     "diascorrespondientes": 10
   },
+  {
+    "nombre": "María del Rosario",
+    "apellido": "Alasio Garmendia",
+    "dni": 33873039,
+    "condicion": "Planta Permantente",
+    "codigo": 14436,
+    "distancia": false,
+    "diascorrespondientes": 20
+  }
 ];
