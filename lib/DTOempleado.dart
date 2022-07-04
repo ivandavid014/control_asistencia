@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:control_personal_municipal/vacacionesDTO.dart';
+import 'package:control_personal_municipal/DTOvacaciones.dart';
 
 Empleado empleadoFromJson(String str) => Empleado.fromJson(json.decode(str));
 
@@ -33,7 +33,7 @@ class Empleado {
         dni: json["dni"],
         condicion: json["condicion"],
         codigo: json["codigo"],
-        distancia: json["distancia"],
+        distancia: json["distancia"] == 1,
         diasCorrespondientes: json["diasCorrespondientes"],
         vacacionesList: json["vacacionesList"],
       );
@@ -47,5 +47,15 @@ class Empleado {
         "distancia": distancia,
         "diasCorrespondientes": diasCorrespondientes,
         "vacacionesList": vacacionesList,
+      };
+
+  Map<String, dynamic> toMapsinvacs() => {
+        "nombre": nombre,
+        "apellido": apellido,
+        "dni": dni,
+        "condicion": condicion,
+        "codigo": codigo,
+        "distancia": distancia,
+        "diasCorrespondientes": diasCorrespondientes,
       };
 }

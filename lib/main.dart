@@ -1,5 +1,5 @@
 import 'package:control_personal_municipal/database.dart';
-import 'package:control_personal_municipal/empleadoDTO.dart';
+import 'package:control_personal_municipal/DTOempleado.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
@@ -14,13 +14,13 @@ Future main() async {
   runApp(MyApp());
 }
 
-listaEmpleados() async {
+/*listaEmpleados() async {
   List<Empleado> auxEmpleado = await DB.empleados();
 
   setState(() {
     empleados = auxEmpleado;
   });
-}
+}*/
 
 List<Empleado> empleados =
     empleadosLista.map((dynamic item) => Empleado.fromJson(item)).toList();
@@ -28,6 +28,8 @@ List<Empleado> empleados =
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    overDB();
+
     for (int i = 0; i < empleados.length; i++) {
       empleados[i].vacacionesList = [];
     }
@@ -48,6 +50,15 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void overDB() async {
+    DB databaseStart = DB();
+
+    await databaseStart.insert(empleados.first);
+
+    List<Empleado> empleadosDB = await databaseStart.read();
+    empleados = empleadosDB;
   }
 }
 
@@ -310,7 +321,8 @@ class SearchResultsListView extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => EmpleadoPage(empleados[index]),),
+                  builder: (context) => EmpleadoPage(empleados[index]),
+                ),
               );
             },
             child: Container(

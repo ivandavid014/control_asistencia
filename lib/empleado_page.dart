@@ -2,7 +2,7 @@ import 'package:control_personal_municipal/art24.dart';
 import 'package:control_personal_municipal/art25.dart';
 import 'package:control_personal_municipal/art50.dart';
 import 'package:control_personal_municipal/artLicencia.dart';
-import 'package:control_personal_municipal/empleadoDTO.dart';
+import 'package:control_personal_municipal/DTOempleado.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable

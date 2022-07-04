@@ -1,6 +1,6 @@
 import 'package:control_personal_municipal/add_license.dart';
 import 'package:flutter/material.dart';
-import 'empleadoDTO.dart';
+import 'DTOempleado.dart';
 
 class ArtLicencia extends StatelessWidget {
   Empleado? empl;

@@ -2,9 +2,9 @@ import 'dart:ffi';
 import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:control_personal_municipal/vacacionesDTO.dart';
+import 'package:control_personal_municipal/DTOvacaciones.dart';
 
-import 'empleadoDTO.dart';
+import 'DTOempleado.dart';
 
 class AddLicense extends StatefulWidget {
   Empleado empleado;

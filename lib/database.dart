@@ -6,7 +6,7 @@ var empleadosLista = [
     "condicion": "Planta Permanente",
     "codigo": 13687,
     "distancia": true,
-    "diascorrespondientes": 20
+    "diasCorrespondientes": 20
   },
   {
     "nombre": "Santiago",
@@ -15,7 +15,7 @@ var empleadosLista = [
     "condicion": "Planta Permanente",
     "codigo": 99999,
     "distancia": false,
-    "diascorrespondientes": 20
+    "diasCorrespondientes": 20
   },
   {
     "nombre": "Maximiliano",
@@ -24,7 +24,7 @@ var empleadosLista = [
     "condicion": "Planta Permanente",
     "codigo": 11813,
     "distancia": true,
-    "diascorrespondientes": 15
+    "diasCorrespondientes": 15
   },
   {
     "nombre": "Iván",
@@ -33,7 +33,7 @@ var empleadosLista = [
     "condicion": "Contrato",
     "codigo": 0,
     "distancia": true,
-    "diascorrespondientes": 10
+    "diasCorrespondientes": 10
   },
   {
     "nombre": "María del Rosario",
@@ -42,6 +42,6 @@ var empleadosLista = [
     "condicion": "Planta Permantente",
     "codigo": 14436,
     "distancia": false,
-    "diascorrespondientes": 20
+    "diasCorrespondientes": 20
   }
 ];
