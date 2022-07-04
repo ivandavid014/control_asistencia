@@ -4,7 +4,7 @@ import 'package:control_personal_municipal/vacacionesDTO.dart';
 
 Empleado empleadoFromJson(String str) => Empleado.fromJson(json.decode(str));
 
-String empleadoToJson(Empleado data) => json.encode(data.toJson());
+String empleadoToJson(Empleado data) => json.encode(data.toMap());
 
 class Empleado {
   Empleado({
@@ -38,7 +38,7 @@ class Empleado {
         vacacionesList: json["vacacionesList"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         "nombre": nombre,
         "apellido": apellido,
         "dni": dni,

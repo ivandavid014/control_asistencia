@@ -1,4 +1,4 @@
-var empleadosEjemplo = [
+var empleadosLista = [
   {
     "nombre": "Jorge",
     "apellido": "Canteros",

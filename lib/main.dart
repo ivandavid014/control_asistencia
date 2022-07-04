@@ -5,6 +5,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'empleado_page.dart';
+import 'package:sqflite/sqflite.dart';
+import 'db.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,8 +14,16 @@ Future main() async {
   runApp(MyApp());
 }
 
+listaEmpleados() async {
+  List<Empleado> auxEmpleado = await DB.empleados();
+
+  setState(() {
+    empleados = auxEmpleado;
+  });
+}
+
 List<Empleado> empleados =
-    empleadosEjemplo.map((dynamic item) => Empleado.fromJson(item)).toList();
+    empleadosLista.map((dynamic item) => Empleado.fromJson(item)).toList();
 
 class MyApp extends StatelessWidget {
   @override
