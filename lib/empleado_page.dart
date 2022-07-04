@@ -66,8 +66,8 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
             onTap: () {},
           ),
           ListTile(
-            title:
-                Text('Días de licencia: ' + empleado!.diasLicencia.toString()),
+            title: Text('Días de licencia: ' +
+                empleado!.diasCorrespondientes.toString()),
             onTap: () {},
           ),
         ],

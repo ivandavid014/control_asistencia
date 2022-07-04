@@ -14,8 +14,8 @@ class ArtLicencia extends StatelessWidget {
         data: Theme.of(context).copyWith(splashColor: Colors.yellow),
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => AddLicense()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => AddLicense(empl!)));
           },
           child: const Icon(Icons.add_sharp),
         ),

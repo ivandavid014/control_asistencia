@@ -4,12 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:control_personal_municipal/vacacionesDTO.dart';
 
+import 'empleadoDTO.dart';
+
 class AddLicense extends StatefulWidget {
+  Empleado empleado;
+
+  AddLicense(this.empleado);
   @override
-  _HomeState createState() => _HomeState();
+  _HomeState createState() => _HomeState(empleado);
 }
 
 class _HomeState extends State<AddLicense> {
+  Empleado empleado;
+  _HomeState(this.empleado);
+
   DateTime? _myDateTime;
   String timeSalida = 'Fecha de inicio de licencia';
   String timeVuelta = 'Fecha de retorno';
@@ -33,7 +41,7 @@ class _HomeState extends State<AddLicense> {
                 diaspedidos: 3,
                 dni: 23243,
                 diasrestantes: 4);
-            empleados[1].vacacionesList!.add(vac);
+            empleado.vacacionesList!.add(vac);
             Navigator.of(context).pop();
           },
           child: const Icon(Icons.add_sharp),

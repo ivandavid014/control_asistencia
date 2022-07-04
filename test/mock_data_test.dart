@@ -1,4 +1,4 @@
-import 'package:control_personal_municipal/mock_data.dart';
+import 'mock_data.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:http/http.dart' as http;

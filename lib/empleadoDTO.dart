@@ -14,7 +14,7 @@ class Empleado {
     this.condicion,
     this.codigo,
     this.distancia,
-    this.diasLicencia,
+    this.diasCorrespondientes,
     this.vacacionesList,
   });
 
@@ -24,7 +24,7 @@ class Empleado {
   String? condicion;
   int? codigo;
   bool? distancia;
-  int? diasLicencia;
+  int? diasCorrespondientes;
   List<Vacaciones>? vacacionesList;
 
   factory Empleado.fromJson(Map<String, dynamic> json) => Empleado(
@@ -34,7 +34,7 @@ class Empleado {
         condicion: json["condicion"],
         codigo: json["codigo"],
         distancia: json["distancia"],
-        diasLicencia: json["diaslicencia"],
+        diasCorrespondientes: json["diasCorrespondientes"],
         vacacionesList: json["vacacionesList"],
       );
 
@@ -45,7 +45,7 @@ class Empleado {
         "condicion": condicion,
         "codigo": codigo,
         "distancia": distancia,
-        "diaslicencia": diasLicencia,
+        "diasCorrespondientes": diasCorrespondientes,
         "vacacionesList": vacacionesList,
       };
 }

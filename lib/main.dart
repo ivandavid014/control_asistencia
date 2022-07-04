@@ -310,7 +310,7 @@ class SearchResultsListView extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => EmpleadoPage(empleados.first)),
+                    builder: (context) => EmpleadoPage(empleados[index]),),
               );
             },
             child: Container(
@@ -325,7 +325,7 @@ class SearchResultsListView extends StatelessWidget {
                     fontSize: 23,
                     fontStyle: FontStyle.normal,
                     color: Colors.black),
-                maxLines: 1,
+                maxLines: 2,
               ),
             )),
       ),
