@@ -1,5 +1,5 @@
 import 'package:sqflite/sqflite.dart';
-import 'DTOempleado.dart';
+import 'dto/DTOempleado.dart';
 import 'package:path/path.dart';
 
 class DB {

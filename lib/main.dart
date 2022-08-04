@@ -1,5 +1,6 @@
 import 'package:control_personal_municipal/database.dart';
-import 'package:control_personal_municipal/DTOempleado.dart';
+import 'package:control_personal_municipal/dto/DTOempleado.dart';
+import 'package:control_personal_municipal/dto/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
@@ -53,12 +54,13 @@ class MyApp extends StatelessWidget {
   }
 
   void overDB() async {
+    /*
     DB databaseStart = DB();
 
     await databaseStart.insert(empleados.first);
 
     List<Empleado> empleadosDB = await databaseStart.read();
-    empleados = empleadosDB;
+    empleados = empleadosDB;*/
   }
 }
 
@@ -134,7 +136,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SearchPage(); /*Scaffold(
       floatingActionButton: Theme(
         data: Theme.of(context).copyWith(splashColor: Colors.yellow),
         child: FloatingActionButton(
@@ -146,7 +148,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: homelist(context),
-    );
+    );*/
   }
 
   FloatingSearchBar homelist(BuildContext context) {
