@@ -1,11 +1,9 @@
-import 'dart:ffi';
-import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:control_personal_municipal/dto/DTOvacaciones.dart';
+import '../dto/DTOempleado.dart';
 
-import 'dto/DTOempleado.dart';
-
+// ignore: must_be_immutable
 class AddLicense extends StatefulWidget {
   Empleado empleado;
 
@@ -22,9 +20,9 @@ class _HomeState extends State<AddLicense> {
   String timeSalida = 'Fecha de inicio de licencia';
   String timeVuelta = 'Fecha de retorno';
   String licencia = '0';
-  late Int diaspedidos;
-  late Int diasrestantes;
-  late Int diascorrespondientes;
+  late int diaspedidos;
+  late int diasrestantes;
+  late int diascorrespondientes;
 
   final controller = TextEditingController();
 
@@ -64,7 +62,8 @@ class _HomeState extends State<AddLicense> {
                     ))),
             SizedBox(height: 15),
             ElevatedButton(
-                style: TextButton.styleFrom(backgroundColor: Colors.blueAccent),
+                style: TextButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 31, 179, 122)),
                 onPressed: () async {
                   _myDateTime = (await showDatePicker(
                     locale: const Locale("es", "ES"),
@@ -92,7 +91,8 @@ class _HomeState extends State<AddLicense> {
                     ))),
             SizedBox(height: 15),
             ElevatedButton(
-                style: TextButton.styleFrom(backgroundColor: Colors.blueAccent),
+                style: TextButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 31, 179, 122)),
                 onPressed: () async {
                   _myDateTime = (await showDatePicker(
                     context: context,
@@ -110,6 +110,12 @@ class _HomeState extends State<AddLicense> {
                   });
                 },
                 child: Text('Seleccionar fecha de vuelta')),
+            SizedBox(height: 15),
+            ElevatedButton(
+                style: TextButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 31, 179, 122)),
+                onPressed: () async {},
+                child: Text('OBSERVACIONES')),
           ],
         ),
       ),

@@ -1,4 +1,4 @@
-package com.resocoder.search_bar_tutorial
+package com.ivandavid.control_personal
 
 import io.flutter.embedding.android.FlutterActivity
 

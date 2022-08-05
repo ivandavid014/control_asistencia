@@ -18,6 +18,8 @@ class Empleado {
     this.diasCorrespondientes,
     this.telefono,
     this.vacacionesList,
+    this.urlFoto,
+    this.estacion,
   });
 
   String? nombre;
@@ -30,6 +32,8 @@ class Empleado {
   int? telefono;
   int? diasCorrespondientes;
   List<Vacaciones>? vacacionesList;
+  String? urlFoto;
+  String? estacion;
 
   factory Empleado.fromJson(Map<String, dynamic> json) => Empleado(
         nombre: json["nombre"],
@@ -42,6 +46,8 @@ class Empleado {
         diasCorrespondientes: json["diasCorrespondientes"],
         telefono: json["telefono"],
         vacacionesList: json["vacacionesList"],
+        urlFoto: json["urlFoto"],
+        estacion: json["estacion"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -55,6 +61,7 @@ class Empleado {
         "diasCorrespondientes": diasCorrespondientes,
         "telefono": telefono,
         "vacacionesList": vacacionesList,
+        "estacion": "estacion",
       };
 
   Map<String, dynamic> toMapsinvacs() => {
@@ -67,5 +74,7 @@ class Empleado {
         "distancia": distancia,
         "telefono": telefono,
         "diasCorrespondientes": diasCorrespondientes,
+        "urlFoto": urlFoto,
+        "estacion": estacion,
       };
 }

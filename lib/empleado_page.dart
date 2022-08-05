@@ -23,8 +23,8 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
   @override
   Widget build(BuildContext context) {
     List<Widget> pages = [
-      Art24(),
-      Art25(),
+      Art24(empleado),
+      Art25(empleado),
       Art50(),
       ArtLicencia(empleado),
     ];
@@ -38,7 +38,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
               Navigator.pop(context);
             },
           ),
-          backgroundColor: Theme.of(context).colorScheme.secondary,
+          backgroundColor: Colors.grey[800],
           title: Text(empleado!.apellido! + ', ' + empleado!.nombre!)),
       endDrawer: Drawer(
           child: ListView(
@@ -50,7 +50,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
             currentAccountPicture: CircleAvatar(
               radius: 100,
               backgroundColor: Colors.transparent,
-              backgroundImage: AssetImage('images/aca.jpg'),
+              backgroundImage: AssetImage(empleado!.urlFoto!.toString()),
             ),
           ),
           ListTile(
@@ -74,7 +74,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
       )),
       body: pages[_currentIndex],
       bottomNavigationBar: NavigationBar(
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+        backgroundColor: Colors.grey[800],
         animationDuration: const Duration(seconds: 2),
         height: 70,
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
