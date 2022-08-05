@@ -17,7 +17,6 @@ dependencies:
     sdk: flutter
   flutter_localizations: 
     sdk: flutter
-  material_floating_search_bar: ^0.3.7
   cloud_firestore: ^3.1.18
   intl: ^0.17.0
   sqflite: ^2.0.2+1
