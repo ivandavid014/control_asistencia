@@ -1,5 +1,5 @@
-import 'package:control_personal_municipal/CRUD/add_license.dart';
 import 'package:flutter/material.dart';
+import 'CRUD/add_25.dart';
 import 'dto/DTOempleado.dart';
 
 // ignore: must_be_immutable
@@ -15,8 +15,8 @@ class Art25 extends StatelessWidget {
         data: Theme.of(context).copyWith(splashColor: Colors.green),
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AddLicense(empl!)));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Add25(empl!)));
           },
           child: const Icon(Icons.add_sharp),
         ),

@@ -1,4 +1,4 @@
-import 'package:control_personal_municipal/CRUD/add_license.dart';
+import 'package:control_personal_municipal/CRUD/add_licence_v2.dart';
 import 'package:flutter/material.dart';
 import 'dto/DTOempleado.dart';
 
@@ -46,13 +46,19 @@ class ArtLicencia extends StatelessWidget {
                 title: Text(
                   'Licencia pedida desde el ' +
                       ' ${empl!.vacacionesList![index].datesalida}' +
-                      ' hasta el ${empl!.vacacionesList![index].datevuelta}. Son xxx días, de ${empl!.diasCorrespondientes!} disponibles.',
+                      ' hasta el ${empl!.vacacionesList![index].datevuelta}. Son xx días, de ${empl!.diasCorrespondientes!} disponibles.',
                   style: TextStyle(
                       fontSize: 15,
                       fontStyle: FontStyle.normal,
                       color: Colors.white),
                   maxLines: 5,
                 ),
+                /*   onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EmpleadoPage(empleados[index]),
+                  ),
+                ), */
               ),
             );
           },

@@ -19,11 +19,14 @@ class HomePage extends StatelessWidget {
             Padding(padding: EdgeInsets.all(5)),
             Image.asset(
               'images/SantaFeCapitallogo.png',
-              scale: 0.4,
+              //  scale: 0.4,
             ),
             Text(
               'CONTROL DE PERSONAL',
-              style: Theme.of(context).textTheme.headline5,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
             ),
             ElevatedButton(
               onPressed: () {
@@ -53,8 +56,7 @@ class HomePage extends StatelessWidget {
               },
               child: Text('AGREGAR EMPLEADO NUEVO'),
               style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15)),
+                shape: StadiumBorder(),
                 fixedSize: Size(MediaQuery.of(context).size.width, 35),
                 primary: Color.fromARGB(255, 31, 179, 122),
               ),

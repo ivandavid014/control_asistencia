@@ -13,7 +13,7 @@ var empleadosLista = [
     "urlFoto": "https://i.ibb.co/gTG8h14/foto-maxi.png",
   },
   {
-    "nombre": "Jorge",
+    "nombre": "Jorge Adrián",
     "apellido": "Canteros",
     "dni": 34238376,
     "condicion": "Planta Permanente",
@@ -40,7 +40,7 @@ var empleadosLista = [
     "urlFoto": "https://i.ibb.co/D9Zd6kc/croppi.png",
   },
   {
-    "nombre": "Iván",
+    "nombre": "Iván David",
     "apellido": "Mehaudy",
     "dni": 35650403,
     "condicion": "Contrato",

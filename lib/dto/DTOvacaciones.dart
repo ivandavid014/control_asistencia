@@ -30,6 +30,8 @@ class Vacaciones {
       diasrestantes: json["diasrestantes"],
       diascorrespondientes: json["diascorrespondientes"]);
 
+  get difference => null;
+
   Map<String, dynamic> toJson() => {
         "datesalida": datesalida,
         "datevuelta": datevuelta,

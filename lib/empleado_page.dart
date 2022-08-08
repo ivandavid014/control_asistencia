@@ -5,6 +5,8 @@ import 'package:control_personal_municipal/artLicencia.dart';
 import 'package:control_personal_municipal/dto/DTOempleado.dart';
 import 'package:flutter/material.dart';
 
+import 'profile_page.dart';
+
 // ignore: must_be_immutable
 class EmpleadoPage extends StatefulWidget {
   Empleado empleado;
@@ -15,7 +17,7 @@ class EmpleadoPage extends StatefulWidget {
 }
 
 class _EmpleadoPageState extends State<EmpleadoPage> {
-  int _currentIndex = 0;
+  int _currentIndex = 2;
   Empleado? empleado;
 
   _EmpleadoPageState(this.empleado);
@@ -25,58 +27,28 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
     List<Widget> pages = [
       Art24(empleado),
       Art25(empleado),
+      Profile(empleado),
       Art50(),
       ArtLicencia(empleado),
     ];
     return Scaffold(
       appBar: AppBar(
-          leading: GestureDetector(
-            child: Icon(
-              Icons.arrow_back_sharp,
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
+        leading: GestureDetector(
+          child: Icon(
+            Icons.arrow_back_sharp,
           ),
-          backgroundColor: Colors.grey[800],
-          title: Text(empleado!.apellido! + ', ' + empleado!.nombre!)),
-      endDrawer: Drawer(
-          child: ListView(
-        children: <Widget>[
-          UserAccountsDrawerHeader(
-            currentAccountPictureSize: Size(370, 170),
-            accountName: Text(''),
-            accountEmail: Text(''),
-            currentAccountPicture: CircleAvatar(
-              radius: 100,
-              backgroundColor: Colors.transparent,
-              backgroundImage: AssetImage(empleado!.urlFoto!.toString()),
-            ),
-          ),
-          ListTile(
-            title: Text(empleado!.apellido! + ', ' + empleado!.nombre!),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text(empleado!.codigo.toString()),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Condición municipal: ' + empleado!.condicion!),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Días de licencia: ' +
-                empleado!.diasCorrespondientes.toString()),
-            onTap: () {},
-          ),
-        ],
-      )),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        backgroundColor: Colors.transparent,
+        // title: Text(empleado!.apellido! + ', ' + empleado!.nombre!),
+      ),
       body: pages[_currentIndex],
       bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.grey[800],
+        backgroundColor: Colors.grey[900],
         animationDuration: const Duration(seconds: 2),
-        height: 70,
+        height: 50,
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         selectedIndex: _currentIndex,
         onDestinationSelected: (int newIndex) {
@@ -86,23 +58,28 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
         },
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.list_alt_outlined),
-            label: 'Art. 50',
-            selectedIcon: Icon(Icons.arrow_circle_up_sharp),
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.list_alt_outlined),
+            icon: Icon(Icons.list_alt_outlined, color: Colors.white),
             label: 'Art. 24',
             selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
           NavigationDestination(
-            icon: Icon(Icons.list_alt_outlined),
+            icon: Icon(Icons.list_alt_outlined, color: Colors.white),
             label: 'Art. 25',
             selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
           NavigationDestination(
-            icon: Icon(Icons.list_alt_outlined),
-            label: 'Licencia',
+            icon: Icon(Icons.person_rounded, color: Colors.white),
+            label: 'PROFILE',
+            selectedIcon: Icon(Icons.arrow_circle_up_sharp),
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.list_alt_outlined, color: Colors.white),
+            label: 'Art. 50',
+            selectedIcon: Icon(Icons.arrow_circle_up_sharp),
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.flight_outlined, color: Colors.white),
+            label: 'Vacaciones',
             selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
         ],

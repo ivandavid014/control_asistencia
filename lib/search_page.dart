@@ -40,48 +40,50 @@ class _SearchPageState extends State<SearchPage> {
                 itemBuilder: (context, index) {
                   final empleado = fullList[index];
                   return Container(
-                      padding: EdgeInsets.all(7.0),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Color.fromARGB(255, 128, 128, 128),
-                            width: 1),
-                        borderRadius: BorderRadius.circular(15),
-                        gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment(0.4, 0.9),
-                          colors: <Color>[
-                            Color(0x9dc1fa),
-                            Colors.grey.shade700,
-                          ],
-                          stops: <double>[0.1, 1],
+                    padding: EdgeInsets.all(7.0),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Color.fromARGB(255, 128, 128, 128), width: 1),
+                      borderRadius: BorderRadius.circular(15),
+                      gradient: LinearGradient(
+                        begin: Alignment.topRight,
+                        end: Alignment(0.4, 0.9),
+                        colors: <Color>[
+                          Color(0x9dc1fa),
+                          Colors.grey.shade700,
+                        ],
+                        stops: <double>[0.1, 1],
+                      ),
+                    ),
+                    margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                    child: ListTile(
+                      leading: Image.network(
+                        empleado.urlFoto.toString(),
+                        fit: BoxFit.cover,
+                        width: 45,
+                        height: 65,
+                      ),
+                      title: Text(
+                        empleado.codigo.toString() +
+                            ' - ' +
+                            empleado.apellido! +
+                            ', ' +
+                            empleado.nombre!,
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontStyle: FontStyle.normal,
+                            color: Colors.white),
+                        maxLines: 2,
+                      ),
+                      subtitle: Text('Estación: ' + empleado.estacion!),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EmpleadoPage(empleados[index]),
                         ),
                       ),
-                      margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
-                      child: ListTile(
-                          leading: Image.network(
-                            empleado.urlFoto.toString(),
-                            fit: BoxFit.cover,
-                            width: 45,
-                            height: 65,
-                          ),
-                          title: Text(
-                            empleado.codigo.toString() +
-                                ' - ' +
-                                empleado.apellido! +
-                                ', ' +
-                                empleado.nombre!,
-                            style: TextStyle(
-                                fontSize: 23,
-                                fontStyle: FontStyle.normal,
-                                color: Colors.white),
-                            maxLines: 2,
-                          ),
-                          subtitle: Text('Estación: ' + empleado.estacion!),
-                          onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      EmpleadoPage(empleados[index])))));
+                    ),
+                  );
                 },
               ),
             )

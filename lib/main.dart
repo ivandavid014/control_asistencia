@@ -2,7 +2,7 @@ import 'package:control_personal_municipal/database.dart';
 import 'package:control_personal_municipal/dto/DTOempleado.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'home_page.dart';
 
 //totito
@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.grey[850],
+        dividerColor: Colors.grey,
         brightness: Brightness.light,
         primaryColor: Colors.grey[850],
         fontFamily: 'Calibri',
