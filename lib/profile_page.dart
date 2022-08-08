@@ -19,7 +19,7 @@ class Profile extends StatelessWidget {
               onClicked: () async {}, urlFoto: empleado.urlFoto.toString()),
           const SizedBox(height: 24),
           buildDatos(empleado),
-          DatosFrontales(),
+          DatosFrontales(empleado),
           const SizedBox(
             height: 24,
           ),
@@ -66,8 +66,8 @@ class ProfileWidget extends StatelessWidget {
         child: Ink.image(
           image: fotoPerfil,
           fit: BoxFit.cover,
-          width: 128,
-          height: 128,
+          width: 196,
+          height: 196,
           child: InkWell(onTap: onClicked),
         ),
       ),
@@ -99,17 +99,20 @@ Widget buildEditCircle({
     );
 
 class DatosFrontales extends StatelessWidget {
+  Empleado? empl;
+
+  DatosFrontales(this.empl);
   @override
   Widget build(BuildContext context) => IntrinsicHeight(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             buildDivider(),
-            buildButton(context, 'Licencia', 'Licencia'),
+            buildButton(context, '${empl!.condicion}', 'Situación'),
             buildDivider(),
-            buildButton(context, 'Art. 50', 'Art. 50'),
+            buildButton(context, '${empl!.movilidad}', 'Movilidad propia'),
             buildDivider(),
-            buildButton(context, 'Art. 25', 'Art. 25'),
+            buildButton(context, '${empl!.telefono}', 'Teléfono'),
             buildDivider(),
           ],
         ),
@@ -130,7 +133,7 @@ class DatosFrontales extends StatelessWidget {
               value,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  fontSize: 16,
                   color: Colors.white),
             ),
             SizedBox(height: 2),
@@ -150,10 +153,14 @@ Widget buildDatos(Empleado empleado) => Column(
             maxLines: 2,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 25,
+                fontSize: 30,
                 color: Colors.white)),
-        Text('ESTACIÓN: ' + empleado.estacion! + ' - ' + empleado.condicion!,
+        Text(
+            'ESTACIÓN: ' +
+                empleado.estacion! +
+                ' - ' +
+                empleado.codigo.toString(),
             style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 14, color: Colors.grey))
+                fontWeight: FontWeight.bold, fontSize: 17, color: Colors.grey))
       ],
     );

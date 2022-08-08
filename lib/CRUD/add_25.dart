@@ -1,35 +1,15 @@
 import 'package:flutter/material.dart';
 import '../dto/DTOempleado.dart';
 
-// ignore: must_be_immutable
 class Add25 extends StatefulWidget {
   Empleado empleado;
-
   Add25(this.empleado);
-  @override
-  _HomeState createState() => _HomeState(empleado);
-}
-
-class _HomeState extends State<Add25> {
-  Empleado empleado;
-  _HomeState(this.empleado);
-  DateTimeRange dateRange = DateTimeRange(
-    start: DateTime(DateTime.now().year - 3),
-    end: DateTime(DateTime.now().year + 3),
-  );
 
   @override
-  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+  State<Add25> createState() => _Add24State();
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class _Add24State extends State<Add25> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -53,6 +33,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey.shade900,
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -71,7 +54,7 @@ class _HomePageState extends State<HomePage> {
               const Padding(
                 padding: EdgeInsets.all(60.0),
                 child: Text(
-                  'Flutter Counter',
+                  'Solicita:',
                   style: TextStyle(
                     fontSize: 40,
                     color: Colors.white,
@@ -81,7 +64,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Center(
                 child: Text(
-                  '$_counter',
+                  '$_counter horas',
                   style: const TextStyle(
                       fontSize: 120,
                       color: Colors.white,
@@ -94,6 +77,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     FloatingActionButton(
+                      heroTag: "restar",
                       backgroundColor: Colors.transparent,
                       elevation: 15,
                       onPressed: _decrementCounter,
@@ -106,6 +90,7 @@ class _HomePageState extends State<HomePage> {
                       width: 50,
                     ),
                     FloatingActionButton(
+                      heroTag: "reiniciar",
                       mini: true,
                       backgroundColor: Colors.transparent,
                       elevation: 15,
@@ -119,6 +104,7 @@ class _HomePageState extends State<HomePage> {
                       width: 50,
                     ),
                     FloatingActionButton(
+                      heroTag: "agregar horas",
                       backgroundColor: Colors.transparent,
                       elevation: 15,
                       onPressed: _incrementCounter,

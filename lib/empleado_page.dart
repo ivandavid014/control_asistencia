@@ -1,6 +1,6 @@
-import 'package:control_personal_municipal/art24.dart';
-import 'package:control_personal_municipal/art25.dart';
 import 'package:control_personal_municipal/art50.dart';
+import 'package:control_personal_municipal/art25.dart';
+import 'package:control_personal_municipal/art24.dart';
 import 'package:control_personal_municipal/artLicencia.dart';
 import 'package:control_personal_municipal/dto/DTOempleado.dart';
 import 'package:flutter/material.dart';
@@ -25,10 +25,10 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
   @override
   Widget build(BuildContext context) {
     List<Widget> pages = [
-      Art24(empleado),
+      Art24(),
       Art25(empleado),
       Profile(empleado),
-      Art50(),
+      Art50(empleado),
       ArtLicencia(empleado),
     ];
     return Scaffold(

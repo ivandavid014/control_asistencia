@@ -109,7 +109,7 @@ class _HomeState extends State<AddLicense> {
     Intl.defaultLocale = 'es';
   }
 
-  Widget buildObservaciones(Empleado) => Column(
+  Widget buildObservaciones(empleado) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(

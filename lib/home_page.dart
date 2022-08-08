@@ -21,13 +21,15 @@ class HomePage extends StatelessWidget {
               'images/SantaFeCapitallogo.png',
               //  scale: 0.4,
             ),
+            Divider(),
             Text(
               'CONTROL DE PERSONAL',
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold),
+                color: Colors.white,
+                fontSize: 34,
+              ),
             ),
+            Divider(),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(

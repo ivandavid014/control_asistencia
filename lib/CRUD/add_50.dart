@@ -1,45 +1,38 @@
 import 'package:flutter/material.dart';
 import '../dto/DTOempleado.dart';
 
-// ignore: must_be_immutable
-class Add24 extends StatefulWidget {
+class Add50 extends StatefulWidget {
   Empleado empleado;
-
-  Add24(this.empleado);
-  @override
-  _HomeState createState() => _HomeState(empleado);
-}
-
-class _HomeState extends State<Add24> {
-  Empleado empleado;
-  _HomeState(this.empleado);
-  DateTimeRange dateRange = DateTimeRange(
-    start: DateTime(DateTime.now().year - 3),
-    end: DateTime(DateTime.now().year + 3),
-  );
+  Add50(this.empleado);
 
   @override
-  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+  State<Add50> createState() => _Add50State(empleado);
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class _Add50State extends State<Add50> {
   int _counter = 0;
+  Empleado empleado;
+  _Add50State(this.empleado);
+  @override
+  void initState() {
+    _counter = empleado.horas24 ?? 0;
+    super.initState();
+  }
 
   void _incrementCounter() {
     setState(() {
+      if (_counter >= 5) {
+        return;
+      }
       _counter++;
     });
   }
 
   void _decrementCounter() {
     setState(() {
+      if (_counter <= 0) {
+        return;
+      }
       _counter--;
     });
   }
@@ -53,14 +46,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Artículo 50'),
+        backgroundColor: Colors.grey.shade900,
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomRight,
             colors: [
-              Colors.deepPurple,
-              Colors.indigo,
+              Color.fromARGB(255, 31, 179, 122),
+              Colors.black26,
             ],
           ),
         ),
@@ -71,7 +68,7 @@ class _HomePageState extends State<HomePage> {
               const Padding(
                 padding: EdgeInsets.all(60.0),
                 child: Text(
-                  'Flutter Counter',
+                  'Devolvió:',
                   style: TextStyle(
                     fontSize: 40,
                     color: Colors.white,
@@ -81,11 +78,23 @@ class _HomePageState extends State<HomePage> {
               ),
               Center(
                 child: Text(
-                  '$_counter',
+                  '$_counter horas',
                   style: const TextStyle(
                       fontSize: 120,
                       color: Colors.white,
                       fontWeight: FontWeight.bold),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  empleado.horas24 = _counter;
+                },
+                child: Text('GUARDAR'),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  fixedSize: Size(MediaQuery.of(context).size.width, 35),
+                  primary: Color.fromARGB(255, 31, 179, 122),
                 ),
               ),
               Padding(
@@ -94,9 +103,12 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     FloatingActionButton(
-                      backgroundColor: Colors.transparent,
+                      heroTag: "restar",
+                      backgroundColor: _counter == 0
+                          ? Colors.transparent
+                          : Colors.lightGreenAccent,
                       elevation: 15,
-                      onPressed: _decrementCounter,
+                      onPressed: _counter != 0 ? _decrementCounter : null,
                       child: const Icon(
                         Icons.remove,
                         size: 40,
@@ -106,6 +118,7 @@ class _HomePageState extends State<HomePage> {
                       width: 50,
                     ),
                     FloatingActionButton(
+                      heroTag: "reiniciar",
                       mini: true,
                       backgroundColor: Colors.transparent,
                       elevation: 15,
@@ -119,7 +132,10 @@ class _HomePageState extends State<HomePage> {
                       width: 50,
                     ),
                     FloatingActionButton(
-                      backgroundColor: Colors.transparent,
+                      heroTag: "agregar horas",
+                      backgroundColor: _counter == 5
+                          ? Colors.transparent
+                          : Colors.lightGreenAccent,
                       elevation: 15,
                       onPressed: _incrementCounter,
                       child: const Icon(
