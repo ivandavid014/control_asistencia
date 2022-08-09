@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-import 'package:control_personal_municipal/dto/DTOvacaciones.dart';
+import 'DTOvacaciones.dart';
+import 'DTOart50.dart';
 
 Empleado empleadoFromJson(String str) => Empleado.fromJson(json.decode(str));
 
@@ -18,6 +19,9 @@ class Empleado {
     this.diasCorrespondientes,
     this.telefono,
     this.vacacionesList,
+    this.art50List,
+    //this.art24List,
+    //this.art25List,
     this.urlFoto,
     this.estacion,
     this.horas50,
@@ -33,6 +37,9 @@ class Empleado {
   int? telefono;
   int? diasCorrespondientes;
   List<Vacaciones>? vacacionesList;
+  List<Art50>? art50List;
+  //List<Art24>? art24List;
+  //List<Art25>? art25sList;
   String? urlFoto;
   String? estacion;
   int? horas50;
@@ -48,6 +55,9 @@ class Empleado {
         diasCorrespondientes: json["diasCorrespondientes"],
         telefono: json["telefono"],
         vacacionesList: json["vacacionesList"],
+        art50List: json["art50List"],
+        //art24List: json["art24List"],
+        //art25List: json["art25List"],
         urlFoto: json["urlFoto"],
         estacion: json["estacion"],
         horas50: json["horas50"],
@@ -64,8 +74,11 @@ class Empleado {
         "diasCorrespondientes": diasCorrespondientes,
         "telefono": telefono,
         "vacacionesList": vacacionesList,
-        "estacion": "estacion",
-        "horas50": "horas50",
+        "art50List": art50List,
+        //"art24List": art24List,
+        //"art25List": art25List,
+        "estacion": estacion,
+        "horas50": horas50,
       };
 
   Map<String, dynamic> toMapsinvacs() => {

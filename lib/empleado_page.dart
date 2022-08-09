@@ -5,6 +5,7 @@ import 'package:control_personal_municipal/artLicencia.dart';
 import 'package:control_personal_municipal/dto/DTOempleado.dart';
 import 'package:flutter/material.dart';
 
+import 'global_consts.dart';
 import 'profile_page.dart';
 
 // ignore: must_be_immutable
@@ -33,9 +34,10 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
     ];
     return Scaffold(
       appBar: AppBar(
+        title: Text(appbarTitles[_currentIndex]),
         leading: GestureDetector(
           child: Icon(
-            Icons.arrow_back_sharp,
+            Icons.arrow_back_rounded,
           ),
           onTap: () {
             Navigator.pop(context);

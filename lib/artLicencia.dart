@@ -1,4 +1,4 @@
-import 'package:control_personal_municipal/CRUD/add_licence_v2.dart';
+import 'package:control_personal_municipal/CRUD/add_licence.dart';
 import 'package:flutter/material.dart';
 import 'dto/DTOempleado.dart';
 

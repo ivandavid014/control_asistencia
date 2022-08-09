@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 import 'dto/DTOempleado.dart';
-import 'main.dart';
 
 // ignore: must_be_immutable
 class Profile extends StatelessWidget {
@@ -13,7 +12,6 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var empleado = empl!;
-    var telefono = empl!.telefono;
     return Scaffold(
       body: ListView(
         physics: BouncingScrollPhysics(),
@@ -101,6 +99,7 @@ Widget buildEditCircle({
       ),
     );
 
+// ignore: must_be_immutable
 class DatosFrontales extends StatelessWidget {
   Empleado? empl;
 

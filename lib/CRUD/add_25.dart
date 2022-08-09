@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../dto/DTOempleado.dart';
 
+// ignore: must_be_immutable
 class Add25 extends StatefulWidget {
   Empleado empleado;
   Add25(this.empleado);

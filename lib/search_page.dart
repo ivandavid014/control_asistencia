@@ -79,7 +79,7 @@ class _SearchPageState extends State<SearchPage> {
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => EmpleadoPage(fullList[index]),
+                          builder: (context) => EmpleadoPage(empleado),
                         ),
                       ),
                     ),

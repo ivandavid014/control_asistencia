@@ -27,19 +27,6 @@ class _HomeState extends State<AddLicense> {
     final difference = dateRange.duration;
 
     return Scaffold(
-      floatingActionButton: Theme(
-        data: Theme.of(context).copyWith(splashColor: Colors.yellow),
-        child: ElevatedButton(
-          onPressed: () {
-            Vacaciones vac = Vacaciones(
-                datesalida: DateFormat('EEEE, dd/MM/yy').format(start),
-                datevuelta: DateFormat('EEEE, dd/MM/yy').format(end));
-            empleado.vacacionesList!.add(vac);
-            Navigator.of(context).pop();
-          },
-          child: const Icon(Icons.add_sharp),
-        ),
-      ),
       appBar: AppBar(
           backgroundColor: Colors.grey.shade900,
           title: Text("Agregar nueva licencia")),
@@ -48,6 +35,29 @@ class _HomeState extends State<AddLicense> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            SizedBox(
+              height: 60,
+              width: 300,
+              child: Align(
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Vacaciones vac = Vacaciones(
+                        datesalida: DateFormat('EEEE, dd/MM/yy').format(start),
+                        datevuelta: DateFormat('EEEE, dd/MM/yy').format(end));
+                    empleado.vacacionesList!.insert(0, vac);
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('GUARDAR'),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    fixedSize: Size(MediaQuery.of(context).size.width, 35),
+                    primary: Color.fromARGB(255, 31, 179, 122),
+                  ),
+                ),
+              ),
+            ),
             TextField(
                 enabled: false,
                 decoration: InputDecoration(

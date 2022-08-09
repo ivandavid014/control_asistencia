@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../dto/DTOempleado.dart';
 
+// ignore: must_be_immutable
 class Ret50 extends StatefulWidget {
   Empleado empleado;
   Ret50(this.empleado);
@@ -47,7 +48,7 @@ class _Ret50State extends State<Ret50> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Artículo 50'),
+        title: Text('Devolución de horas - Artículo 50'),
         backgroundColor: Colors.grey.shade900,
       ),
       body: Container(
@@ -70,7 +71,7 @@ class _Ret50State extends State<Ret50> {
                 child: Text(
                   'Devolvió:',
                   style: TextStyle(
-                    fontSize: 40,
+                    fontSize: 60,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
@@ -80,22 +81,29 @@ class _Ret50State extends State<Ret50> {
                 child: Text(
                   '$_counter horas',
                   style: const TextStyle(
-                      fontSize: 120,
+                      fontSize: 100,
                       color: Colors.white,
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  empleado.horas50 = _counter;
-                  Navigator.of(context).pop();
-                },
-                child: Text('GUARDAR'),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                  fixedSize: Size(MediaQuery.of(context).size.width, 35),
-                  primary: Color.fromARGB(255, 31, 179, 122),
+              SizedBox(
+                height: 60,
+                width: 300,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      empleado.horas50 = _counter;
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('GUARDAR'),
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
+                      fixedSize: Size(MediaQuery.of(context).size.width, 35),
+                      primary: Color.fromARGB(255, 31, 179, 122),
+                    ),
+                  ),
                 ),
               ),
               Padding(
