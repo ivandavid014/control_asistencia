@@ -41,7 +41,7 @@ class _HomeState extends State<AddLicense> {
         ),
       ),
       appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.secondary,
+          backgroundColor: Colors.grey.shade900,
           title: Text("Agregar nueva licencia")),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(16, 30, 10, 10),
@@ -52,29 +52,38 @@ class _HomeState extends State<AddLicense> {
                 enabled: false,
                 decoration: InputDecoration(
                     labelText: DateFormat('EEEE, dd/MM/yy').format(start),
+                    labelStyle: TextStyle(color: Colors.white60),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: Colors.white60),
                     ))),
             SizedBox(height: 15),
-            ElevatedButton(
+            SizedBox(
+              width: 250,
+              height: 50,
+              child: ElevatedButton(
                 style: TextButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 31, 179, 122)),
                 onPressed: pickDateRange,
-                child: Text('Seleccionar días de licencia')),
+                child: Text('Seleccionar días de licencia'),
+              ),
+            ),
             SizedBox(height: 15),
             TextField(
                 enabled: false,
                 decoration: InputDecoration(
                     labelText: DateFormat('EEEE, dd/MM/yy').format(end),
+                    labelStyle: TextStyle(color: Colors.white60),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ))),
-            SizedBox(height: 15),
+            SizedBox(height: 5),
             const SizedBox(height: 15),
             Text(
               'Licencia pedida:  ${difference.inDays} días',
-              style: TextStyle(fontSize: 32),
+              style: TextStyle(color: Colors.white, fontSize: 28),
             ),
+            SizedBox(height: 15),
             ElevatedButton(
                 style: TextButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 31, 179, 122)),

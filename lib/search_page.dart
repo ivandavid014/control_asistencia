@@ -40,7 +40,7 @@ class _SearchPageState extends State<SearchPage> {
                 itemBuilder: (context, index) {
                   final empleado = fullList[index];
                   return Container(
-                    padding: EdgeInsets.all(7.0),
+                    padding: EdgeInsets.all(6.0),
                     decoration: BoxDecoration(
                       border: Border.all(
                           color: Color.fromARGB(255, 128, 128, 128), width: 1),
@@ -55,7 +55,7 @@ class _SearchPageState extends State<SearchPage> {
                         stops: <double>[0.1, 1],
                       ),
                     ),
-                    margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                    margin: EdgeInsets.fromLTRB(3, 5, 3, 3),
                     child: ListTile(
                       leading: Image.network(
                         empleado.urlFoto.toString(),
@@ -70,16 +70,16 @@ class _SearchPageState extends State<SearchPage> {
                             ', ' +
                             empleado.nombre!,
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             fontStyle: FontStyle.normal,
                             color: Colors.white),
                         maxLines: 2,
                       ),
-                      subtitle: Text('Estación: ' + empleado.estacion!),
+                      subtitle: Text('Estación: ${empleado.estacion}'),
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => EmpleadoPage(empleados[index]),
+                          builder: (context) => EmpleadoPage(fullList[index]),
                         ),
                       ),
                     ),
@@ -96,12 +96,12 @@ class _SearchPageState extends State<SearchPage> {
       final apellidoEmpleado = empleado.apellido!.toLowerCase();
       final nombreEmpleado = empleado.nombre!.toLowerCase();
       final codigoEmpleado = empleado.codigo!.toString().toLowerCase();
-      final estacionEmpleado = empleado.estacion!.toLowerCase();
+      final reparticionEmpleado = empleado.estacion!.toLowerCase();
       final input = query.toLowerCase();
 
       return apellidoEmpleado.contains(input) ||
           nombreEmpleado.contains(input) ||
-          estacionEmpleado.contains(input) ||
+          reparticionEmpleado.contains(input) ||
           codigoEmpleado.contains(input);
     }).toList();
 

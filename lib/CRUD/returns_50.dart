@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import '../dto/DTOempleado.dart';
 
-class Add50 extends StatefulWidget {
+class Ret50 extends StatefulWidget {
   Empleado empleado;
-  Add50(this.empleado);
+  Ret50(this.empleado);
 
   @override
-  State<Add50> createState() => _Add50State(empleado);
+  State<Ret50> createState() => _Ret50State(empleado);
 }
 
-class _Add50State extends State<Add50> {
+class _Ret50State extends State<Ret50> {
   int _counter = 0;
   Empleado empleado;
-  _Add50State(this.empleado);
+  _Ret50State(this.empleado);
   @override
   void initState() {
-    _counter = empleado.horas24 ?? 0;
+    _counter = empleado.horas50 ?? 0;
     super.initState();
   }
 
   void _incrementCounter() {
     setState(() {
-      if (_counter >= 5) {
+      if (_counter >= 6) {
         return;
       }
       _counter++;
@@ -87,7 +87,8 @@ class _Add50State extends State<Add50> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  empleado.horas24 = _counter;
+                  empleado.horas50 = _counter;
+                  Navigator.of(context).pop();
                 },
                 child: Text('GUARDAR'),
                 style: ElevatedButton.styleFrom(
@@ -133,7 +134,7 @@ class _Add50State extends State<Add50> {
                     ),
                     FloatingActionButton(
                       heroTag: "agregar horas",
-                      backgroundColor: _counter == 5
+                      backgroundColor: _counter == 6
                           ? Colors.transparent
                           : Colors.lightGreenAccent,
                       elevation: 15,
