@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-Art50 vacacionesFromJson(String str) => Art50.fromJson(json.decode(str));
+DtoArt50 vacacionesFromJson(String str) => DtoArt50.fromJson(json.decode(str));
 
-String vacacionesToJson(Art50 data) => json.encode(data.toJson());
+String vacacionesToJson(DtoArt50 data) => json.encode(data.toJson());
 
-class Art50 {
-  Art50({
+class DtoArt50 {
+  DtoArt50({
     this.datePedido,
     this.pedidosAnual,
   });
@@ -13,7 +13,7 @@ class Art50 {
   String? datePedido;
   int? pedidosAnual;
 
-  factory Art50.fromJson(Map<String, dynamic> json) => Art50(
+  factory DtoArt50.fromJson(Map<String, dynamic> json) => DtoArt50(
         datePedido: json["datepedido"],
         pedidosAnual: json["pedidosanual"],
       );

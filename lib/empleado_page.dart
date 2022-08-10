@@ -71,7 +71,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
           ),
           NavigationDestination(
             icon: Icon(Icons.person_rounded, color: Colors.white),
-            label: 'PROFILE',
+            label: 'Perfil',
             selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
           NavigationDestination(

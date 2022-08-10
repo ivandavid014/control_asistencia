@@ -37,7 +37,7 @@ class Empleado {
   int? telefono;
   int? diasCorrespondientes;
   List<Vacaciones>? vacacionesList;
-  List<Art50>? art50List;
+  List<DtoArt50>? art50List;
   //List<Art24>? art24List;
   //List<Art25>? art25sList;
   String? urlFoto;
