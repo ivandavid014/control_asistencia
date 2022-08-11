@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'CRUD/returns_50.dart';
-import 'dto/DTOempleado.dart';
-import 'dto/DTOart50.dart';
+import '../CRUD/returns_50.dart';
+import '../DTOs/DTOempleado.dart';
+import '../DTOs/DTOart50.dart';
 
 // ignore: must_be_immutable
 class Art50 extends StatefulWidget {
@@ -97,12 +97,15 @@ class _Art50State extends State<Art50> {
           child: Padding(
             padding: EdgeInsets.all(6.0),
             child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey.shade900,
-                  width: 2,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color.fromARGB(255, 31, 179, 122),
+                    Colors.black26,
+                  ],
                 ),
-                borderRadius: BorderRadius.circular(12),
               ),
               child: InkWell(
                 child: ListView.builder(
@@ -113,11 +116,11 @@ class _Art50State extends State<Art50> {
                       decoration: BoxDecoration(
                         border: Border.all(
                             color: Color.fromARGB(255, 128, 128, 128),
-                            width: 1),
+                            width: 0.1),
                         borderRadius: BorderRadius.circular(15),
                         gradient: LinearGradient(
                           begin: Alignment.topRight,
-                          end: Alignment(0.4, 0.9),
+                          end: Alignment(0.4, 0.5),
                           colors: <Color>[
                             Color(0x9dc1fa),
                             Colors.grey.shade700,

@@ -1,5 +1,8 @@
 import 'dart:convert';
+import 'package:control_personal_municipal/DTOs/DTOart25.dart';
 
+import '../ARTICULOS/art24.dart';
+import '../ARTICULOS/art25.dart';
 import 'DTOvacaciones.dart';
 import 'DTOart50.dart';
 
@@ -20,8 +23,8 @@ class Empleado {
     this.telefono,
     this.vacacionesList,
     this.art50List,
-    //this.art24List,
-    //this.art25List,
+    this.art24List,
+    this.art25List,
     this.urlFoto,
     this.estacion,
     this.horas50,
@@ -38,8 +41,8 @@ class Empleado {
   int? diasCorrespondientes;
   List<Vacaciones>? vacacionesList;
   List<DtoArt50>? art50List;
-  //List<Art24>? art24List;
-  //List<Art25>? art25sList;
+  List<Art24>? art24List;
+  List<DtoArt25>? art25List;
   String? urlFoto;
   String? estacion;
   int? horas50;
@@ -56,8 +59,8 @@ class Empleado {
         telefono: json["telefono"],
         vacacionesList: json["vacacionesList"],
         art50List: json["art50List"],
-        //art24List: json["art24List"],
-        //art25List: json["art25List"],
+        art24List: json["art24List"],
+        art25List: json["art25List"],
         urlFoto: json["urlFoto"],
         estacion: json["estacion"],
         horas50: json["horas50"],
@@ -75,8 +78,8 @@ class Empleado {
         "telefono": telefono,
         "vacacionesList": vacacionesList,
         "art50List": art50List,
-        //"art24List": art24List,
-        //"art25List": art25List,
+        "art24List": art24List,
+        "art25List": art25List,
         "estacion": estacion,
         "horas50": horas50,
       };

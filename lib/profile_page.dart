@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
-import 'dto/DTOempleado.dart';
+import 'DTOs/DTOempleado.dart';
 
 // ignore: must_be_immutable
 class Profile extends StatelessWidget {

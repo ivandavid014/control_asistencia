@@ -1,7 +1,7 @@
 import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
 import 'empleado_page.dart';
-import 'dto/DTOempleado.dart';
+import 'DTOs/DTOempleado.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);

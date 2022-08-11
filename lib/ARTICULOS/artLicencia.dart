@@ -1,6 +1,8 @@
 import 'package:control_personal_municipal/CRUD/add_licence.dart';
 import 'package:flutter/material.dart';
-import 'dto/DTOempleado.dart';
+
+import '../DTOs/DTOempleado.dart';
+import '../DTOs/DTOvacaciones.dart';
 
 // ignore: must_be_immutable
 class ArtLicencia extends StatelessWidget {

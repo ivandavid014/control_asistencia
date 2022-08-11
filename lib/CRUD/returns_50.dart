@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../dto/DTOempleado.dart';
+import '../DTOs/DTOempleado.dart';
 
 // ignore: must_be_immutable
 class Ret50 extends StatefulWidget {

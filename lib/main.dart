@@ -1,13 +1,9 @@
 import 'package:control_personal_municipal/database.dart';
-import 'package:control_personal_municipal/dto/DTOempleado.dart';
+import 'package:control_personal_municipal/DTOs/DTOempleado.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-//import 'package:firebase_core/firebase_core.dart';
 import 'home_page.dart';
 
-//totito
-
-//import 'package:sqflite/sqflite.dart';
 //import 'db.dart';
 
 Future main() async {

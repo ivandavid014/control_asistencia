@@ -1,8 +1,8 @@
-import 'package:control_personal_municipal/art50.dart';
-import 'package:control_personal_municipal/art25.dart';
-import 'package:control_personal_municipal/art24.dart';
-import 'package:control_personal_municipal/artLicencia.dart';
-import 'package:control_personal_municipal/dto/DTOempleado.dart';
+import 'package:control_personal_municipal/ARTICULOS/art50.dart';
+import 'package:control_personal_municipal/ARTICULOS/art25.dart';
+import 'package:control_personal_municipal/ARTICULOS/art24.dart';
+import 'package:control_personal_municipal/ARTICULOS/artLicencia.dart';
+import 'package:control_personal_municipal/DTOs/DTOempleado.dart';
 import 'package:flutter/material.dart';
 
 import 'global_consts.dart';
