@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 
 import 'CRUD/returns_50.dart';
 import 'dto/DTOempleado.dart';
+import 'dto/DTOart50.dart';
 
 // ignore: must_be_immutable
 class Art50 extends StatefulWidget {
@@ -47,9 +48,10 @@ class _Art50State extends State<Art50> {
                   Intl.defaultLocale = 'es';
                   datePedido =
                       DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
-                  /*   DtoArt50 art = DtoArt50(
-                      datePedido: datePedido, pedidosAnual: pedidosAnual);*/
-                  //  empl!.art50List!.insert(0, art);
+
+                  DtoArt50 art = DtoArt50(
+                      datePedido: datePedido, pedidosAnual: pedidosAnual);
+                  empl!.art50List!.insert(0, art);
                   setState(() {});
                 },
                 child: Text(
@@ -125,6 +127,9 @@ class _Art50State extends State<Art50> {
                       ),
                       margin: EdgeInsets.fromLTRB(3, 2, 3, 3),
                       child: ListTile(
+                        onLongPress: () {
+                          _delete(index);
+                        },
                         title: Text(
                           'Pidió artículo 50 el: ' +
                               ' ${widget.empl!.art50List![index].datePedido}. ',
@@ -143,6 +148,57 @@ class _Art50State extends State<Art50> {
           ),
         ),
       ],
+    );
+  }
+
+  void _delete(int index) {
+    showDialog(
+      context: context,
+      builder: (BuildContext ctx) {
+        return AlertDialog(
+          title: const Text('Confirmar'),
+          content: const Text('¿Estás seguro de querer borrar esta entrada?'),
+          actions: [
+            ElevatedButton(
+                style: ButtonStyle(
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.green),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      side: BorderSide(color: Colors.green.shade600),
+                    ),
+                  ),
+                ),
+                onPressed: () {
+                  empl!.art50List!.removeAt(index);
+                  setState(() {});
+
+                  Navigator.of(context).pop();
+                },
+                child: const Text('SI')),
+            ElevatedButton(
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    side: BorderSide(color: Colors.red.shade600),
+                  ),
+                ),
+              ),
+              autofocus: true,
+              child: const Text('NO'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

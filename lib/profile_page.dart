@@ -116,7 +116,9 @@ class DatosFrontales extends StatelessWidget {
             buildDivider(),
             Expanded(
               child: buildButton(
-                  context, '${empl!.movilidad}', 'Movilidad propia'),
+                  context,
+                  (empl!.movilidad! && empl!.distancia!) == true ? 'SI' : "NO",
+                  'Debe concurrir'),
             ),
             buildDivider(),
             Expanded(
