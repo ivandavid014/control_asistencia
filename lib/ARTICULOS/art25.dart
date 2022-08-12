@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../CRUD/returns_25.dart';
+import '../CRUD/contador_25.dart';
 import '../DTOs/DTOempleado.dart';
 import '../DTOs/DTOart25.dart';
+import '../global_consts.dart';
 
 // ignore: must_be_immutable
 class Art25 extends StatefulWidget {
@@ -21,9 +22,14 @@ class _Art25State extends State<Art25> {
   String datePedido = '';
 
   int pedidosAnual = 0;
-
   String? observaciones;
   _Art25State(this.empl);
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,22 +43,12 @@ class _Art25State extends State<Art25> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () async {
-                  _myDateTime = await showDatePicker(
-                    locale: const Locale("es", "ES"),
-                    context: context,
-                    initialDate: _myDateTime ?? DateTime.now(),
-                    firstDate: DateTime(DateTime.now().year - 3),
-                    lastDate: DateTime(DateTime.now().year + 3),
-                  );
-                  if (_myDateTime == null) return;
-                  Intl.defaultLocale = 'es';
-                  datePedido =
-                      DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
-
-                  DtoArt25 art = DtoArt25(
-                      datePedido: datePedido, pedidosAnual: pedidosAnual);
-                  empl!.art25List!.insert(0, art);
-                  setState(() {});
+                  if (empl!.dias25! <= 5) {
+                    agregarArt25toEmpleado();
+                  } else {
+                    bool res = await confirm(context);
+                    if (res) agregarArt25toEmpleado();
+                  }
                 },
                 child: Text(
                   'PEDIR ARTÍCULO',
@@ -73,12 +69,12 @@ class _Art25State extends State<Art25> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => (Ret25(widget.empl!)),
+                      builder: (context) => (Count25(widget.empl!)),
                     ),
                   );
                 },
                 child: Text(
-                  'DEVOLVER HORAS',
+                  'DÍAS PEDIDOS ANUAL',
                   style: TextStyle(fontSize: 19),
                 ),
                 style: ElevatedButton.styleFrom(
@@ -109,7 +105,7 @@ class _Art25State extends State<Art25> {
               ),
               child: InkWell(
                 child: ListView.builder(
-                  itemCount: widget.empl!.art50List?.length,
+                  itemCount: widget.empl!.art25List?.length,
                   itemBuilder: (context, index) {
                     return Container(
                       padding: EdgeInsets.all(6.0),
@@ -134,8 +130,8 @@ class _Art25State extends State<Art25> {
                           _delete(index);
                         },
                         title: Text(
-                          'Pidió artículo 50 el: ' +
-                              ' ${widget.empl!.art50List![index].datePedido}. ',
+                          'Pidió artículo 25 el: ' +
+                              ' ${widget.empl!.art25List?[index].datePedido}. ',
                           style: TextStyle(
                               fontSize: 18,
                               fontStyle: FontStyle.normal,
@@ -176,7 +172,7 @@ class _Art25State extends State<Art25> {
                   ),
                 ),
                 onPressed: () {
-                  empl!.art50List!.removeAt(index);
+                  empl!.art25List!.removeAt(index);
                   setState(() {});
 
                   Navigator.of(context).pop();
@@ -204,7 +200,22 @@ class _Art25State extends State<Art25> {
       },
     );
   }
-}
 
-Widget buildDivider() =>
-    Container(height: 40, child: VerticalDivider(color: Colors.grey));
+  void agregarArt25toEmpleado() async {
+    _myDateTime = await showDatePicker(
+      locale: const Locale("es", "ES"),
+      context: context,
+      initialDate: _myDateTime ?? DateTime.now(),
+      firstDate: DateTime(DateTime.now().year - 1),
+      lastDate: DateTime(DateTime.now().year + 2),
+    );
+    if (_myDateTime == null) return;
+    Intl.defaultLocale = 'es';
+    datePedido = DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
+
+    DtoArt25 art = DtoArt25(datePedido: datePedido, pedidosAnual: pedidosAnual);
+    empl!.art25List?.insert(0, art);
+    empl!.dias25 = empl!.dias25! + 1;
+    setState(() {});
+  }
+}

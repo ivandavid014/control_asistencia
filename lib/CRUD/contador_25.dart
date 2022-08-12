@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import '../DTOs/DTOempleado.dart';
 
 // ignore: must_be_immutable
-class Ret25 extends StatefulWidget {
+class Count25 extends StatefulWidget {
   Empleado empleado;
-  Ret25(this.empleado);
+  Count25(this.empleado);
 
   @override
-  State<Ret25> createState() => _Ret50State(empleado);
+  State<Count25> createState() => _Count25State(empleado);
 }
 
-class _Ret50State extends State<Ret25> {
+class _Count25State extends State<Count25> {
   int _counter = 0;
   Empleado empleado;
-  _Ret50State(this.empleado);
+  _Count25State(this.empleado);
   @override
   void initState() {
-    _counter = empleado.horas50 ?? 0;
+    _counter = empleado.dias25 ?? 0;
     super.initState();
   }
 
@@ -48,7 +48,7 @@ class _Ret50State extends State<Ret25> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Devolución de horas - Artículo 50'),
+        title: Text('Días pedidos en el año - Artículo 25'),
         backgroundColor: Colors.grey.shade900,
       ),
       body: Container(
@@ -69,7 +69,7 @@ class _Ret50State extends State<Ret25> {
               const Padding(
                 padding: EdgeInsets.all(60.0),
                 child: Text(
-                  'Devolvió:',
+                  'Días pedidos en el año:',
                   style: TextStyle(
                     fontSize: 60,
                     color: Colors.white,
@@ -79,7 +79,7 @@ class _Ret50State extends State<Ret25> {
               ),
               Center(
                 child: Text(
-                  '$_counter horas',
+                  '$_counter días',
                   style: const TextStyle(
                       fontSize: 100,
                       color: Colors.white,
@@ -93,7 +93,7 @@ class _Ret50State extends State<Ret25> {
                   alignment: Alignment.center,
                   child: ElevatedButton(
                     onPressed: () {
-                      empleado.horas50 = _counter;
+                      empleado.dias25 = _counter;
                       Navigator.of(context).pop();
                     },
                     child: Text('GUARDAR'),
@@ -141,7 +141,7 @@ class _Ret50State extends State<Ret25> {
                       width: 50,
                     ),
                     FloatingActionButton(
-                      heroTag: "agregar horas",
+                      heroTag: "agregar",
                       backgroundColor: _counter == 6
                           ? Colors.transparent
                           : Colors.lightGreenAccent,

@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../CRUD/returns_50.dart';
 import '../DTOs/DTOempleado.dart';
 import '../DTOs/DTOart50.dart';
+import '../global_consts.dart';
 
 // ignore: must_be_immutable
 class Art50 extends StatefulWidget {
@@ -21,9 +22,14 @@ class _Art50State extends State<Art50> {
   String datePedido = '';
 
   int pedidosAnual = 0;
-
   String? observaciones;
   _Art50State(this.empl);
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,22 +43,12 @@ class _Art50State extends State<Art50> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () async {
-                  _myDateTime = await showDatePicker(
-                    locale: const Locale("es", "ES"),
-                    context: context,
-                    initialDate: _myDateTime ?? DateTime.now(),
-                    firstDate: DateTime(DateTime.now().year - 3),
-                    lastDate: DateTime(DateTime.now().year + 3),
-                  );
-                  if (_myDateTime == null) return;
-                  Intl.defaultLocale = 'es';
-                  datePedido =
-                      DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
-
-                  DtoArt50 art = DtoArt50(
-                      datePedido: datePedido, pedidosAnual: pedidosAnual);
-                  empl!.art50List!.insert(0, art);
-                  setState(() {});
+                  if (empl!.dias25! <= 5) {
+                    agregarArt50toEmpleado();
+                  } else {
+                    bool res = await confirm(context);
+                    if (res) agregarArt50toEmpleado();
+                  }
                 },
                 child: Text(
                   'PEDIR ARTÍCULO',
@@ -78,7 +74,7 @@ class _Art50State extends State<Art50> {
                   );
                 },
                 child: Text(
-                  'DEVOLVER HORAS',
+                  'HORAS DEVUELTAS',
                   style: TextStyle(fontSize: 19),
                 ),
                 style: ElevatedButton.styleFrom(
@@ -135,7 +131,7 @@ class _Art50State extends State<Art50> {
                         },
                         title: Text(
                           'Pidió artículo 50 el: ' +
-                              ' ${widget.empl!.art50List![index].datePedido}. ',
+                              ' ${widget.empl!.art50List?[index].datePedido}. ',
                           style: TextStyle(
                               fontSize: 18,
                               fontStyle: FontStyle.normal,
@@ -176,7 +172,7 @@ class _Art50State extends State<Art50> {
                   ),
                 ),
                 onPressed: () {
-                  empl!.art50List!.removeAt(index);
+                  empl!.art25List!.removeAt(index);
                   setState(() {});
 
                   Navigator.of(context).pop();
@@ -204,7 +200,22 @@ class _Art50State extends State<Art50> {
       },
     );
   }
-}
 
-Widget buildDivider() =>
-    Container(height: 40, child: VerticalDivider(color: Colors.grey));
+  void agregarArt50toEmpleado() async {
+    _myDateTime = await showDatePicker(
+      locale: const Locale("es", "ES"),
+      context: context,
+      initialDate: _myDateTime ?? DateTime.now(),
+      firstDate: DateTime(DateTime.now().year - 1),
+      lastDate: DateTime(DateTime.now().year + 2),
+    );
+    if (_myDateTime == null) return;
+    Intl.defaultLocale = 'es';
+    datePedido = DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
+
+    DtoArt50 art = DtoArt50(datePedido: datePedido, pedidosAnual: pedidosAnual);
+    empl!.art50List?.insert(0, art);
+
+    setState(() {});
+  }
+}

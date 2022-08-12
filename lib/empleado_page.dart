@@ -26,7 +26,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
   @override
   Widget build(BuildContext context) {
     List<Widget> pages = [
-      Art24(),
+      Art24(empleado),
       Art25(empleado),
       Profile(empleado),
       Art50(empleado),
@@ -60,7 +60,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
         },
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.list_alt_outlined, color: Colors.white),
+            icon: Icon(Icons.twenty_four_mp_sharp, color: Colors.white),
             label: 'Art. 24',
             selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
@@ -75,7 +75,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
             selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
           NavigationDestination(
-            icon: Icon(Icons.list_alt_outlined, color: Colors.white),
+            icon: Icon(Icons.five_g_sharp, color: Colors.white),
             label: 'Art. 50',
             selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),

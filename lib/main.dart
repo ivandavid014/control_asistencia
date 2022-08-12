@@ -31,6 +31,9 @@ class MyApp extends StatelessWidget {
     for (int i = 0; i < empleados.length; i++) {
       empleados[i].vacacionesList = [];
       empleados[i].art50List = [];
+      empleados[i].art25List = [];
+      empleados[i].art24List = [];
+      empleados[i].dias25 = 0;
     }
     return MaterialApp(
       localizationsDelegates: [GlobalMaterialLocalizations.delegate],
