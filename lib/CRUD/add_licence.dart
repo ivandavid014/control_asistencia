@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:control_personal_municipal/dto/DTOvacaciones.dart';
-import '../dto/DTOempleado.dart';
+import 'package:control_personal_municipal/DTOs/DTOvacaciones.dart';
+import '../DTOs/DTOempleado.dart';
 
 // ignore: must_be_immutable
 class AddLicense extends StatefulWidget {

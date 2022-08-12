@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+//import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
-import 'dto/DTOempleado.dart';
+import 'DTOs/DTOempleado.dart';
 
 // ignore: must_be_immutable
 class Profile extends StatelessWidget {
@@ -116,11 +116,13 @@ class DatosFrontales extends StatelessWidget {
             buildDivider(),
             Expanded(
               child: buildButton(
-                  context, '${empl!.movilidad}', 'Movilidad propia'),
+                  context,
+                  (empl!.movilidad! && empl!.distancia!) == true ? 'SI' : "NO",
+                  'Debe concurrir'),
             ),
             buildDivider(),
             Expanded(
-              child: buildLlamar(context, '${empl!.telefono}', 'Teléfono'),
+              child: buildButton(context, '${empl!.telefono}', 'Teléfono'),
             ),
             buildDivider(),
           ],
@@ -174,7 +176,7 @@ Widget buildDatos(Empleado empleado) => Column(
       ],
     );
 
-Widget buildLlamar(BuildContext context, String value, String text) {
+/* Widget buildLlamar(BuildContext context, String value, String text) {
   Empleado? empl;
 
   return MaterialButton(
@@ -201,9 +203,9 @@ Widget buildLlamar(BuildContext context, String value, String text) {
       ],
     ),
   );
-}
+} */
 
-_callNumber() async {
+/* _callNumber() async {
   const number = '3425929192'; //set the number here
   bool? res = await FlutterPhoneDirectCaller.callNumber(number);
-}
+} */

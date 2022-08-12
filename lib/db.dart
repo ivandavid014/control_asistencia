@@ -1,5 +1,5 @@
 import 'package:sqflite/sqflite.dart';
-import 'dto/DTOempleado.dart';
+import 'DTOs/DTOempleado.dart';
 import 'package:path/path.dart';
 
 class DB {
@@ -7,7 +7,7 @@ class DB {
     return openDatabase(join(await getDatabasesPath(), 'empleados.db'),
         onCreate: (db, version) {
       return db.execute(
-        "CREATE TABLE empleados (nombre TEXT, apellido TEXT, dni INTEGER, condicion TEXT, codigo INTEGER, distancia BOOLEAN, diasCorrespondientes INTEGER)",
+        "CREATE TABLE empleados (nombre TEXT, apellido TEXT, dni INTEGER, condicion TEXT, codigo INTEGER, movilidad BOOLEAN, distancia BOOLEAN, diasCorrespondientes INTEGER, telefono INT, vacacionesList TEXT, art50List TEXT, art24List TEXT, art25List TEXT, estacion TEXT, horas50,)",
       );
     }, version: 1);
   }

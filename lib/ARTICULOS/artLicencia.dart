@@ -1,6 +1,7 @@
 import 'package:control_personal_municipal/CRUD/add_licence.dart';
 import 'package:flutter/material.dart';
-import 'dto/DTOempleado.dart';
+
+import '../DTOs/DTOempleado.dart';
 
 // ignore: must_be_immutable
 class ArtLicencia extends StatelessWidget {
@@ -23,7 +24,7 @@ class ArtLicencia extends StatelessWidget {
       ),
       body: InkWell(
         child: ListView.builder(
-          itemCount: empl!.vacacionesList!.length,
+          itemCount: empl!.vacacionesList?.length,
           itemBuilder: (context, index) {
             return Container(
               padding: EdgeInsets.all(6.0),

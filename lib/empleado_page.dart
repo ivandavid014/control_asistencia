@@ -1,8 +1,8 @@
-import 'package:control_personal_municipal/art50.dart';
-import 'package:control_personal_municipal/art25.dart';
-import 'package:control_personal_municipal/art24.dart';
-import 'package:control_personal_municipal/artLicencia.dart';
-import 'package:control_personal_municipal/dto/DTOempleado.dart';
+import 'package:control_personal_municipal/ARTICULOS/art50.dart';
+import 'package:control_personal_municipal/ARTICULOS/art25.dart';
+import 'package:control_personal_municipal/ARTICULOS/art24.dart';
+import 'package:control_personal_municipal/ARTICULOS/artLicencia.dart';
+import 'package:control_personal_municipal/DTOs/DTOempleado.dart';
 import 'package:flutter/material.dart';
 
 import 'global_consts.dart';
@@ -26,7 +26,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
   @override
   Widget build(BuildContext context) {
     List<Widget> pages = [
-      Art24(),
+      Art24(empleado),
       Art25(empleado),
       Profile(empleado),
       Art50(empleado),
@@ -60,7 +60,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
         },
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.list_alt_outlined, color: Colors.white),
+            icon: Icon(Icons.twenty_four_mp_sharp, color: Colors.white),
             label: 'Art. 24',
             selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
@@ -71,11 +71,11 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
           ),
           NavigationDestination(
             icon: Icon(Icons.person_rounded, color: Colors.white),
-            label: 'PROFILE',
+            label: 'Perfil',
             selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
           NavigationDestination(
-            icon: Icon(Icons.list_alt_outlined, color: Colors.white),
+            icon: Icon(Icons.five_g_sharp, color: Colors.white),
             label: 'Art. 50',
             selectedIcon: Icon(Icons.arrow_circle_up_sharp),
           ),
