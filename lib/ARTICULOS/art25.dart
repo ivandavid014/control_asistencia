@@ -105,7 +105,7 @@ class _Art25State extends State<Art25> {
               ),
               child: InkWell(
                 child: ListView.builder(
-                  itemCount: widget.empl!.art25List?.length,
+                  itemCount: widget.empl!.art25List.length,
                   itemBuilder: (context, index) {
                     return Container(
                       padding: EdgeInsets.all(6.0),
@@ -131,7 +131,7 @@ class _Art25State extends State<Art25> {
                         },
                         title: Text(
                           'Pidió artículo 25 el: ' +
-                              ' ${widget.empl!.art25List?[index].datePedido}. ',
+                              ' ${widget.empl!.art25List[index].datePedido}. ',
                           style: TextStyle(
                               fontSize: 18,
                               fontStyle: FontStyle.normal,
@@ -172,7 +172,7 @@ class _Art25State extends State<Art25> {
                   ),
                 ),
                 onPressed: () {
-                  empl!.art25List!.removeAt(index);
+                  empl!.art25List.removeAt(index);
                   setState(() {});
 
                   Navigator.of(context).pop();
@@ -214,7 +214,7 @@ class _Art25State extends State<Art25> {
     datePedido = DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
 
     DtoArt25 art = DtoArt25(datePedido: datePedido, pedidosAnual: pedidosAnual);
-    empl!.art25List?.insert(0, art);
+    empl!.art25List.insert(0, art);
     empl!.dias25 = empl!.dias25! + 1;
     setState(() {});
   }

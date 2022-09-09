@@ -24,7 +24,7 @@ class ArtLicencia extends StatelessWidget {
       ),
       body: InkWell(
         child: ListView.builder(
-          itemCount: empl!.vacacionesList?.length,
+          itemCount: empl!.vacacionesList.length,
           itemBuilder: (context, index) {
             return Container(
               padding: EdgeInsets.all(6.0),
@@ -46,8 +46,8 @@ class ArtLicencia extends StatelessWidget {
               child: ListTile(
                 title: Text(
                   'Licencia pedida desde el ' +
-                      ' ${empl!.vacacionesList![index].datesalida}' +
-                      ' hasta el ${empl!.vacacionesList![index].datevuelta}. Son xx días, de ${empl!.diasCorrespondientes!} disponibles.',
+                      ' ${empl!.vacacionesList[index].datesalida}' +
+                      ' hasta el ${empl!.vacacionesList[index].datevuelta}. Son xx días, de ${empl!.diasCorrespondientes!} disponibles.',
                   style: TextStyle(
                       fontSize: 15,
                       fontStyle: FontStyle.normal,

@@ -1,10 +1,11 @@
 import 'dart:convert';
+import 'package:objectbox/objectbox.dart';
+import 'DTOempleado.dart';
 
-Vacaciones vacacionesFromJson(String str) =>
-    Vacaciones.fromJson(json.decode(str));
-
+Vacaciones vacacionesFromJson(String str) => Vacaciones.fromJson(json.decode(str));
 String vacacionesToJson(Vacaciones data) => json.encode(data.toJson());
 
+@Entity()
 class Vacaciones {
   Vacaciones({
     this.datesalida,
@@ -13,12 +14,15 @@ class Vacaciones {
     this.diasrestantes,
     this.diascorrespondientes,
   });
-
+  int id = 0;
   String? datesalida;
   String? datevuelta;
   int? diaspedidos;
   int? diasrestantes;
   int? diascorrespondientes;
+
+  var vacaciones = ToOne<Empleado>();
+
 
   factory Vacaciones.fromJson(Map<String, dynamic> json) => Vacaciones(
       datesalida: json["datesalida"],

@@ -105,7 +105,7 @@ class _Art50State extends State<Art50> {
               ),
               child: InkWell(
                 child: ListView.builder(
-                  itemCount: widget.empl!.art50List?.length,
+                  itemCount: widget.empl!.art50List.length,
                   itemBuilder: (context, index) {
                     return Container(
                       padding: EdgeInsets.all(6.0),
@@ -131,7 +131,7 @@ class _Art50State extends State<Art50> {
                         },
                         title: Text(
                           'Pidió artículo 50 el: ' +
-                              ' ${widget.empl!.art50List?[index].datePedido}. ',
+                              ' ${widget.empl!.art50List[index].datePedido}. ',
                           style: TextStyle(
                               fontSize: 18,
                               fontStyle: FontStyle.normal,
@@ -172,7 +172,7 @@ class _Art50State extends State<Art50> {
                   ),
                 ),
                 onPressed: () {
-                  empl!.art25List!.removeAt(index);
+                  empl!.art25List.removeAt(index);
                   setState(() {});
 
                   Navigator.of(context).pop();
@@ -214,7 +214,7 @@ class _Art50State extends State<Art50> {
     datePedido = DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
 
     DtoArt50 art = DtoArt50(datePedido: datePedido, pedidosAnual: pedidosAnual);
-    empl!.art50List?.insert(0, art);
+    empl!.art50List.insert(0, art);
 
     setState(() {});
   }

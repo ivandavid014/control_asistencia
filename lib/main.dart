@@ -1,27 +1,49 @@
 import 'package:control_personal_municipal/database.dart';
 import 'package:control_personal_municipal/DTOs/DTOempleado.dart';
+import 'package:control_personal_municipal/objectbox.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'home_page.dart';
+import 'package:objectbox/objectbox.dart';
 
-//import 'db.dart';
 
-Future main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+void main() {
   runApp(MyApp());
 }
 
-/*listaEmpleados() async {
-  List<Empleado> auxEmpleado = await DB.empleados();
+//final _empleados = <Empleado>[];
+late final Store _store;
+late final Box<Empleado> _empleadoBox;
 
-  setState(() {
-    empleados = auxEmpleado;
-  });
-}*/
+List<Empleado> empleados =[];
+void _loadEmpleados(){
+  empleados.clear();
+  empleados.addAll(_empleadoBox.getAll());
+}
+  
 
-List<Empleado> empleados =
-    empleadosLista.map((dynamic item) => Empleado.fromJson(item)).toList();
+Future<void> _loadStore() async{
+ 
+  _empleadoBox = _store.box<Empleado>();
+  _loadEmpleados();
+}
+
+
+
+
+void initState()async{
+   _store = await openStore();
+ await _loadStore();
+
+ if(empleados.isEmpty){
+  
+    
+  empleados =
+     empleadosLista.map((dynamic item) => Empleado.fromJson(item)).toList();
+guardarDatos(empleados);
+
+   }
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -29,12 +51,17 @@ class MyApp extends StatelessWidget {
     overDB();
 
     for (int i = 0; i < empleados.length; i++) {
-      empleados[i].vacacionesList = [];
-      empleados[i].art50List = [];
-      empleados[i].art25List = [];
-      empleados[i].art24List = [];
+    //empleados[i].vacacionesList = [];
+    //empleados[i].art50List = [];
+    //empleados[i].art25List = [];
+    //empleados[i].art24List = [];
       empleados[i].dias25 = 0;
+      empleados[i].dias24 = 0;
     }
+    initState();
+    
+   
+
     return MaterialApp(
       localizationsDelegates: [GlobalMaterialLocalizations.delegate],
       supportedLocales: [const Locale('es')],
@@ -63,4 +90,11 @@ class MyApp extends StatelessWidget {
     List<Empleado> empleadosDB = await databaseStart.read();
     empleados = empleadosDB;*/
   }
+}
+
+Future guardarDatos(List <Empleado> emple)async{
+  for (var v = 0; v <emple.length; v++) {
+  _empleadoBox.put(emple[v]);
+}
+_loadStore();
 }

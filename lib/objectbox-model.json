@@ -1,0 +1,245 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:4294128942325136946",
+      "lastPropertyId": "4:954723244783284528",
+      "name": "DtoArt24",
+      "properties": [
+        {
+          "id": "1:9084657732207414143",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4693817399411515022",
+          "name": "datePedido",
+          "type": 9
+        },
+        {
+          "id": "3:8203301048643813299",
+          "name": "pedidosAnual",
+          "type": 6
+        },
+        {
+          "id": "4:954723244783284528",
+          "name": "art24Id",
+          "type": 11,
+          "flags": 520,
+          "indexId": "1:5024927483566997911",
+          "relationTarget": "Empleado"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:8908136163345799338",
+      "lastPropertyId": "4:5837646146545246666",
+      "name": "DtoArt25",
+      "properties": [
+        {
+          "id": "1:667868814134119302",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7735420533022227633",
+          "name": "datePedido",
+          "type": 9
+        },
+        {
+          "id": "3:7042468478477109806",
+          "name": "pedidosAnual",
+          "type": 6
+        },
+        {
+          "id": "4:5837646146545246666",
+          "name": "art25Id",
+          "type": 11,
+          "flags": 520,
+          "indexId": "2:564914517732004811",
+          "relationTarget": "Empleado"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:7498168407333586566",
+      "lastPropertyId": "4:1055781734381301153",
+      "name": "DtoArt50",
+      "properties": [
+        {
+          "id": "1:1156628390049768055",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:9069686163613496301",
+          "name": "datePedido",
+          "type": 9
+        },
+        {
+          "id": "3:2162549210799473067",
+          "name": "pedidosAnual",
+          "type": 6
+        },
+        {
+          "id": "4:1055781734381301153",
+          "name": "art50Id",
+          "type": 11,
+          "flags": 520,
+          "indexId": "3:1605100726607179410",
+          "relationTarget": "Empleado"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:4744185498120748333",
+      "lastPropertyId": "15:3004804947025774119",
+      "name": "Empleado",
+      "properties": [
+        {
+          "id": "1:6838476183287428652",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:2215734991006275689",
+          "name": "nombre",
+          "type": 9
+        },
+        {
+          "id": "3:3861799718026430634",
+          "name": "apellido",
+          "type": 9
+        },
+        {
+          "id": "4:3347242864369750445",
+          "name": "dni",
+          "type": 6
+        },
+        {
+          "id": "5:3096080506494042296",
+          "name": "condicion",
+          "type": 9
+        },
+        {
+          "id": "6:6511484930029056067",
+          "name": "codigo",
+          "type": 6
+        },
+        {
+          "id": "7:483330666543077918",
+          "name": "movilidad",
+          "type": 1
+        },
+        {
+          "id": "8:464157111630304258",
+          "name": "distancia",
+          "type": 1
+        },
+        {
+          "id": "9:8673092638785692964",
+          "name": "telefono",
+          "type": 6
+        },
+        {
+          "id": "10:9190222341228658707",
+          "name": "diasCorrespondientes",
+          "type": 6
+        },
+        {
+          "id": "11:7067968603444066562",
+          "name": "urlFoto",
+          "type": 9
+        },
+        {
+          "id": "12:3155907215419008347",
+          "name": "estacion",
+          "type": 9
+        },
+        {
+          "id": "13:6942497981722945387",
+          "name": "horas50",
+          "type": 6
+        },
+        {
+          "id": "14:7870220795483417059",
+          "name": "dias24",
+          "type": 6
+        },
+        {
+          "id": "15:3004804947025774119",
+          "name": "dias25",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "5:7121428658106353011",
+      "lastPropertyId": "7:4334171518619275550",
+      "name": "Vacaciones",
+      "properties": [
+        {
+          "id": "1:2259489758968766159",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7003445514041959956",
+          "name": "datesalida",
+          "type": 9
+        },
+        {
+          "id": "3:87172370525525143",
+          "name": "datevuelta",
+          "type": 9
+        },
+        {
+          "id": "4:1146690660691944547",
+          "name": "diaspedidos",
+          "type": 6
+        },
+        {
+          "id": "5:321461323428573378",
+          "name": "diasrestantes",
+          "type": 6
+        },
+        {
+          "id": "6:5087653215073319592",
+          "name": "diascorrespondientes",
+          "type": 6
+        },
+        {
+          "id": "7:4334171518619275550",
+          "name": "vacacionesId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "4:1793796790310845202",
+          "relationTarget": "Empleado"
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "5:7121428658106353011",
+  "lastIndexId": "4:1793796790310845202",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

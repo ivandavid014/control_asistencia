@@ -45,7 +45,7 @@ class _HomeState extends State<AddLicense> {
                     Vacaciones vac = Vacaciones(
                         datesalida: DateFormat('EEEE, dd/MM/yy').format(start),
                         datevuelta: DateFormat('EEEE, dd/MM/yy').format(end));
-                    empleado.vacacionesList!.insert(0, vac);
+                    empleado.vacacionesList.insert(0, vac);
                     Navigator.of(context).pop();
                   },
                   child: Text('GUARDAR'),
