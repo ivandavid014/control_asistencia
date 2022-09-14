@@ -1,3 +1,4 @@
+import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -43,12 +44,13 @@ class _Art50State extends State<Art50> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () async {
-                  if (empl!.dias25! <= 5) {
                     agregarArt50toEmpleado();
+                  /*if (empl!.dias50! <= 5) {
+                  
                   } else {
-                    bool res = await confirm(context);
+                   bool res = await confirm(context);
                     if (res) agregarArt50toEmpleado();
-                  }
+                  }*/
                 },
                 child: Text(
                   'PEDIR ARTÍCULO',
@@ -69,7 +71,7 @@ class _Art50State extends State<Art50> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => (Ret50(widget.empl!)),
+                      builder: (context) => (Ret50(widget.empl!.art50List[0])),
                     ),
                   );
                 },
@@ -126,6 +128,13 @@ class _Art50State extends State<Art50> {
                       ),
                       margin: EdgeInsets.fromLTRB(3, 2, 3, 3),
                       child: ListTile(
+                        onTap: (){
+                            Navigator.push(context,
+                                 MaterialPageRoute(
+                                     builder: (context) => Ret50(empl!.art50List[index]), 
+                                     ),
+                                  );
+                        },
                         onLongPress: () {
                           _delete(index);
                         },
@@ -171,8 +180,9 @@ class _Art50State extends State<Art50> {
                     ),
                   ),
                 ),
-                onPressed: () {
-                  empl!.art25List.removeAt(index);
+                onPressed: () async{
+                   empl!.art50List.removeAt(index);
+                 await  guardarDatos(empleados);
                   setState(() {});
 
                   Navigator.of(context).pop();
@@ -213,9 +223,9 @@ class _Art50State extends State<Art50> {
     Intl.defaultLocale = 'es';
     datePedido = DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
 
-    DtoArt50 art = DtoArt50(datePedido: datePedido, pedidosAnual: pedidosAnual);
+    DtoArt50 art = DtoArt50(datePedido: datePedido, horasDevueltas: pedidosAnual);
     empl!.art50List.insert(0, art);
-
+    guardarDatos(empleados);
     setState(() {});
   }
 }

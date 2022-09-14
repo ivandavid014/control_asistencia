@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
-
 import 'DTOs/DTOempleado.dart';
 
 // ignore: must_be_immutable
@@ -175,37 +173,3 @@ Widget buildDatos(Empleado empleado) => Column(
                 fontWeight: FontWeight.bold, fontSize: 17, color: Colors.grey))
       ],
     );
-
-/* Widget buildLlamar(BuildContext context, String value, String text) {
-  Empleado? empl;
-
-  return MaterialButton(
-    onPressed: () async {
-      // ignore: unnecessary_statements
-      _callNumber;
-    },
-    padding: EdgeInsets.symmetric(vertical: 25),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Text(
-          value,
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 12, color: Colors.white),
-        ),
-        SizedBox(height: 2),
-        Text(
-          text,
-          style: TextStyle(
-              fontSize: 11, fontWeight: FontWeight.bold, color: Colors.grey),
-        ),
-      ],
-    ),
-  );
-} */
-
-/* _callNumber() async {
-  const number = '3425929192'; //set the number here
-  bool? res = await FlutterPhoneDirectCaller.callNumber(number);
-} */

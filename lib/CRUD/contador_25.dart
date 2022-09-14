@@ -1,3 +1,4 @@
+import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
 import '../DTOs/DTOempleado.dart';
 
@@ -94,6 +95,7 @@ class _Count25State extends State<Count25> {
                   child: ElevatedButton(
                     onPressed: () {
                       empleado.dias25 = _counter;
+                      guardarDatos(empleados);
                       Navigator.of(context).pop();
                     },
                     child: Text('GUARDAR'),

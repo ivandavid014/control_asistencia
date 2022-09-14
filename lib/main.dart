@@ -4,8 +4,6 @@ import 'package:control_personal_municipal/objectbox.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'home_page.dart';
-import 'package:objectbox/objectbox.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -19,6 +17,7 @@ List<Empleado> empleados =[];
 void _loadEmpleados(){
   empleados.clear();
   empleados.addAll(_empleadoBox.getAll());
+  print(empleados.toString());
 }
   
 
@@ -27,9 +26,6 @@ Future<void> _loadStore() async{
   _empleadoBox = _store.box<Empleado>();
   _loadEmpleados();
 }
-
-
-
 
 void initState()async{
    _store = await openStore();
@@ -48,7 +44,6 @@ guardarDatos(empleados);
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    overDB();
 
     for (int i = 0; i < empleados.length; i++) {
     //empleados[i].vacacionesList = [];
@@ -80,21 +75,11 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-
-  void overDB() async {
-    /*
-    DB databaseStart = DB();
-
-    await databaseStart.insert(empleados.first);
-
-    List<Empleado> empleadosDB = await databaseStart.read();
-    empleados = empleadosDB;*/
-  }
 }
 
-Future guardarDatos(List <Empleado> emple)async{
-  for (var v = 0; v <emple.length; v++) {
-  _empleadoBox.put(emple[v]);
-}
-_loadStore();
+Future guardarDatos(List <Empleado> emple) async{
+  emple.forEach((element) {
+     _empleadoBox.put(element);
+});
+//_loadStore();
 }

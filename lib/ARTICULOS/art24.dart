@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../CRUD/contador_24.dart';
 import '../DTOs/DTOempleado.dart';
 import '../DTOs/DTOart24.dart';
+import '../main.dart';
 
 // ignore: must_be_immutable
 class Art24 extends StatefulWidget {
@@ -49,12 +50,13 @@ class _Art24State extends State<Art24> {
                   datePedido =
                       DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
 
-                  DtoArt24 art = DtoArt24(
-                      datePedido: datePedido, pedidosAnual: pedidosAnual);
-                  empl!.art24List.insert(0, art);
-                  empl!.dias24 = empl!.dias24! + 1;
 
-                  setState(() {});
+
+                  DtoArt24 art = DtoArt24(datePedido: datePedido, pedidosAnual: pedidosAnual);
+                    empl!.art24List.insert(0, art);
+                    empl!.dias24 = empl!.dias24! + 1;
+                    guardarDatos(empleados);
+                    setState(() {});
                 },
                 child: Text(
                   'PEDIR ARTÍCULO',

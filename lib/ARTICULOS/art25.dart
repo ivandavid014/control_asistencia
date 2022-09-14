@@ -1,3 +1,4 @@
+import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -216,6 +217,7 @@ class _Art25State extends State<Art25> {
     DtoArt25 art = DtoArt25(datePedido: datePedido, pedidosAnual: pedidosAnual);
     empl!.art25List.insert(0, art);
     empl!.dias25 = empl!.dias25! + 1;
+    guardarDatos(empleados);
     setState(() {});
   }
 }

@@ -24,176 +24,176 @@ export 'package:objectbox/objectbox.dart'; // so that callers only have to impor
 
 final _entities = <ModelEntity>[
   ModelEntity(
-      id: const IdUid(1, 4294128942325136946),
+      id: const IdUid(1, 7409586550531196336),
       name: 'DtoArt24',
-      lastPropertyId: const IdUid(4, 954723244783284528),
+      lastPropertyId: const IdUid(4, 190098572063748073),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 9084657732207414143),
+            id: const IdUid(1, 291528617356071565),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 4693817399411515022),
+            id: const IdUid(2, 8448941196005034871),
             name: 'datePedido',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 8203301048643813299),
+            id: const IdUid(3, 6660204847831528884),
             name: 'pedidosAnual',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 954723244783284528),
+            id: const IdUid(4, 190098572063748073),
             name: 'art24Id',
             type: 11,
             flags: 520,
-            indexId: const IdUid(1, 5024927483566997911),
+            indexId: const IdUid(1, 3988384419019231781),
             relationTarget: 'Empleado')
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(2, 8908136163345799338),
+      id: const IdUid(2, 5905831014825989780),
       name: 'DtoArt25',
-      lastPropertyId: const IdUid(4, 5837646146545246666),
+      lastPropertyId: const IdUid(4, 9044687409446002634),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 667868814134119302),
+            id: const IdUid(1, 5051635522149896460),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 7735420533022227633),
+            id: const IdUid(2, 5427724976576806596),
             name: 'datePedido',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 7042468478477109806),
+            id: const IdUid(3, 4454710680965458981),
             name: 'pedidosAnual',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 5837646146545246666),
+            id: const IdUid(4, 9044687409446002634),
             name: 'art25Id',
             type: 11,
             flags: 520,
-            indexId: const IdUid(2, 564914517732004811),
+            indexId: const IdUid(2, 2092414867378435026),
             relationTarget: 'Empleado')
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(3, 7498168407333586566),
+      id: const IdUid(3, 5310620555191751749),
       name: 'DtoArt50',
-      lastPropertyId: const IdUid(4, 1055781734381301153),
+      lastPropertyId: const IdUid(4, 608195435077738018),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 1156628390049768055),
+            id: const IdUid(1, 1080918534366021081),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 9069686163613496301),
+            id: const IdUid(2, 5033419069675840297),
             name: 'datePedido',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 2162549210799473067),
-            name: 'pedidosAnual',
+            id: const IdUid(3, 8765740292350075951),
+            name: 'horasDevueltas',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 1055781734381301153),
+            id: const IdUid(4, 608195435077738018),
             name: 'art50Id',
             type: 11,
             flags: 520,
-            indexId: const IdUid(3, 1605100726607179410),
+            indexId: const IdUid(3, 2344920011930617438),
             relationTarget: 'Empleado')
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(4, 4744185498120748333),
+      id: const IdUid(4, 5255806543983993481),
       name: 'Empleado',
-      lastPropertyId: const IdUid(15, 3004804947025774119),
+      lastPropertyId: const IdUid(15, 9050274280345654293),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 6838476183287428652),
+            id: const IdUid(1, 6833092422330422861),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 2215734991006275689),
+            id: const IdUid(2, 7268434895266903369),
             name: 'nombre',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 3861799718026430634),
+            id: const IdUid(3, 1536806622511957041),
             name: 'apellido',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 3347242864369750445),
+            id: const IdUid(4, 2553731159810463403),
             name: 'dni',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 3096080506494042296),
+            id: const IdUid(5, 3599495352500943890),
             name: 'condicion',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 6511484930029056067),
+            id: const IdUid(6, 1464455796962854332),
             name: 'codigo',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 483330666543077918),
+            id: const IdUid(7, 2008628257988118664),
             name: 'movilidad',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 464157111630304258),
+            id: const IdUid(8, 7512843336198774203),
             name: 'distancia',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 8673092638785692964),
+            id: const IdUid(9, 1886005921101587519),
             name: 'telefono',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 9190222341228658707),
+            id: const IdUid(10, 1928585954115601149),
             name: 'diasCorrespondientes',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 7067968603444066562),
+            id: const IdUid(11, 7620135591948955279),
             name: 'urlFoto',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 3155907215419008347),
+            id: const IdUid(12, 7306621081547300149),
             name: 'estacion',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(13, 6942497981722945387),
+            id: const IdUid(13, 2580103049699837126),
             name: 'horas50',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(14, 7870220795483417059),
+            id: const IdUid(14, 3266025509130822677),
             name: 'dias24',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(15, 3004804947025774119),
+            id: const IdUid(15, 9050274280345654293),
             name: 'dias25',
             type: 6,
             flags: 0)
@@ -207,47 +207,47 @@ final _entities = <ModelEntity>[
         ModelBacklink(name: 'art25List', srcEntity: 'DtoArt25', srcField: '')
       ]),
   ModelEntity(
-      id: const IdUid(5, 7121428658106353011),
+      id: const IdUid(5, 7935692074736514441),
       name: 'Vacaciones',
-      lastPropertyId: const IdUid(7, 4334171518619275550),
+      lastPropertyId: const IdUid(7, 4713456069834255061),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 2259489758968766159),
+            id: const IdUid(1, 1350040931850665935),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 7003445514041959956),
+            id: const IdUid(2, 9195139973289739700),
             name: 'datesalida',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 87172370525525143),
+            id: const IdUid(3, 8058991771724834425),
             name: 'datevuelta',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 1146690660691944547),
+            id: const IdUid(4, 2462916152175904749),
             name: 'diaspedidos',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 321461323428573378),
+            id: const IdUid(5, 8376137248209570920),
             name: 'diasrestantes',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 5087653215073319592),
+            id: const IdUid(6, 6264019965122768940),
             name: 'diascorrespondientes',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 4334171518619275550),
+            id: const IdUid(7, 4713456069834255061),
             name: 'vacacionesId',
             type: 11,
             flags: 520,
-            indexId: const IdUid(4, 1793796790310845202),
+            indexId: const IdUid(4, 6650590447970007021),
             relationTarget: 'Empleado')
       ],
       relations: <ModelRelation>[],
@@ -274,8 +274,8 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(5, 7121428658106353011),
-      lastIndexId: const IdUid(4, 1793796790310845202),
+      lastEntityId: const IdUid(5, 7935692074736514441),
+      lastIndexId: const IdUid(4, 6650590447970007021),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
@@ -372,7 +372,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.startTable(5);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, datePedidoOffset);
-          fbb.addInt64(2, object.pedidosAnual);
+          fbb.addInt64(2, object.horasDevueltas);
           fbb.addInt64(3, object.art50.targetId);
           fbb.finish(fbb.endTable());
           return object.id;
@@ -384,7 +384,7 @@ ModelDefinition getObjectBoxModel() {
           final object = DtoArt50(
               datePedido: const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 6),
-              pedidosAnual: const fb.Int64Reader()
+              horasDevueltas: const fb.Int64Reader()
                   .vTableGetNullable(buffer, rootOffset, 8))
             ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
           object.art50.targetId =
@@ -601,8 +601,8 @@ class DtoArt50_ {
   static final datePedido =
       QueryStringProperty<DtoArt50>(_entities[2].properties[1]);
 
-  /// see [DtoArt50.pedidosAnual]
-  static final pedidosAnual =
+  /// see [DtoArt50.horasDevueltas]
+  static final horasDevueltas =
       QueryIntegerProperty<DtoArt50>(_entities[2].properties[2]);
 
   /// see [DtoArt50.art50]

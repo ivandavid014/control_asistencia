@@ -9,23 +9,23 @@ String vacacionesToJson(DtoArt50 data) => json.encode(data.toJson());
 class DtoArt50 {
   DtoArt50({
     this.datePedido,
-    this.pedidosAnual,
+    this.horasDevueltas,
   });
   int id = 0;
   String? datePedido;
-  int? pedidosAnual;
+  int? horasDevueltas;
   
   var art50 = ToOne<Empleado>();
 
   factory DtoArt50.fromJson(Map<String, dynamic> json) => DtoArt50(
         datePedido: json["datepedido"],
-        pedidosAnual: json["pedidosanual"],
+        horasDevueltas: json["horasDevueltas"],
       );
 
   get difference => null;
 
   Map<String, dynamic> toJson() => {
         "datePedido": datePedido,
-        "pedidosAnual": pedidosAnual,
+        "horasDevueltas": horasDevueltas,
       };
 }
