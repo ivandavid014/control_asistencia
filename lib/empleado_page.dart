@@ -3,6 +3,7 @@ import 'package:control_personal_municipal/ARTICULOS/art25.dart';
 import 'package:control_personal_municipal/ARTICULOS/art24.dart';
 import 'package:control_personal_municipal/ARTICULOS/artLicencia.dart';
 import 'package:control_personal_municipal/DTOs/DTOempleado.dart';
+import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
 
 import 'global_consts.dart';
@@ -29,7 +30,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
       Art24(empleado),
       Art25(empleado),
       Profile(empleado),
-      Art50(empleado),
+      Art50(empleados.indexOf(empleado!)),
       ArtLicencia(empleado),
     ];
     return Scaffold(

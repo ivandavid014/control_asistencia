@@ -9,22 +9,22 @@ import '../global_consts.dart';
 
 // ignore: must_be_immutable
 class Art50 extends StatefulWidget {
-  Empleado? empl;
+  int? indexEmple;
 
-  Art50(this.empl);
+  Art50(this.indexEmple);
 
   @override
-  State<Art50> createState() => _Art50State(empl);
+  State<Art50> createState() => _Art50State();
 }
 
 class _Art50State extends State<Art50> {
   DateTime? _myDateTime;
-  Empleado? empl;
+ 
   String datePedido = '';
 
-  int horasDevueltas = 0;
+  int horas50 = 0;
   String? observaciones;
-  _Art50State(this.empl);
+  _Art50State();
 
   @override
   void initState() {
@@ -46,7 +46,6 @@ class _Art50State extends State<Art50> {
                 onPressed: () async {
                     agregarArt50toEmpleado();
                   /*if (empl!.dias50! <= 5) {
-                  
                   } else {
                    bool res = await confirm(context);
                     if (res) agregarArt50toEmpleado();
@@ -71,7 +70,7 @@ class _Art50State extends State<Art50> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => (Ret50(widget.empl!.art50List[0])),
+                      builder: (context) => (Ret50(widget.indexEmple!,0)),
                     ),
                   );
                 },
@@ -107,7 +106,7 @@ class _Art50State extends State<Art50> {
               ),
               child: InkWell(
                 child: ListView.builder(
-                  itemCount: widget.empl!.art50List.length,
+                  itemCount: empleados[widget.indexEmple!].art50List.length,
                   itemBuilder: (context, index) {
                     return Container(
                       padding: EdgeInsets.all(6.0),
@@ -131,7 +130,7 @@ class _Art50State extends State<Art50> {
                         onTap: (){
                             Navigator.push(context,
                                  MaterialPageRoute(
-                                     builder: (context) => Ret50(empl!.art50List[index]), 
+                                     builder: (context) => Ret50(widget.indexEmple!,index ), 
                                      ),
                                   );
                         },
@@ -140,7 +139,7 @@ class _Art50State extends State<Art50> {
                         },
                         title: Text(
                           'Pidió artículo 50 el: ' +
-                              ' ${widget.empl!.art50List[index].datePedido}. ',
+                              ' ${empleados[widget.indexEmple!].art50List[index].datePedido}. ',
                           style: TextStyle(
                               fontSize: 18,
                               fontStyle: FontStyle.normal,
@@ -181,7 +180,7 @@ class _Art50State extends State<Art50> {
                   ),
                 ),
                 onPressed: () async{
-                   empl!.art50List.removeAt(index);
+                   empleados[widget.indexEmple!].art50List.removeAt(index);
                  await  guardarDatos(empleados);
                   setState(() {});
 
@@ -223,8 +222,8 @@ class _Art50State extends State<Art50> {
     Intl.defaultLocale = 'es';
     datePedido = DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
 
-    DtoArt50 art = DtoArt50(datePedido: datePedido, horasDevueltas: horasDevueltas);
-    empl!.art50List.insert(0, art);
+    DtoArt50 art = DtoArt50(datePedido: datePedido, horas50: horas50);
+  empleados[widget.indexEmple!].art50List.insert(0, art);
     guardarDatos(empleados);
     setState(() {});
   }

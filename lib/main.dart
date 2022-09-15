@@ -1,12 +1,18 @@
 import 'package:control_personal_municipal/database.dart';
 import 'package:control_personal_municipal/DTOs/DTOempleado.dart';
 import 'package:control_personal_municipal/objectbox.g.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'home_page.dart';
 
-void main() {
-  runApp(MyApp());
+Future<void> main() async {
+  // This is required so ObjectBox can get the application directory
+  // to store the database in.
+  WidgetsFlutterBinding.ensureInitialized();
+
+
+  runApp( MyApp());
 }
 
 //final _empleados = <Empleado>[];
@@ -50,8 +56,8 @@ class MyApp extends StatelessWidget {
     //empleados[i].art50List = [];
     //empleados[i].art25List = [];
     //empleados[i].art24List = [];
-      empleados[i].dias25 = 0;
-      empleados[i].dias24 = 0;
+    //empleados[i].dias25 = 0;
+    //empleados[i].dias24 = 0;
     }
     initState();
     

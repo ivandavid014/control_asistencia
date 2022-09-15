@@ -1,11 +1,14 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import '../DTOs/DTOart50.dart';
 import '../main.dart';
 
 // ignore: must_be_immutable
 class Ret50 extends StatefulWidget {
-  DtoArt50 index;
-  Ret50(this.index);
+  int indexart50;
+int indexemple;
+  Ret50(this.indexemple, this.indexart50);
 
   @override
   State<Ret50> createState() => _Ret50State();
@@ -17,7 +20,7 @@ class _Ret50State extends State<Ret50> {
   _Ret50State();
   @override
   void initState() {
-    _counter = widget.index.horasDevueltas ?? 0;
+    _counter = empleados[widget.indexemple].art50List[widget.indexart50].horas50?? 0;
     super.initState();
   }
 
@@ -80,7 +83,7 @@ class _Ret50State extends State<Ret50> {
               ),
               Center(
                 child: Text(
-                  '$widget.index.horasDevueltas + horas',
+                  '$_counter horas',
                   style: const TextStyle(
                       fontSize: 100,
                       color: Colors.white,
@@ -94,7 +97,8 @@ class _Ret50State extends State<Ret50> {
                   alignment: Alignment.center,
                   child: ElevatedButton(
                     onPressed: () {
-                      widget.index.horasDevueltas = _counter;
+                      
+                    empleados[widget.indexemple].art50List[widget.indexart50].horas50 = _counter;
                       guardarDatos(empleados);
                       Navigator.of(context).pop();
                     },

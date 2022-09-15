@@ -69,7 +69,7 @@
     },
     {
       "id": "3:5310620555191751749",
-      "lastPropertyId": "4:608195435077738018",
+      "lastPropertyId": "6:3079668957617561492",
       "name": "DtoArt50",
       "properties": [
         {
@@ -84,17 +84,17 @@
           "type": 9
         },
         {
-          "id": "3:8765740292350075951",
-          "name": "horasDevueltas",
-          "type": 6
-        },
-        {
           "id": "4:608195435077738018",
           "name": "art50Id",
           "type": 11,
           "flags": 520,
           "indexId": "3:2344920011930617438",
           "relationTarget": "Empleado"
+        },
+        {
+          "id": "6:3079668957617561492",
+          "name": "horas50",
+          "type": 6
         }
       ],
       "relations": []
@@ -239,7 +239,10 @@
   "modelVersionParserMinimum": 5,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    8765740292350075951,
+    5387774830009579386
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

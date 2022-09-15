@@ -88,7 +88,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(3, 5310620555191751749),
       name: 'DtoArt50',
-      lastPropertyId: const IdUid(4, 608195435077738018),
+      lastPropertyId: const IdUid(6, 3079668957617561492),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -102,17 +102,17 @@ final _entities = <ModelEntity>[
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 8765740292350075951),
-            name: 'horasDevueltas',
-            type: 6,
-            flags: 0),
-        ModelProperty(
             id: const IdUid(4, 608195435077738018),
             name: 'art50Id',
             type: 11,
             flags: 520,
             indexId: const IdUid(3, 2344920011930617438),
-            relationTarget: 'Empleado')
+            relationTarget: 'Empleado'),
+        ModelProperty(
+            id: const IdUid(6, 3079668957617561492),
+            name: 'horas50',
+            type: 6,
+            flags: 0)
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
@@ -280,7 +280,7 @@ ModelDefinition getObjectBoxModel() {
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
       retiredIndexUids: const [],
-      retiredPropertyUids: const [],
+      retiredPropertyUids: const [8765740292350075951, 5387774830009579386],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -369,11 +369,11 @@ ModelDefinition getObjectBoxModel() {
           final datePedidoOffset = object.datePedido == null
               ? null
               : fbb.writeString(object.datePedido!);
-          fbb.startTable(5);
+          fbb.startTable(7);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, datePedidoOffset);
-          fbb.addInt64(2, object.horasDevueltas);
           fbb.addInt64(3, object.art50.targetId);
+          fbb.addInt64(5, object.horas50);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -382,11 +382,11 @@ ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
 
           final object = DtoArt50(
+              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
               datePedido: const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 6),
-              horasDevueltas: const fb.Int64Reader()
-                  .vTableGetNullable(buffer, rootOffset, 8))
-            ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+              horas50: const fb.Int64Reader()
+                  .vTableGetNullable(buffer, rootOffset, 14));
           object.art50.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 10, 0);
           object.art50.attach(store);
@@ -601,13 +601,13 @@ class DtoArt50_ {
   static final datePedido =
       QueryStringProperty<DtoArt50>(_entities[2].properties[1]);
 
-  /// see [DtoArt50.horasDevueltas]
-  static final horasDevueltas =
-      QueryIntegerProperty<DtoArt50>(_entities[2].properties[2]);
-
   /// see [DtoArt50.art50]
   static final art50 =
-      QueryRelationToOne<DtoArt50, Empleado>(_entities[2].properties[3]);
+      QueryRelationToOne<DtoArt50, Empleado>(_entities[2].properties[2]);
+
+  /// see [DtoArt50.horas50]
+  static final horas50 =
+      QueryIntegerProperty<DtoArt50>(_entities[2].properties[3]);
 }
 
 /// [Empleado] entity fields to define ObjectBox queries.
