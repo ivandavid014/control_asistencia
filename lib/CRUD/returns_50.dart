@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../DTOs/DTOart50.dart';
-import '../DTOs/DTOempleado.dart';
 import '../main.dart';
 
 // ignore: must_be_immutable
@@ -81,7 +80,7 @@ class _Ret50State extends State<Ret50> {
               ),
               Center(
                 child: Text(
-                  '$_counter horas',
+                  '$widget.index.horasDevueltas + horas',
                   style: const TextStyle(
                       fontSize: 100,
                       color: Colors.white,

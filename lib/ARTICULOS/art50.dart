@@ -22,7 +22,7 @@ class _Art50State extends State<Art50> {
   Empleado? empl;
   String datePedido = '';
 
-  int pedidosAnual = 0;
+  int horasDevueltas = 0;
   String? observaciones;
   _Art50State(this.empl);
 
@@ -223,7 +223,7 @@ class _Art50State extends State<Art50> {
     Intl.defaultLocale = 'es';
     datePedido = DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
 
-    DtoArt50 art = DtoArt50(datePedido: datePedido, horasDevueltas: pedidosAnual);
+    DtoArt50 art = DtoArt50(datePedido: datePedido, horasDevueltas: horasDevueltas);
     empl!.art50List.insert(0, art);
     guardarDatos(empleados);
     setState(() {});

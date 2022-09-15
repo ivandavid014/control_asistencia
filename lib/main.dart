@@ -58,7 +58,8 @@ class MyApp extends StatelessWidget {
    
 
     return MaterialApp(
-      localizationsDelegates: [GlobalMaterialLocalizations.delegate],
+      localizationsDelegates: [GlobalMaterialLocalizations.delegate, 
+      GlobalCupertinoLocalizations.delegate,],
       supportedLocales: [const Locale('es')],
       title: 'Control de Personal',
       home: HomePage(),
