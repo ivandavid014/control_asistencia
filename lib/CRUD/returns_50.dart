@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import '../DTOs/DTOart50.dart';
 import '../main.dart';
 
 // ignore: must_be_immutable
 class Ret50 extends StatefulWidget {
-int indexart50;
-int indexemple;
+  int indexart50;
+  int indexemple;
   Ret50(this.indexemple, this.indexart50);
 
   @override
@@ -13,11 +14,12 @@ int indexemple;
 
 class _Ret50State extends State<Ret50> {
   int _counter = 0;
- 
+
   _Ret50State();
   @override
   void initState() {
-    _counter = empleados[widget.indexemple].art50List[widget.indexart50].horas50?? 0;
+    _counter =
+        empleados[widget.indexemple].art50List[widget.indexart50].horas50 ?? 0;
     super.initState();
   }
 
@@ -93,10 +95,18 @@ class _Ret50State extends State<Ret50> {
                 child: Align(
                   alignment: Alignment.center,
                   child: ElevatedButton(
-                    onPressed: () {
-                      
-                    empleados[widget.indexemple].art50List[widget.indexart50].horas50 = _counter;
-                      guardarDatos(empleados);
+                    onPressed: () async {
+                      DtoArt50 art = DtoArt50(
+                          id: empleados[widget.indexemple]
+                              .art50List[widget.indexart50]
+                              .id,
+                          datePedido: empleados[widget.indexemple]
+                              .art50List[widget.indexart50]
+                              .datePedido,
+                          horas50: _counter);
+                      empleados[widget.indexemple]
+                          .art50List[widget.indexart50] = art;
+                      await guardarDatos(empleados);
                       Navigator.of(context).pop();
                     },
                     child: Text('GUARDAR'),

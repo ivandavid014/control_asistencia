@@ -11,61 +11,55 @@ Future<void> main() async {
   // to store the database in.
   WidgetsFlutterBinding.ensureInitialized();
 
-
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 //final _empleados = <Empleado>[];
 late final Store _store;
 late final Box<Empleado> _empleadoBox;
 
-List<Empleado> empleados =[];
-void _loadEmpleados(){
+List<Empleado> empleados = [];
+void _loadEmpleados() {
   empleados.clear();
   empleados.addAll(_empleadoBox.getAll());
   print(empleados.toString());
 }
-  
 
-Future<void> _loadStore() async{
- 
+Future<void> _loadStore() async {
   _empleadoBox = _store.box<Empleado>();
   _loadEmpleados();
 }
 
-void initState()async{
-   _store = await openStore();
- await _loadStore();
+void initState() async {
+  _store = await openStore();
+  await _loadStore();
 
- if(empleados.isEmpty){
-  
-    
-  empleados =
-     empleadosLista.map((dynamic item) => Empleado.fromJson(item)).toList();
-guardarDatos(empleados);
-
-   }
+  if (empleados.isEmpty) {
+    empleados =
+        empleadosLista.map((dynamic item) => Empleado.fromJson(item)).toList();
+    guardarDatos(empleados);
+  }
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     for (int i = 0; i < empleados.length; i++) {
-    //empleados[i].vacacionesList = [];
-    //empleados[i].art50List = [];
-    //empleados[i].art25List = [];
-    //empleados[i].art24List = [];
-    //empleados[i].dias25 = 0;
-    //empleados[i].dias24 = 0;
+      //empleados[i].vacacionesList = [];
+      //empleados[i].art50List = [];
+      //empleados[i].art25List = [];
+      //empleados[i].art24List = [];
+      //empleados[i].dias25 = 0;
+      //empleados[i].dias24 = 0;
     }
     initState();
-    
-   
 
     return MaterialApp(
-      localizationsDelegates: [GlobalMaterialLocalizations.delegate, 
-      GlobalCupertinoLocalizations.delegate,],
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       supportedLocales: [const Locale('es')],
       title: 'Control de Personal',
       home: HomePage(),
@@ -84,9 +78,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-Future guardarDatos(List <Empleado> emple) async{
+Future guardarDatos(List<Empleado> emple) async {
   emple.forEach((element) {
-     _empleadoBox.put(element);
-});
+    _empleadoBox.put(element);
+  });
 //_loadStore();
 }
