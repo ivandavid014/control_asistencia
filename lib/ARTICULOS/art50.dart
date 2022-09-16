@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../CRUD/returns_50.dart';
-import '../DTOs/DTOempleado.dart';
 import '../DTOs/DTOart50.dart';
 import '../global_consts.dart';
 
@@ -40,7 +39,7 @@ class _Art50State extends State<Art50> {
           children: [
             Divider(),
             SizedBox(
-              width: 150,
+              width: 250,
               height: 50,
               child: ElevatedButton(
                 onPressed: () async {
@@ -61,29 +60,28 @@ class _Art50State extends State<Art50> {
                 ),
               ),
             ),
-            buildDivider(),
-            SizedBox(
-              width: 190,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => (Ret50(widget.indexEmple!,0)),
-                    ),
-                  );
-                },
-                child: Text(
-                  'HORAS DEVUELTAS',
-                  style: TextStyle(fontSize: 19),
-                ),
-                style: ElevatedButton.styleFrom(
-                  shape: StadiumBorder(),
-                  primary: Color.fromARGB(255, 31, 179, 122),
-                ),
-              ),
-            ),
+            // SizedBox(
+            //   width: 190,
+            //   height: 50,
+            //   child: ElevatedButton(
+            //     onPressed: () {
+            //       Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //           builder: (context) => (Ret50(widget.indexEmple!,0)),
+            //         ),
+            //       );
+            //     },
+            //     child: Text(
+            //       'HORAS DEVUELTAS',
+            //       style: TextStyle(fontSize: 19),
+            //     ),
+            //     style: ElevatedButton.styleFrom(
+            //       shape: StadiumBorder(),
+            //       primary: Color.fromARGB(255, 31, 179, 122),
+            //     ),
+            //   ),
+            // ),
             Divider(),
             SizedBox(
               height: 125,
@@ -223,7 +221,7 @@ class _Art50State extends State<Art50> {
     datePedido = DateFormat('EEEE, dd/MM/yy').format(_myDateTime!);
 
     DtoArt50 art = DtoArt50(datePedido: datePedido, horas50: horas50);
-  empleados[widget.indexEmple!].art50List.insert(0, art);
+    empleados[widget.indexEmple!].art50List.insert(0, art);
     guardarDatos(empleados);
     setState(() {});
   }

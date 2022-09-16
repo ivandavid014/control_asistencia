@@ -1,12 +1,9 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import '../DTOs/DTOart50.dart';
 import '../main.dart';
 
 // ignore: must_be_immutable
 class Ret50 extends StatefulWidget {
-  int indexart50;
+int indexart50;
 int indexemple;
   Ret50(this.indexemple, this.indexart50);
 
@@ -75,7 +72,7 @@ class _Ret50State extends State<Ret50> {
                 child: Text(
                   'Devolvió:',
                   style: TextStyle(
-                    fontSize: 60,
+                    fontSize: 40,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
@@ -85,7 +82,7 @@ class _Ret50State extends State<Ret50> {
                 child: Text(
                   '$_counter horas',
                   style: const TextStyle(
-                      fontSize: 100,
+                      fontSize: 80,
                       color: Colors.white,
                       fontWeight: FontWeight.bold),
                 ),
@@ -118,7 +115,7 @@ class _Ret50State extends State<Ret50> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     FloatingActionButton(
-                      heroTag: "restar",
+                      heroTag: "restar horas",
                       backgroundColor: _counter == 0
                           ? Colors.transparent
                           : Colors.lightGreenAccent,
