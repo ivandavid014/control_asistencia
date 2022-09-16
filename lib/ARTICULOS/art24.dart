@@ -38,7 +38,7 @@ class _Art24State extends State<Art24> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () async {
-                  _myDateTime = await showDatePicker(
+                 /* _myDateTime = await showDatePicker(
                     locale: const Locale("es", "ES"),
                     context: context,
                     initialDate: _myDateTime ?? DateTime.now(),
@@ -56,7 +56,7 @@ class _Art24State extends State<Art24> {
                     empl!.art24List.insert(0, art);
                     empl!.dias24 = empl!.dias24! + 1;
                     guardarDatos(empleados);
-                    setState(() {});
+                    setState(() {});*/
                 },
                 child: Text(
                   'PEDIR ARTÍCULO',

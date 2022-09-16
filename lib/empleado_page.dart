@@ -48,42 +48,43 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
         // title: Text(empleado!.apellido! + ', ' + empleado!.nombre!),
       ),
       body: pages[_currentIndex],
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.grey[900],
-        animationDuration: const Duration(seconds: 2),
-        height: 50,
-        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-        selectedIndex: _currentIndex,
-        onDestinationSelected: (int newIndex) {
+      bottomNavigationBar: BottomNavigationBar(
+        
+        type: BottomNavigationBarType.shifting, // Shifting
+        
+        unselectedItemColor: Colors.grey,
+        elevation: 100,
+        currentIndex: _currentIndex,
+        onTap: (int newIndex) {
           setState(() {
             _currentIndex = newIndex;
           });
         },
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.twenty_four_mp_sharp, color: Colors.white),
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.twenty_four_mp_sharp),
             label: 'Art. 24',
-            selectedIcon: Icon(Icons.arrow_circle_up_sharp),
+            backgroundColor: Colors.grey[600],
           ),
-          NavigationDestination(
-            icon: Icon(Icons.list_alt_outlined, color: Colors.white),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list_alt_outlined),
             label: 'Art. 25',
-            selectedIcon: Icon(Icons.arrow_circle_up_sharp),
+            backgroundColor: Colors.grey[600],
           ),
-          NavigationDestination(
-            icon: Icon(Icons.person_rounded, color: Colors.white),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_rounded),
             label: 'Perfil',
-            selectedIcon: Icon(Icons.arrow_circle_up_sharp),
+            backgroundColor: Colors.green[300],
           ),
-          NavigationDestination(
-            icon: Icon(Icons.five_g_sharp, color: Colors.white),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list_alt_outlined),
             label: 'Art. 50',
-            selectedIcon: Icon(Icons.arrow_circle_up_sharp),
+            backgroundColor: Colors.grey[600],           
           ),
-          NavigationDestination(
-            icon: Icon(Icons.flight_outlined, color: Colors.white),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.flight_outlined),
             label: 'Vacaciones',
-            selectedIcon: Icon(Icons.arrow_circle_up_sharp),
+            backgroundColor: Colors.blue[300],
           ),
         ],
       ),

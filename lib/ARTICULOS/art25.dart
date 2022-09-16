@@ -44,12 +44,12 @@ class _Art25State extends State<Art25> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () async {
-                  if (empl!.dias25! <= 5) {
+                 /* if (empl!.dias25! <= 5) {
                     agregarArt25toEmpleado();
                   } else {
                     bool res = await confirm(context);
                     if (res) agregarArt25toEmpleado();
-                  }
+                  }*/
                 },
                 child: Text(
                   'PEDIR ARTÍCULO',
