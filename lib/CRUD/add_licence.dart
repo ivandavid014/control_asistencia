@@ -2,19 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:control_personal_municipal/DTOs/DTOvacaciones.dart';
 import '../DTOs/DTOempleado.dart';
+import '../main.dart';
 
 // ignore: must_be_immutable
-class AddLicense extends StatefulWidget {
-  Empleado empleado;
+class Licencia extends StatefulWidget {
+  int indexVac;
+  int indexemple;
+  Licencia(this.indexemple, this.indexVac);
 
-  AddLicense(this.empleado);
   @override
-  _HomeState createState() => _HomeState(empleado);
+  State<Licencia> createState() => _LicenciaState();
 }
 
-class _HomeState extends State<AddLicense> {
+class _LicenciaState extends State<Licencia> {
   Empleado empleado;
-  _HomeState(this.empleado);
+  _LicenciaState(this.empleado);
   DateTimeRange dateRange = DateTimeRange(
     start: DateTime(DateTime.now().year - 3),
     end: DateTime(DateTime.now().year + 3),
@@ -41,11 +43,32 @@ class _HomeState extends State<AddLicense> {
               child: Align(
                 alignment: Alignment.center,
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     Vacaciones vac = Vacaciones(
-                        datesalida: DateFormat('EEEE, dd/MM/yy').format(start),
-                        datevuelta: DateFormat('EEEE, dd/MM/yy').format(end));
-                    empleado.vacacionesList.insert(0, vac);
+                      dateSalida: DateFormat('EEEE, dd/MM/yy').format(start),
+                      dateVuelta: DateFormat('EEEE, dd/MM/yy').format(end),
+                      id: empleados[widget.indexemple]
+                          .vacacionesList[widget.indexVac]
+                          .id,
+                      /*dateSalida: empleados[widget.indexemple]
+                          .vacacionesList[widget.indexVac]
+                          .dateSalida,
+                      dateVuelta: empleados[widget.indexemple]
+                          .vacacionesList[widget.indexVac]
+                          .dateVuelta,*/
+                      diasPedidos: empleados[widget.indexemple]
+                          .vacacionesList[widget.indexVac]
+                          .diasPedidos,
+                      diasRestantes: empleados[widget.indexemple]
+                          .vacacionesList[widget.indexVac]
+                          .diasRestantes,
+                      diasCorrespondientes: empleados[widget.indexemple]
+                          .vacacionesList[widget.indexVac]
+                          .diasCorrespondientes,
+                    );
+                    empleados[widget.indexemple]
+                        .vacacionesList[widget.indexVac] = vac;
+                    await guardarDatos(empleados);
                     Navigator.of(context).pop();
                   },
                   child: Text('GUARDAR'),

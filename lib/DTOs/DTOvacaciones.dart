@@ -8,36 +8,35 @@ String vacacionesToJson(Vacaciones data) => json.encode(data.toJson());
 @Entity()
 class Vacaciones {
   Vacaciones({
-    this.datesalida,
-    this.datevuelta,
-    this.diaspedidos,
-    this.diasrestantes,
-    this.diascorrespondientes,
+    this.id= 0,
+    this.dateSalida= '',
+    this.dateVuelta= '',
+    this.diasPedidos=0,
+    this.diasRestantes= 0,
+    this.diasCorrespondientes= 0,
   });
   int id = 0;
-  String? datesalida;
-  String? datevuelta;
-  int? diaspedidos;
-  int? diasrestantes;
-  int? diascorrespondientes;
+  String? dateSalida;
+  String? dateVuelta;
+  int? diasPedidos;
+  int? diasRestantes;
+  int? diasCorrespondientes;
 
   var vacaciones = ToOne<Empleado>();
 
 
   factory Vacaciones.fromJson(Map<String, dynamic> json) => Vacaciones(
-      datesalida: json["datesalida"],
-      datevuelta: json["datevuelta"],
-      diaspedidos: json["diaspedidos"],
-      diasrestantes: json["diasrestantes"],
-      diascorrespondientes: json["diascorrespondientes"]);
-
-  get difference => null;
+      dateSalida: json["datesalida"],
+      dateVuelta: json["datevuelta"],
+      diasPedidos: json["diaspedidos"],
+      diasRestantes: json["diasrestantes"],
+      diasCorrespondientes: json["diascorrespondientes"]);
 
   Map<String, dynamic> toJson() => {
-        "datesalida": datesalida,
-        "datevuelta": datevuelta,
-        "diaspedidos": diaspedidos,
-        "diasrestantes": diasrestantes,
-        "diascorrespondientes": diascorrespondientes,
+        "datesalida": dateSalida,
+        "datevuelta": dateVuelta,
+        "diaspedidos": diasPedidos,
+        "diasrestantes": diasRestantes,
+        "diascorrespondientes": diasCorrespondientes,
       };
 }

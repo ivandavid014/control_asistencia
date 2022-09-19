@@ -513,19 +513,19 @@ ModelDefinition getObjectBoxModel() {
           object.id = id;
         },
         objectToFB: (Vacaciones object, fb.Builder fbb) {
-          final datesalidaOffset = object.datesalida == null
+          final datesalidaOffset = object.dateSalida == null
               ? null
-              : fbb.writeString(object.datesalida!);
-          final datevueltaOffset = object.datevuelta == null
+              : fbb.writeString(object.dateSalida!);
+          final datevueltaOffset = object.dateVuelta == null
               ? null
-              : fbb.writeString(object.datevuelta!);
+              : fbb.writeString(object.dateVuelta!);
           fbb.startTable(8);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, datesalidaOffset);
           fbb.addOffset(2, datevueltaOffset);
-          fbb.addInt64(3, object.diaspedidos);
-          fbb.addInt64(4, object.diasrestantes);
-          fbb.addInt64(5, object.diascorrespondientes);
+          fbb.addInt64(3, object.diasPedidos);
+          fbb.addInt64(4, object.diasRestantes);
+          fbb.addInt64(5, object.diasCorrespondientes);
           fbb.addInt64(6, object.vacaciones.targetId);
           fbb.finish(fbb.endTable());
           return object.id;
@@ -535,15 +535,15 @@ ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
 
           final object = Vacaciones(
-              datesalida: const fb.StringReader(asciiOptimization: true)
+              dateSalida: const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 6),
-              datevuelta: const fb.StringReader(asciiOptimization: true)
+              dateVuelta: const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 8),
-              diaspedidos: const fb.Int64Reader()
+              diasPedidos: const fb.Int64Reader()
                   .vTableGetNullable(buffer, rootOffset, 10),
-              diasrestantes: const fb.Int64Reader()
+              diasRestantes: const fb.Int64Reader()
                   .vTableGetNullable(buffer, rootOffset, 12),
-              diascorrespondientes: const fb.Int64Reader()
+              diasCorrespondientes: const fb.Int64Reader()
                   .vTableGetNullable(buffer, rootOffset, 14))
             ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
           object.vacaciones.targetId =

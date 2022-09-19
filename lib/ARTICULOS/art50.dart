@@ -4,12 +4,10 @@ import 'package:intl/intl.dart';
 
 import '../CRUD/returns_50.dart';
 import '../DTOs/DTOart50.dart';
-import '../global_consts.dart';
 
 // ignore: must_be_immutable
 class Art50 extends StatefulWidget {
   int? indexEmple;
-
   Art50(this.indexEmple);
 
   @override
@@ -18,9 +16,7 @@ class Art50 extends StatefulWidget {
 
 class _Art50State extends State<Art50> {
   DateTime? _myDateTime;
-
   String datePedido = '';
-
   int horas50 = 0;
   String? observaciones;
   _Art50State();
@@ -127,6 +123,7 @@ class _Art50State extends State<Art50> {
                       margin: EdgeInsets.fromLTRB(3, 2, 3, 3),
                       child: ListTile(
                         onTap: () async {
+                          // ignore: unused_local_variable
                           final res = await Navigator.push(
                             context,
                             MaterialPageRoute(

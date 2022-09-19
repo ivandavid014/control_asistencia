@@ -1,13 +1,12 @@
 import 'package:control_personal_municipal/CRUD/add_licence.dart';
 import 'package:flutter/material.dart';
-
-import '../DTOs/DTOempleado.dart';
+import '../main.dart';
 
 // ignore: must_be_immutable
 class ArtLicencia extends StatelessWidget {
-  Empleado? empl;
-
-  ArtLicencia(this.empl);
+  int indexVac;
+  int indexemple;
+  ArtLicencia(this.indexemple, this.indexVac);
 
   @override
   Widget build(BuildContext context) {
@@ -16,15 +15,17 @@ class ArtLicencia extends StatelessWidget {
         data: Theme.of(context).copyWith(splashColor: Colors.green),
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AddLicense(empl!)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Licencia(indexVac, indexemple)));
           },
           child: const Icon(Icons.add_sharp),
         ),
       ),
       body: InkWell(
         child: ListView.builder(
-          itemCount: empl!.vacacionesList.length,
+          itemCount: empleados[indexemple].vacacionesList.length,
           itemBuilder: (context, index) {
             return Container(
               padding: EdgeInsets.all(6.0),
@@ -46,8 +47,8 @@ class ArtLicencia extends StatelessWidget {
               child: ListTile(
                 title: Text(
                   'Licencia pedida desde el ' +
-                      ' ${empl!.vacacionesList[index].datesalida}' +
-                      ' hasta el ${empl!.vacacionesList[index].datevuelta}. Son xx días, de ${empl!.diasCorrespondientes!} disponibles.',
+                      ' ${empleados[indexemple].vacacionesList[indexVac].dateSalida}' +
+                      ' hasta el${empleados[indexemple].vacacionesList[indexVac].dateVuelta}. Son ${empleados[indexemple].vacacionesList[indexVac].diasPedidos} días, de ${empleados[indexemple].vacacionesList[indexVac].diasCorrespondientes} disponibles.',
                   style: TextStyle(
                       fontSize: 15,
                       fontStyle: FontStyle.normal,
