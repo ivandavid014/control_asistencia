@@ -1,4 +1,5 @@
 var empleadosLista = [
+  //CENTRAL
   {
     "nombre": "Maximiliano",
     "apellido": "Segovia",
@@ -299,6 +300,7 @@ var empleadosLista = [
     "estacion": 'Central',
     "urlFoto": "https://i.ibb.co/XpVmDLL/empty.png",
   },
+  // VILLA TERESA
   {
     "nombre": "Estefanía",
     "apellido": "Bogner",
@@ -311,5 +313,88 @@ var empleadosLista = [
     "telefono": 342659994,
     "estacion": 'Villa Teresa',
     "urlFoto": "https://i.ibb.co/XpVmDLL/empty.png",
-  }
+  },
+
+  // MEDIATECA
+  {
+    "nombre": "Alicia",
+    "apellido": "Machado",
+    "dni": 0,
+    "condicion": "Planta No Permanente",
+    "codigo": 15625,
+    "movilidad": false,
+    "distancia": true,
+    "diasCorrespondientes": 10,
+    "telefono": 3426987758,
+    "estacion": 'Mediateca Santa Rosa',
+    "urlFoto": "https://i.ibb.co/XpVmDLL/empty.png",
+  },
+  {
+    "nombre": "Daiana",
+    "apellido": "Morales",
+    "dni": 0,
+    "condicion": "Practicante",
+    "codigo": 64790,
+    "movilidad": false,
+    "distancia": true,
+    "diasCorrespondientes": 10,
+    "telefono": 3425167730,
+    "estacion": 'Mediateca Santa Rosa',
+    "urlFoto": "https://i.ibb.co/XpVmDLL/empty.png",
+  },
+  {
+    "nombre": "Rocío",
+    "apellido": "Ruíz",
+    "dni": 0,
+    "condicion": "Practicante",
+    "codigo": 65289,
+    "movilidad": false,
+    "distancia": true,
+    "diasCorrespondientes": 10,
+    "telefono": 342508859,
+    "estacion": 'Mediateca Santa Rosa',
+    "urlFoto": "https://i.ibb.co/XpVmDLL/empty.png",
+  },
+  {
+    "nombre": "Walter",
+    "apellido": "Maik",
+    "dni": 0,
+    "condicion": "Planta Permantente",
+    "codigo": 40050,
+    "movilidad": true,
+    "distancia": true,
+    "diasCorrespondientes": 30,
+    "telefono": 3425419899,
+    "estacion": 'Mediateca Santa Rosa',
+    "urlFoto": "https://i.ibb.co/XpVmDLL/empty.png",
+  },
+  {
+    "nombre": "María de los Ángeles",
+    "apellido": "Leiva",
+    "dni": 0,
+    "condicion": "Practicante",
+    "codigo": 64898,
+    "movilidad": false,
+    "distancia": true,
+    "diasCorrespondientes": 10,
+    "telefono": 3425220646,
+    "estacion": 'Mediateca Santa Rosa',
+    "urlFoto": "https://i.ibb.co/XpVmDLL/empty.png",
+  },
+
+  // BARRANQUITAS
+
+  {
+    "nombre": "Mercedes",
+    "apellido": "Fernandez",
+    "dni": 0,
+    "condicion": "Planta Permantente",
+    "codigo": 64790,
+    "movilidad": false,
+    "distancia": true,
+    "diasCorrespondientes": 10,
+    "telefono": 3425167730,
+    "estacion": 'Barranquitas',
+    "urlFoto": "https://i.ibb.co/XpVmDLL/empty.png",
+  },
 ];

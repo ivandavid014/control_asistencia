@@ -1,7 +1,6 @@
 import 'package:control_personal_municipal/main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import '../CRUD/returns_50.dart';
 import '../DTOs/DTOart50.dart';
 
@@ -123,8 +122,7 @@ class _Art50State extends State<Art50> {
                       margin: EdgeInsets.fromLTRB(3, 2, 3, 3),
                       child: ListTile(
                         onTap: () async {
-                          // ignore: unused_local_variable
-                          final res = await Navigator.push(
+                          await Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) =>

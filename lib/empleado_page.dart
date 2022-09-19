@@ -31,7 +31,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
       Art25(empleado),
       Profile(empleado),
       Art50(empleados.indexOf(empleado!)),
-      ArtLicencia(empleados.indexOf()),
+      ArtLicencia(empleados.indexOf(empleado!)),
     ];
     return Scaffold(
       appBar: AppBar(
@@ -63,7 +63,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.twenty_four_mp_sharp),
             label: 'Art. 24',
-            backgroundColor: Colors.grey[600],
+            backgroundColor: Color.fromARGB(255, 31, 179, 122),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list_alt_outlined),
@@ -73,7 +73,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.person_rounded),
             label: 'Perfil',
-            backgroundColor: Colors.green[300],
+            backgroundColor: Color.fromARGB(255, 31, 179, 122),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list_alt_outlined),
@@ -83,7 +83,7 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.flight_outlined),
             label: 'Vacaciones',
-            backgroundColor: Colors.blue[300],
+            backgroundColor: Color.fromARGB(255, 31, 179, 122),
           ),
         ],
       ),

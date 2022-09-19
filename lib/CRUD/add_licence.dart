@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:control_personal_municipal/DTOs/DTOvacaciones.dart';
-import '../DTOs/DTOempleado.dart';
 import '../main.dart';
 
 // ignore: must_be_immutable
@@ -15,8 +14,7 @@ class Licencia extends StatefulWidget {
 }
 
 class _LicenciaState extends State<Licencia> {
-  Empleado empleado;
-  _LicenciaState(this.empleado);
+  _LicenciaState();
   DateTimeRange dateRange = DateTimeRange(
     start: DateTime(DateTime.now().year - 3),
     end: DateTime(DateTime.now().year + 3),
@@ -31,56 +29,29 @@ class _LicenciaState extends State<Licencia> {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.grey.shade900,
-          title: Text("Agregar nueva licencia")),
+          title: widget.indexVac == -1
+              ? Text("Agregar nueva licencia")
+              : Text("Editar licencia")),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(16, 30, 10, 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-              height: 60,
               width: 300,
-              child: Align(
-                alignment: Alignment.center,
-                child: ElevatedButton(
-                  onPressed: () async {
-                    Vacaciones vac = Vacaciones(
-                      dateSalida: DateFormat('EEEE, dd/MM/yy').format(start),
-                      dateVuelta: DateFormat('EEEE, dd/MM/yy').format(end),
-                      id: empleados[widget.indexemple]
-                          .vacacionesList[widget.indexVac]
-                          .id,
-                      /*dateSalida: empleados[widget.indexemple]
-                          .vacacionesList[widget.indexVac]
-                          .dateSalida,
-                      dateVuelta: empleados[widget.indexemple]
-                          .vacacionesList[widget.indexVac]
-                          .dateVuelta,*/
-                      diasPedidos: empleados[widget.indexemple]
-                          .vacacionesList[widget.indexVac]
-                          .diasPedidos,
-                      diasRestantes: empleados[widget.indexemple]
-                          .vacacionesList[widget.indexVac]
-                          .diasRestantes,
-                      diasCorrespondientes: empleados[widget.indexemple]
-                          .vacacionesList[widget.indexVac]
-                          .diasCorrespondientes,
-                    );
-                    empleados[widget.indexemple]
-                        .vacacionesList[widget.indexVac] = vac;
-                    await guardarDatos(empleados);
-                    Navigator.of(context).pop();
-                  },
-                  child: Text('GUARDAR'),
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)),
-                    fixedSize: Size(MediaQuery.of(context).size.width, 35),
-                    primary: Color.fromARGB(255, 31, 179, 122),
-                  ),
+              height: 60,
+              child: ElevatedButton(
+                onPressed: pickDateRange,
+                child: Text('Seleccionar días de licencia'),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  fixedSize: Size(MediaQuery.of(context).size.width, 35),
+                  primary: Color.fromARGB(255, 31, 179, 122),
                 ),
               ),
             ),
+            SizedBox(height: 50),
             TextField(
                 enabled: false,
                 decoration: InputDecoration(
@@ -90,17 +61,7 @@ class _LicenciaState extends State<Licencia> {
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(color: Colors.white60),
                     ))),
-            SizedBox(height: 15),
-            SizedBox(
-              width: 250,
-              height: 50,
-              child: ElevatedButton(
-                style: TextButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 31, 179, 122)),
-                onPressed: pickDateRange,
-                child: Text('Seleccionar días de licencia'),
-              ),
-            ),
+            SizedBox(height: 10),
             SizedBox(height: 15),
             TextField(
                 enabled: false,
@@ -112,17 +73,60 @@ class _LicenciaState extends State<Licencia> {
                     ))),
             SizedBox(height: 5),
             const SizedBox(height: 15),
-            Text(
-              'Licencia pedida:  ${difference.inDays} días',
-              style: TextStyle(color: Colors.white, fontSize: 28),
-            ),
-            SizedBox(height: 15),
-            ElevatedButton(
+            widget.indexVac == -1
+                ? Text(
+                    'Licencia pedida: aun no pediste días',
+                    style: TextStyle(color: Colors.white, fontSize: 28),
+                  )
+                : Text(
+                    'Licencia pedida: ${empleados[widget.indexemple].vacacionesList[widget.indexVac].diasPedidos}  días',
+                    style: TextStyle(color: Colors.white, fontSize: 28),
+                  ),
+            SizedBox(height: 80),
+            /*   ElevatedButton(
                 style: TextButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 31, 179, 122)),
                 //onPressed: buildObservaciones,
                 onPressed: () {},
-                child: Text('OBSERVACIONES')),
+           
+                child: Text('OBSERVACIONES')),*/
+            SizedBox(
+              height: 60,
+              width: 200,
+              child: Align(
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    Vacaciones vac = Vacaciones(
+                      dateSalida: DateFormat('EEEE, dd/MM/yy').format(start),
+                      dateVuelta: DateFormat('EEEE, dd/MM/yy').format(end),
+                      diasPedidos: difference.inDays,
+                      diasRestantes:
+                          empleados[widget.indexemple].diasCorrespondientes! -
+                              difference.inDays,
+                      diasCorrespondientes:
+                          empleados[widget.indexemple].diasCorrespondientes,
+                    );
+                    if (widget.indexVac == -1) {
+                      empleados[widget.indexemple].vacacionesList.add(vac);
+                    } else {
+                      empleados[widget.indexemple]
+                          .vacacionesList[widget.indexVac] = vac;
+                    }
+
+                    await guardarDatos(empleados);
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('GUARDAR'),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    fixedSize: Size(MediaQuery.of(context).size.width, 45),
+                    primary: Color.fromARGB(255, 31, 179, 122),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -139,11 +143,22 @@ class _LicenciaState extends State<Licencia> {
   }
 
   Future pickDateRange() async {
+    final themeData = Theme.of(context);
     DateTimeRange? newDateRange = await showDateRangePicker(
-      context: context,
-      firstDate: DateTime(DateTime.now().day - 1),
-      lastDate: DateTime(DateTime.now().year + 3),
-    );
+        context: context,
+        firstDate: DateTime(DateTime.now().day - 1),
+        lastDate: DateTime(DateTime.now().year + 3),
+        builder: (context, Widget? child) => Theme(
+              data: themeData.copyWith(
+                  scaffoldBackgroundColor: Colors.grey[50],
+                  appBarTheme: themeData.appBarTheme.copyWith(
+                    backgroundColor: Color.fromARGB(255, 31, 179, 122),
+                  ),
+                  colorScheme: ColorScheme.light(
+                      onPrimary: Colors.white,
+                      primary: Color.fromARGB(255, 31, 179, 122))),
+              child: child!,
+            ));
 
     if (newDateRange == null) return;
 
