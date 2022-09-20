@@ -45,21 +45,22 @@ class _ArtLicenciaState extends State<ArtLicencia> {
             ),
             Divider(),
             SizedBox(
-              height: 125,
+              height: 80,
             ),
           ],
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(6.0),
+            padding: EdgeInsets.all(1.0),
             child: Container(
               decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomRight,
                   colors: [
                     Color.fromARGB(255, 31, 179, 122),
-                    Colors.black26,
+                    Colors.black12,
                   ],
                 ),
               ),
@@ -74,7 +75,7 @@ class _ArtLicenciaState extends State<ArtLicencia> {
                         border: Border.all(
                             color: Color.fromARGB(255, 128, 128, 128),
                             width: 0.1),
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(6),
                         gradient: LinearGradient(
                           begin: Alignment.topRight,
                           end: Alignment(0.4, 0.5),
@@ -101,11 +102,11 @@ class _ArtLicenciaState extends State<ArtLicencia> {
                           _delete(index);
                         },
                         title: Text(
-                          'Licencia pedida desde el ' +
+                          'Licencia pedida desde el' +
                               ' ${empleados[widget.indexemple].vacacionesList[index].dateSalida}' +
                               ' hasta el ${empleados[widget.indexemple].vacacionesList[index].dateVuelta}. Son ${empleados[widget.indexemple].vacacionesList[index].diasPedidos} días, de ${empleados[widget.indexemple].vacacionesList[index].diasCorrespondientes} correspondientes.',
                           style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 18,
                               fontStyle: FontStyle.normal,
                               color: Colors.white),
                           maxLines: 5,
@@ -127,7 +128,7 @@ class _ArtLicenciaState extends State<ArtLicencia> {
       context: context,
       builder: (BuildContext ctx) {
         return AlertDialog(
-          title: const Text('Confirmar'),
+          title: const Text('ELIMINAR VACACIONES'),
           content: const Text('¿Estás seguro de querer borrar esta entrada?'),
           actions: [
             ElevatedButton(

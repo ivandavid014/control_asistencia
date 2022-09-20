@@ -12,6 +12,7 @@ class Profile extends StatelessWidget {
     var empleado = empl!;
     return Scaffold(
       body: ListView(
+        padding: EdgeInsets.fromLTRB(0, 35, 0, 0),
         physics: BouncingScrollPhysics(),
         children: [
           ProfileWidget(
@@ -44,6 +45,7 @@ class ProfileWidget extends StatelessWidget {
 
     return Center(
       child: Stack(
+        alignment: AlignmentDirectional.center,
         children: [
           traerImagen(),
           Positioned(
@@ -115,7 +117,7 @@ class DatosFrontales extends StatelessWidget {
             Expanded(
               child: buildButton(
                   context,
-                  (empl!.movilidad! && empl!.distancia!) == true ? 'SI' : "NO",
+                  (empl!.movilidad! || empl!.distancia!) == true ? 'SI' : "NO",
                   'Debe concurrir'),
             ),
             buildDivider(),

@@ -45,14 +45,12 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
           },
         ),
         backgroundColor: Colors.transparent,
-        // title: Text(empleado!.apellido! + ', ' + empleado!.nombre!),
       ),
       body: pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting, // Shifting
 
         unselectedItemColor: Colors.grey,
-        elevation: 100,
         currentIndex: _currentIndex,
         onTap: (int newIndex) {
           setState(() {

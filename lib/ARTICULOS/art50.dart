@@ -55,39 +55,18 @@ class _Art50State extends State<Art50> {
                 ),
               ),
             ),
-            // SizedBox(
-            //   width: 190,
-            //   height: 50,
-            //   child: ElevatedButton(
-            //     onPressed: () {
-            //       Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //           builder: (context) => (Ret50(widget.indexEmple!,0)),
-            //         ),
-            //       );
-            //     },
-            //     child: Text(
-            //       'HORAS DEVUELTAS',
-            //       style: TextStyle(fontSize: 19),
-            //     ),
-            //     style: ElevatedButton.styleFrom(
-            //       shape: StadiumBorder(),
-            //       primary: Color.fromARGB(255, 31, 179, 122),
-            //     ),
-            //   ),
-            // ),
             Divider(),
             SizedBox(
-              height: 125,
+              height: 80,
             ),
           ],
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(6.0),
+            padding: EdgeInsets.all(1.0),
             child: Container(
               decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomRight,
@@ -108,7 +87,7 @@ class _Art50State extends State<Art50> {
                         border: Border.all(
                             color: Color.fromARGB(255, 128, 128, 128),
                             width: 0.1),
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(6),
                         gradient: LinearGradient(
                           begin: Alignment.topRight,
                           end: Alignment(0.4, 0.5),
@@ -162,7 +141,7 @@ class _Art50State extends State<Art50> {
       context: context,
       builder: (BuildContext ctx) {
         return AlertDialog(
-          title: const Text('Confirmar'),
+          title: const Text('ELIMINAR ART. 50'),
           content: const Text('¿Estás seguro de querer borrar esta entrada?'),
           actions: [
             ElevatedButton(

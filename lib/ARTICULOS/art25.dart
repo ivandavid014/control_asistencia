@@ -44,7 +44,7 @@ class _Art25State extends State<Art25> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () async {
-                 /* if (empl!.dias25! <= 5) {
+                  /* if (empl!.dias25! <= 5) {
                     agregarArt25toEmpleado();
                   } else {
                     bool res = await confirm(context);
@@ -86,15 +86,16 @@ class _Art25State extends State<Art25> {
             ),
             Divider(),
             SizedBox(
-              height: 125,
+              height: 80,
             ),
           ],
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(6.0),
+            padding: EdgeInsets.all(1.0),
             child: Container(
               decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomRight,
@@ -114,7 +115,7 @@ class _Art25State extends State<Art25> {
                         border: Border.all(
                             color: Color.fromARGB(255, 128, 128, 128),
                             width: 0.1),
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(10),
                         gradient: LinearGradient(
                           begin: Alignment.topRight,
                           end: Alignment(0.4, 0.5),

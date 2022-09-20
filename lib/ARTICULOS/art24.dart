@@ -38,7 +38,7 @@ class _Art24State extends State<Art24> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () async {
-                 /* _myDateTime = await showDatePicker(
+                  /* _myDateTime = await showDatePicker(
                     locale: const Locale("es", "ES"),
                     context: context,
                     initialDate: _myDateTime ?? DateTime.now(),
@@ -93,15 +93,16 @@ class _Art24State extends State<Art24> {
             ),
             Divider(),
             SizedBox(
-              height: 125,
+              height: 80,
             ),
           ],
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(6.0),
+            padding: EdgeInsets.all(1.0),
             child: Container(
               decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomRight,
@@ -121,7 +122,7 @@ class _Art24State extends State<Art24> {
                         border: Border.all(
                             color: Color.fromARGB(255, 128, 128, 128),
                             width: 0.1),
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(10),
                         gradient: LinearGradient(
                           begin: Alignment.topRight,
                           end: Alignment(0.4, 0.5),

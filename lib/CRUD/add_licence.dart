@@ -33,7 +33,7 @@ class _LicenciaState extends State<Licencia> {
               ? Text("Agregar nueva licencia")
               : Text("Editar licencia")),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 30, 10, 10),
+        padding: const EdgeInsets.fromLTRB(16, 20, 10, 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -75,7 +75,7 @@ class _LicenciaState extends State<Licencia> {
             const SizedBox(height: 15),
             widget.indexVac == -1
                 ? Text(
-                    'Licencia pedida: aun no pediste días',
+                    'Licencia pedida: aún no pidió vacaciones',
                     style: TextStyle(color: Colors.white, fontSize: 28),
                   )
                 : Text(
