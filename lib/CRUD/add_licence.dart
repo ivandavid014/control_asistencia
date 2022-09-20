@@ -42,7 +42,13 @@ class _LicenciaState extends State<Licencia> {
               height: 60,
               child: ElevatedButton(
                 onPressed: pickDateRange,
-                child: Text('Seleccionar días de licencia'),
+                child: Text(
+                  'Seleccionar días de licencia',
+                  style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
@@ -73,15 +79,19 @@ class _LicenciaState extends State<Licencia> {
                     ))),
             SizedBox(height: 5),
             const SizedBox(height: 15),
-            widget.indexVac == -1
+            (widget.indexVac != -1)
                 ? Text(
-                    'Licencia pedida: aún no pidió vacaciones',
-                    style: TextStyle(color: Colors.white, fontSize: 28),
+                    'Licencia pedida: ${empleados[widget.indexemple].vacacionesList[widget.indexVac].diasPedidos} días',
+                    style: TextStyle(color: Colors.white, fontSize: 25),
                   )
-                : Text(
-                    'Licencia pedida: ${empleados[widget.indexemple].vacacionesList[widget.indexVac].diasPedidos}  días',
-                    style: TextStyle(color: Colors.white, fontSize: 28),
-                  ),
+                : (difference.inDays == 2192)
+                    ? Text(
+                        'Aún no solicitó días de vacaciones',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      )
+                    : Text(
+                        'Licencia por pedir: ${difference.inDays.toString()} días',
+                        style: TextStyle(color: Colors.white, fontSize: 25)),
             SizedBox(height: 80),
             /*   ElevatedButton(
                 style: TextButton.styleFrom(

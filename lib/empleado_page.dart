@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:control_personal_municipal/ARTICULOS/art50.dart';
 import 'package:control_personal_municipal/ARTICULOS/art25.dart';
 import 'package:control_personal_municipal/ARTICULOS/art24.dart';
@@ -46,11 +47,22 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
         ),
         backgroundColor: Colors.transparent,
       ),
-      body: pages[_currentIndex],
+      body: PageTransitionSwitcher(
+        transitionBuilder: (child, primaryAnimation, secondaryAnimation) =>
+            FadeThroughTransition(
+          fillColor: Colors.black54,
+          animation: primaryAnimation,
+          secondaryAnimation: secondaryAnimation,
+          child: child,
+        ),
+        child: pages[_currentIndex],
+      ),
+
+      //body: pages[_currentIndex],  BODY SIN ANIMACION
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting, // Shifting
 
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: Colors.grey[800],
         currentIndex: _currentIndex,
         onTap: (int newIndex) {
           setState(() {
