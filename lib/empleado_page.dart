@@ -36,7 +36,12 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: Text(appbarTitles[_currentIndex]),
+        centerTitle: true,
+        title: Text(
+          appbarTitles[_currentIndex],
+          style: TextStyle(
+              fontSize: 20, fontStyle: FontStyle.normal, color: Colors.white),
+        ),
         leading: GestureDetector(
           child: Icon(
             Icons.arrow_back_rounded,

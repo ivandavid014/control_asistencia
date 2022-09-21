@@ -17,13 +17,18 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.grey[800],
-          title: Text('BÚSQUEDA DE PERSONAL'),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          title: Text(
+            'BÚSQUEDA DE PERSONAL',
+            style: TextStyle(
+                fontSize: 20, fontStyle: FontStyle.normal, color: Colors.white),
+          ),
         ),
         body: Column(
           children: [
             Container(
-                color: Colors.grey[400],
+                color: Colors.grey[200],
                 child: TextField(
                   controller: controller,
                   decoration: InputDecoration(
@@ -49,7 +54,7 @@ class _SearchPageState extends State<SearchPage> {
                         begin: Alignment.topRight,
                         end: Alignment(0.4, 0.9),
                         colors: <Color>[
-                          Color(0x9dc1fa),
+                          Color.fromARGB(0, 151, 251, 188),
                           Colors.grey.shade700,
                         ],
                         stops: <double>[0.1, 1],

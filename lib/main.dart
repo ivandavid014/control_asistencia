@@ -31,10 +31,10 @@ Future<void> _loadStore() async {
 }
 
 void initState() async {
-//  if (_store == null) {
-  _store = await openStore();
-  await _loadStore();
-  //}
+  if (_store == null) {
+    _store = await openStore();
+    await _loadStore();
+  }
 
   if (empleados.isEmpty) {
     empleados =
