@@ -1,6 +1,9 @@
 import 'package:control_personal_municipal/widget/myDropdownForm.dart';
-import 'package:control_personal_municipal/widget/myTextForm.dart';
+
 import 'package:flutter/material.dart';
+
+import '../global_consts.dart';
+import '../widget/mytextform.dart';
 
 class NuevoEmpleado extends StatefulWidget {
   const NuevoEmpleado({Key? key}) : super(key: key);
@@ -12,14 +15,6 @@ class NuevoEmpleado extends StatefulWidget {
 class _NuevoEmpleadoState extends State<NuevoEmpleado> {
   int currentStep = 0;
   bool isCompleted = false;
-
-  List<String> revista = [
-    'Planta Permanente',
-    'Planta No Permanente',
-    'Practicante',
-    'Contrato'
-  ];
-  String? selectedRevista = 'Planta Permanente';
 
   final nombreController = TextEditingController();
   final apellidoController = TextEditingController();
@@ -116,53 +111,68 @@ class _NuevoEmpleadoState extends State<NuevoEmpleado> {
           content: Column(
             children: [
               MyTextForm(
+                keyboard: TextInputType.name,
                 controller: nombreController,
                 hint: 'NOMBRE',
                 label: 'NOMBRE',
+                icon: Icons.person_rounded,
               ),
+              Padding(padding: EdgeInsets.only(top: 10)),
               MyTextForm(
+                keyboard: TextInputType.name,
                 controller: apellidoController,
                 hint: 'APELLIDO',
                 label: 'APELLIDO',
+                icon: Icons.person_rounded,
               ),
+              Padding(padding: EdgeInsets.only(top: 10)),
               MyTextForm(
+                keyboard: TextInputType.phone,
                 controller: dniController,
                 hint: 'DNI',
                 label: 'DOCUMENTO',
+                icon: Icons.app_registration_rounded,
               ),
-              MyDropdownForm(controller: controller, label: label, hint: hint)
-
-              /*MyTextForm(
-                controller: condicionController,
-                hint: 'SITUACIÓN',
-                label: 'SITUACIÓN DE REVISTA',
-              ),
+              Padding(padding: EdgeInsets.only(top: 10)),
               MyTextForm(
+                keyboard: TextInputType.phone,
                 controller: codigoController,
-                hint: 'CÓDIGO',
-                label: 'CÓDIGO DE EMPLEADO',
-              ),
-
-              MyTextForm(
-                controller: movilidadController,
-                hint: '¿TIENE MOVILIDAD PROPIA?',
-                label: 'MOVILIDAD',
+                hint: 'EJ: 84559',
+                label: 'CÓDIGO MUNICIPAL',
+                icon: Icons.list_alt_rounded,
               ),
               MyTextForm(
-                controller: distanciaController,
-                hint: '¿VIVE A MÁS DE 3 KILÓMETROS?',
-                label: 'DISTANCIA',
-              ),
-              MyTextForm(
+                keyboard: TextInputType.phone,
                 controller: telefonoController,
                 hint: 'NÚMERO DE TELÉFONO',
                 label: 'TELÉFONO',
+                icon: Icons.phone_android_rounded,
               ),
+              Padding(padding: EdgeInsets.only(top: 10)),
               MyTextForm(
+                keyboard: TextInputType.phone,
                 controller: diasCorrespondientesController,
                 hint: 'CANTIDAD DE DÍAS',
                 label: 'DÍAS DE LICENCIA CORRESPONDIENTES',
-              ),*/
+                icon: Icons.wallet_travel_rounded,
+              ),
+              Padding(padding: EdgeInsets.only(top: 10)),
+              MyDropdownForm(
+                listValues: revista,
+                firtValue: revista.first,
+              ),
+              Padding(padding: EdgeInsets.only(top: 10)),
+              MyDropdownForm(
+                listValues: viveCerca,
+                firtValue: viveCerca.first,
+              ),
+              Padding(padding: EdgeInsets.only(top: 10)),
+              Padding(padding: EdgeInsets.only(top: 10)),
+              MyDropdownForm(
+                listValues: tieneMovilidad,
+                firtValue: tieneMovilidad.first,
+              ),
+              Padding(padding: EdgeInsets.only(top: 10)),
             ],
           ),
         ),

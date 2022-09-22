@@ -57,3 +57,17 @@ Future<bool> confirm(BuildContext context) async {
 
 Widget buildDivider() =>
     Container(height: 40, child: VerticalDivider(color: Colors.grey));
+
+List<String> revista = [
+  'Planta Permanente',
+  'Planta No Permanente',
+  'Practicante',
+  'Contrato'
+];
+String? selectedRevista = 'Planta Permanente';
+
+List<String> viveCerca = [
+  'Vive a más de 3 kilómetros',
+  'Vive a menos de 3 kilómetros'
+];
+List<String> tieneMovilidad = ['No tiene movilidad', 'Tiene movilidad'];
