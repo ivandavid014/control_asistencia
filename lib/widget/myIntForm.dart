@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyTextForm extends StatelessWidget {
-  const MyTextForm(
+class MyIntForm extends StatelessWidget {
+  const MyIntForm(
       {required this.controller, required this.label, required this.hint});
 
   final controller;
@@ -14,9 +14,7 @@ class MyTextForm extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: TextFormField(
         decoration: InputDecoration(
-            //contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 10),
             border: OutlineInputBorder(),
-            filled: true,
             labelText: this.label,
             labelStyle: TextStyle(
               color: Colors.white,
@@ -25,7 +23,7 @@ class MyTextForm extends StatelessWidget {
             hintText: this.hint),
         controller: this.controller,
         validator: (value) {
-          if (value == null || value.isEmpty) {
+          if (value! != int || value.isEmpty) {
             return 'POR FAVOR COMPLETE EL CAMPO';
           }
           return null;

@@ -1,4 +1,5 @@
-import 'package:control_personal_municipal/widget/mytextform.dart';
+import 'package:control_personal_municipal/widget/myDropdownForm.dart';
+import 'package:control_personal_municipal/widget/myTextForm.dart';
 import 'package:flutter/material.dart';
 
 class NuevoEmpleado extends StatefulWidget {
@@ -11,6 +12,14 @@ class NuevoEmpleado extends StatefulWidget {
 class _NuevoEmpleadoState extends State<NuevoEmpleado> {
   int currentStep = 0;
   bool isCompleted = false;
+
+  List<String> revista = [
+    'Planta Permanente',
+    'Planta No Permanente',
+    'Practicante',
+    'Contrato'
+  ];
+  String? selectedRevista = 'Planta Permanente';
 
   final nombreController = TextEditingController();
   final apellidoController = TextEditingController();
@@ -52,7 +61,7 @@ class _NuevoEmpleadoState extends State<NuevoEmpleado> {
               child: Theme(
                 data: Theme.of(context).copyWith(
                     colorScheme: ColorScheme.dark(
-                  primary: Color.fromARGB(255, 31, 179, 122),
+                  primary: Color.fromARGB(255, 22, 137, 93),
                 )),
                 child: Stepper(
                   type: StepperType.horizontal,
@@ -67,14 +76,26 @@ class _NuevoEmpleadoState extends State<NuevoEmpleado> {
                         if (currentStep != 0)
                           Expanded(
                             child: ElevatedButton(
-                              child: Text('VOLVER'),
+                              style: ElevatedButton.styleFrom(
+                                shape: StadiumBorder(),
+                                primary: Color.fromARGB(255, 31, 179, 122),
+                              ),
+                              child: Text('VOLVER',
+                                  style: TextStyle(
+                                      fontSize: 19, color: Colors.white)),
                               onPressed: onStepCancel,
                             ),
                           ),
                         const SizedBox(width: 12),
                         Expanded(
                           child: ElevatedButton(
-                            child: Text(isLastStep ? 'FINALIZAR' : 'SIGUIENTE'),
+                            style: ElevatedButton.styleFrom(
+                              shape: StadiumBorder(),
+                              primary: Color.fromARGB(255, 31, 179, 122),
+                            ),
+                            child: Text(isLastStep ? 'FINALIZAR' : 'SIGUIENTE',
+                                style: TextStyle(
+                                    fontSize: 19, color: Colors.white)),
                             onPressed: onStepContinue,
                           ),
                         ),
@@ -109,7 +130,9 @@ class _NuevoEmpleadoState extends State<NuevoEmpleado> {
                 hint: 'DNI',
                 label: 'DOCUMENTO',
               ),
-              MyTextForm(
+              MyDropdownForm(controller: controller, label: label, hint: hint)
+
+              /*MyTextForm(
                 controller: condicionController,
                 hint: 'SITUACIÓN',
                 label: 'SITUACIÓN DE REVISTA',
@@ -119,6 +142,7 @@ class _NuevoEmpleadoState extends State<NuevoEmpleado> {
                 hint: 'CÓDIGO',
                 label: 'CÓDIGO DE EMPLEADO',
               ),
+
               MyTextForm(
                 controller: movilidadController,
                 hint: '¿TIENE MOVILIDAD PROPIA?',
@@ -138,7 +162,7 @@ class _NuevoEmpleadoState extends State<NuevoEmpleado> {
                 controller: diasCorrespondientesController,
                 hint: 'CANTIDAD DE DÍAS',
                 label: 'DÍAS DE LICENCIA CORRESPONDIENTES',
-              ),
+              ),*/
             ],
           ),
         ),

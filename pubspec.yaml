@@ -25,7 +25,7 @@ dependencies:
   http: ^0.13.4
   dio: ^4.0.6
   animations: ^2.0.4
-
+  
 
 flutter_icons:
   android: "launcher_icon"
