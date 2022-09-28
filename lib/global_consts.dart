@@ -71,3 +71,24 @@ List<String> viveCerca = [
   'Vive a menos de 3 kilómetros'
 ];
 List<String> tieneMovilidad = ['No tiene movilidad', 'Tiene movilidad'];
+
+List<String> estacion = [
+  'Central',
+  'Barranquitas',
+  'Mediateca Santa Rosa',
+  'CIC Facundo',
+  'Coronel Dorrego',
+  'San Lorenzo',
+  'Abasto',
+  'Colastiné Norte',
+  'Las Lomas',
+  'San Agustín',
+  'Villa Teresa',
+  'Villa Hipódromo',
+  'Alto Verde',
+  'La Boca',
+  'Varadero Sarsotti',
+  'La Guardia',
+  'Liceo Norte',
+  'Loyola',
+];

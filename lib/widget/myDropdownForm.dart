@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class MyDropdownForm extends StatefulWidget {
-  MyDropdownForm({required this.listValues, required this.firtValue});
+  MyDropdownForm({required this.listValues, required this.firstValue});
 
   final List listValues;
-  String firtValue;
+  String firstValue;
   @override
   State<MyDropdownForm> createState() => _MyDropdownFormState();
 }
@@ -17,13 +17,15 @@ class _MyDropdownFormState extends State<MyDropdownForm> {
       width: 230,
       child: DropdownButtonFormField<String>(
         decoration: InputDecoration(
-            filled: true,
-            iconColor: Colors.green,
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(
-                    width: 1, color: Color.fromARGB(255, 22, 96, 23)))),
-        value: widget.firtValue,
+          filled: true,
+          iconColor: Colors.green,
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide:
+                BorderSide(width: 1, color: Color.fromARGB(255, 22, 96, 23)),
+          ),
+        ),
+        value: widget.firstValue,
         dropdownColor: Color.fromARGB(255, 93, 189, 122),
         isDense: true,
         items: widget.listValues
@@ -37,7 +39,8 @@ class _MyDropdownFormState extends State<MyDropdownForm> {
               ),
             )
             .toList(),
-        onChanged: (condicion) => setState(() => widget.firtValue = condicion!),
+        onChanged: (condicion) =>
+            setState(() => widget.firstValue = condicion!),
       ),
     );
   }
