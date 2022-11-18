@@ -226,7 +226,7 @@ class _NuevoEmpleadoState extends State<NuevoEmpleado> {
         urlFoto: fotoController.text,
       );
 
-      //agreggar a  la lista
+      //agregar a  la lista
       empleados.add(nuevoEmpleado);
 
       guardarDatos(empleados);
